@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://wadezhx.github.io/"/>
+  <updated>2018-11-26T14:03:31.795Z</updated>
+  <id>https://wadezhx.github.io/</id>
+  
+  <author>
+    <name>wadezhx</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>First blod</title>
+    <link href="https://wadezhx.github.io/2018/11/26/First-blod/"/>
+    <id>https://wadezhx.github.io/2018/11/26/First-blod/</id>
+    <published>2018-11-26T10:57:42.000Z</published>
+    <updated>2018-11-26T14:03:31.795Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="萌萌小笨贝"><a href="#萌萌小笨贝" class="headerlink" title="萌萌小笨贝"></a>萌萌小笨贝</h2><p><u>测试一下</u><br>**黑体</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;萌萌小笨贝&quot;&gt;&lt;a href=&quot;#萌萌小笨贝&quot; class=&quot;headerlink&quot; title=&quot;萌萌小笨贝&quot;&gt;&lt;/a&gt;萌萌小笨贝&lt;/h2&gt;&lt;p&gt;&lt;u&gt;测试一下&lt;/u&gt;&lt;br&gt;**黑体&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
