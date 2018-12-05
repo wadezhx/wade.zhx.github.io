@@ -62,53 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-java学习第五次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/05/java学习第五次笔记/" class="article-date">
-  <time datetime="2018-12-05T12:28:32.000Z" itemprop="datePublished">2018-12-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p><img src="en-resource://database/7241:1" alt="6d408ddd2a3f5b00edd918de34fc52fa.png"></p>
-<blockquote>
-<h5 id="整数运算："><a href="#整数运算：" class="headerlink" title="整数运算：　"></a>整数运算：　</h5><ol>
-<li>如果两个操作数有一个为Long, 则结果也为long。　</li>
-<li>没有long时，结果为int。即使操作数全为short，byte，结果也是int。　　<h5 id="浮点运算："><a href="#浮点运算：" class="headerlink" title="浮点运算：　　"></a>浮点运算：　　</h5></li>
-<li>如果两个操作数有一个为double，则结果为double。　</li>
-<li>只有两个操作数都是float，则结果才为float。　　<h5 id="取模运算："><a href="#取模运算：" class="headerlink" title="取模运算：　　"></a>取模运算：　　</h5>1.其操作数可以为浮点数,一般使用整数，结果是“余数”，<br><strong>“余数”符号和左边操作数相同，</strong><br>如：<strong>7%3=1，-7%3=-1，7%-3=1。</strong></li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(-9%5);</span><br><span class="line"></span><br><span class="line">-4</span><br></pre></td></tr></table></figure>
-<p>算术运算符中++，–属于一元运算符，该类运算符只需要一个操作数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        byte &lt;u&gt;a1&lt;/u&gt; = 1;</span><br><span class="line"></span><br><span class="line">        int b1 = 2;</span><br><span class="line"></span><br><span class="line">        // byte c = a+b;</span><br><span class="line"></span><br><span class="line">        long b2 = 3;</span><br><span class="line"></span><br><span class="line">        // &lt;u&gt;int&lt;/u&gt; c2 = b2+b; 因为不接受into &lt;u&gt;int&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float f1 = 3.14f;</span><br><span class="line"></span><br><span class="line">        double &lt;u&gt;d&lt;/u&gt; = b1+b2;//</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float &lt;u&gt;f2&lt;/u&gt; = f1+6.2f;//浮点型默认double</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        System.out.println(-9%5);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        //测试自增自减</span><br><span class="line"></span><br><span class="line">        int a = 3;</span><br><span class="line"></span><br><span class="line">        int b = a++;//先赋值后++</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=3</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">         a = 3;</span><br><span class="line"></span><br><span class="line">         b = ++a; //先++后赋值</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第五次笔记/" data-id="cjpba1e7w0001zcrq8k99gypn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-java学习第二次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/05/java学习第二次笔记/" class="article-date">
@@ -151,7 +104,120 @@ fina int PI = 3.141592653;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第二次笔记/" data-id="cjpba1e7x0002zcrqzwcvxw8b" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第二次笔记/" data-id="cjpbadje00001pkrq8iuhz34b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第五次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/05/java学习第五次笔记/" class="article-date">
+  <time datetime="2018-12-05T12:28:32.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p><img src="en-resource://database/7241:1" alt="6d408ddd2a3f5b00edd918de34fc52fa.png"></p>
+<blockquote>
+<h5 id="整数运算："><a href="#整数运算：" class="headerlink" title="整数运算：　"></a>整数运算：　</h5><ol>
+<li>如果两个操作数有一个为Long, 则结果也为long。　</li>
+<li>没有long时，结果为int。即使操作数全为short，byte，结果也是int。　　<h5 id="浮点运算："><a href="#浮点运算：" class="headerlink" title="浮点运算：　　"></a>浮点运算：　　</h5></li>
+<li>如果两个操作数有一个为double，则结果为double。　</li>
+<li>只有两个操作数都是float，则结果才为float。　　<h5 id="取模运算："><a href="#取模运算：" class="headerlink" title="取模运算：　　"></a>取模运算：　　</h5>1.其操作数可以为浮点数,一般使用整数，结果是“余数”，<br><strong>“余数”符号和左边操作数相同，</strong><br>如：<strong>7%3=1，-7%3=-1，7%-3=1。</strong></li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(-9%5);</span><br><span class="line"></span><br><span class="line">-4</span><br></pre></td></tr></table></figure>
+<p>算术运算符中++，–属于一元运算符，该类运算符只需要一个操作数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        byte &lt;u&gt;a1&lt;/u&gt; = 1;</span><br><span class="line"></span><br><span class="line">        int b1 = 2;</span><br><span class="line"></span><br><span class="line">        // byte c = a+b;</span><br><span class="line"></span><br><span class="line">        long b2 = 3;</span><br><span class="line"></span><br><span class="line">        // &lt;u&gt;int&lt;/u&gt; c2 = b2+b; 因为不接受into &lt;u&gt;int&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float f1 = 3.14f;</span><br><span class="line"></span><br><span class="line">        double &lt;u&gt;d&lt;/u&gt; = b1+b2;//</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float &lt;u&gt;f2&lt;/u&gt; = f1+6.2f;//浮点型默认double</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        System.out.println(-9%5);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        //测试自增自减</span><br><span class="line"></span><br><span class="line">        int a = 3;</span><br><span class="line"></span><br><span class="line">        int b = a++;//先赋值后++</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=3</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">         a = 3;</span><br><span class="line"></span><br><span class="line">         b = ++a; //先++后赋值</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第五次笔记/" data-id="cjpbadje20002pkrqphsz2cdt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第四次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/05/java学习第四次笔记/" class="article-date">
+  <time datetime="2018-12-05T12:28:32.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/java学习第四次笔记/">java学习第四次笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java学习第四次笔记"><a href="#java学习第四次笔记" class="headerlink" title="java学习第四次笔记"></a>java学习第四次笔记</h1><p>  小数    浮点数 // 不精确<br>| 类型 |  占用存储空间|  |表数范围  |<br>| — | — | — | — |<br>|   float 单精度| 4 字节  || -3.403e38—3.403e38 |<br>|double 双精度| 8 字节 |   |  -1.7989e308—1.798e308 |     </p>
+<p> 科学计数法  3.14e2; 314e-2<br> 默认是double ，后面加f 强制转换；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">import java.math.*;</span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试浮点型变量</span><br><span class="line"></span><br><span class="line">    float &lt;u&gt;a&lt;/u&gt; = 3.14f;//默认是double，放不进去，加f转换</span><br><span class="line"></span><br><span class="line">    double b =6.28;</span><br><span class="line"></span><br><span class="line">    double c = 628e-2;</span><br><span class="line"></span><br><span class="line">    System.out.println(b);</span><br><span class="line"></span><br><span class="line">    System.out.println(c);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    //浮点数不精确，不可以比较；</span><br><span class="line"></span><br><span class="line">    float f = 0.1f;</span><br><span class="line"></span><br><span class="line">    double d = 1/10;</span><br><span class="line"></span><br><span class="line">    System.out.println(f==d);//false</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    float d1 = 1246235867;</span><br><span class="line"></span><br><span class="line">    float d2 = d1+1;</span><br><span class="line"></span><br><span class="line">    if(d1==d2)&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1==d2&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    else&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1!=d2&quot;);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;//精度不够</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;#####&quot;);//使用精确用&lt;u&gt;bigdecimal&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd = BigDecimal.valueOf(1.0);</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    System.out.println(bd);//0.5</span><br><span class="line"></span><br><span class="line">    System.out.println(1.0-0.1-0.1-0.1-0.1-0.1);//0.5000000000000001</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd2 = BigDecimal.valueOf(0.1);</span><br><span class="line"></span><br><span class="line">    BigDecimal bd3 = </span><br><span class="line">BigDecimal.valueOf(1.0/10.0);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(bd2.equals(bd3));//true</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"><a href="#java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。" class="headerlink" title="java.math包下面的两个有用的类：BigInteger和 BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"></a>java.math包下面的两个有用的类：<u>BigInteger</u>和 <u>BigDecimal</u>，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。</h6><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用存储空间</th>
+<th></th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符型</td>
+<td>char</td>
+<td>2字节</td>
+<td>‘a’</td>
+</tr>
+<tr>
+<td>布尔型</td>
+<td>boolean</td>
+<td>1位</td>
+<td>即0或1  bit</td>
+</tr>
+</tbody>
+</table>
+<p>字符 unicode  十六进制 0000—FFFF<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Testzifu3 &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;a&lt;/u&gt; = &apos;z&apos;;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;b&lt;/u&gt; = &apos;张&apos;;</span><br><span class="line"></span><br><span class="line">    char c = &apos;\u0061&apos;;</span><br><span class="line"></span><br><span class="line">    System.out.println(c);//a </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    String d = &quot;asdasdf&quot;;//&quot;字符串&quot;；</span><br><span class="line"></span><br><span class="line">    System.out.println(d );</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>\n  换行<br>\t  制表符 tab</p>
+<p>转义符|含义|Unicode值|<br>|—|—|—|<br>|\b|退格（backspace）|\u0008|<br>|\n|换行|\u000a|<br>|\r|回车|\u000d|<br>|\t|制表符（tab）|\u0009|<br>|\“|双引号|\u0022|<br>|\ ‘ |单引号|\u0027|<br>| \\ |反斜杠|\u005c|</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class boolean2 &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">	boolean man = true;</span><br><span class="line">	 if(man)//不推荐man==true</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(&quot;男性&quot;);</span><br><span class="line">		</span><br><span class="line">		 </span><br><span class="line">	 &#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第四次笔记/" data-id="cjpbadje30003pkrqj0gtskic" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,73 +300,7 @@ fina int PI = 3.141592653;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第三次笔记/" data-id="cjpba1e7y0003zcrqke0sfzp2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java学习第四次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/05/java学习第四次笔记/" class="article-date">
-  <time datetime="2018-12-05T12:28:32.000Z" itemprop="datePublished">2018-12-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/java学习第四次笔记/">java学习第四次笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="java学习第四次笔记"><a href="#java学习第四次笔记" class="headerlink" title="java学习第四次笔记"></a>java学习第四次笔记</h1><p>  小数    浮点数 // 不精确<br>| 类型 |  占用存储空间|  |表数范围  |<br>| — | — | — | — |<br>|   float 单精度| 4 字节  || -3.403e38—3.403e38 |<br>|double 双精度| 8 字节 |   |  -1.7989e308—1.798e308 |     </p>
-<p> 科学计数法  3.14e2; 314e-2<br> 默认是double ，后面加f 强制转换；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">import java.math.*;</span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试浮点型变量</span><br><span class="line"></span><br><span class="line">    float &lt;u&gt;a&lt;/u&gt; = 3.14f;//默认是double，放不进去，加f转换</span><br><span class="line"></span><br><span class="line">    double b =6.28;</span><br><span class="line"></span><br><span class="line">    double c = 628e-2;</span><br><span class="line"></span><br><span class="line">    System.out.println(b);</span><br><span class="line"></span><br><span class="line">    System.out.println(c);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    //浮点数不精确，不可以比较；</span><br><span class="line"></span><br><span class="line">    float f = 0.1f;</span><br><span class="line"></span><br><span class="line">    double d = 1/10;</span><br><span class="line"></span><br><span class="line">    System.out.println(f==d);//false</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    float d1 = 1246235867;</span><br><span class="line"></span><br><span class="line">    float d2 = d1+1;</span><br><span class="line"></span><br><span class="line">    if(d1==d2)&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1==d2&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    else&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1!=d2&quot;);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;//精度不够</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;#####&quot;);//使用精确用&lt;u&gt;bigdecimal&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd = BigDecimal.valueOf(1.0);</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    System.out.println(bd);//0.5</span><br><span class="line"></span><br><span class="line">    System.out.println(1.0-0.1-0.1-0.1-0.1-0.1);//0.5000000000000001</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd2 = BigDecimal.valueOf(0.1);</span><br><span class="line"></span><br><span class="line">    BigDecimal bd3 = </span><br><span class="line">BigDecimal.valueOf(1.0/10.0);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(bd2.equals(bd3));//true</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"><a href="#java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。" class="headerlink" title="java.math包下面的两个有用的类：BigInteger和 BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"></a>java.math包下面的两个有用的类：<u>BigInteger</u>和 <u>BigDecimal</u>，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。</h6><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>占用存储空间</th>
-<th></th>
-<th>表数范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>字符型</td>
-<td>char</td>
-<td>2字节</td>
-<td>‘a’</td>
-</tr>
-<tr>
-<td>布尔型</td>
-<td>boolean</td>
-<td>1位</td>
-<td>即0或1  bit</td>
-</tr>
-</tbody>
-</table>
-<p>字符 unicode  十六进制 0000—FFFF<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Testzifu3 &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;a&lt;/u&gt; = &apos;z&apos;;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;b&lt;/u&gt; = &apos;张&apos;;</span><br><span class="line"></span><br><span class="line">    char c = &apos;\u0061&apos;;</span><br><span class="line"></span><br><span class="line">    System.out.println(c);//a </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    String d = &quot;asdasdf&quot;;//&quot;字符串&quot;；</span><br><span class="line"></span><br><span class="line">    System.out.println(d );</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>\n  换行<br>\t  制表符 tab</p>
-<p>转义符|含义|Unicode值|<br>|—|—|—|<br>|\b|退格（backspace）|\u0008|<br>|\n|换行|\u000a|<br>|\r|回车|\u000d|<br>|\t|制表符（tab）|\u0009|<br>|\“|双引号|\u0022|<br>|\ ‘ |单引号|\u0027|<br>| \\ |反斜杠|\u005c|</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class boolean2 &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">	boolean man = true;</span><br><span class="line">	 if(man)//不推荐man==true</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(&quot;男性&quot;);</span><br><span class="line">		</span><br><span class="line">		 </span><br><span class="line">	 &#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第四次笔记/" data-id="cjpba1e820004zcrqjavdy7mr" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第三次笔记/" data-id="cjpbadje40004pkrq82jaqeoz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +367,7 @@ fina int PI = 3.141592653;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/26/java学习第一次笔记/" data-id="cjpba1e7r0000zcrqhmtdx0s3" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/11/26/java学习第一次笔记/" data-id="cjpbadjdv0000pkrqq2jt7kbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,19 +407,19 @@ fina int PI = 3.141592653;
       <ul>
         
           <li>
-            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
-          </li>
-        
-          <li>
             <a href="/2018/12/05/java学习第二次笔记/">java学习第二次笔记</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/java学习第三次笔记/">java学习第三次笔记</a>
+            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
           </li>
         
           <li>
             <a href="/2018/12/05/java学习第四次笔记/">java学习第四次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第三次笔记/">java学习第三次笔记</a>
           </li>
         
           <li>
