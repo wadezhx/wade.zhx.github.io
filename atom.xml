@@ -66,7 +66,7 @@
     <link href="https://wadezhx.github.io/2018/12/05/java%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E6%AC%A1%E7%AC%94%E8%AE%B0/"/>
     <id>https://wadezhx.github.io/2018/12/05/java学习第三次笔记/</id>
     <published>2018-12-05T12:28:51.563Z</published>
-    <updated>2018-12-06T03:01:33.375Z</updated>
+    <updated>2018-12-06T03:13:50.177Z</updated>
     
     <content type="html"><![CDATA[<hr><p>title: java学习第三次笔记<br>date: 2018-11-29 20:28:32</p><h2 id="tags-java"><a href="#tags-java" class="headerlink" title="tags: java"></a>tags: java</h2><h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h4 id="Java的数据类型可分为两大类："><a href="#Java的数据类型可分为两大类：" class="headerlink" title="Java的数据类型可分为两大类："></a>Java的数据类型可分为两大类：</h4><p><img src="en-resource://database/7196:1" alt="76878d3244bd49c9b4584402f32d1c37.png"></p><h5 id="基本数据类型（primitive-data-type）3类8种"><a href="#基本数据类型（primitive-data-type）3类8种" class="headerlink" title="基本数据类型（primitive data type）3类8种"></a>基本数据类型（primitive data type）3类8种</h5><h4 id="1-Byte-8-bits"><a href="#1-Byte-8-bits" class="headerlink" title="1 Byte =8 bits"></a>1 Byte =8 bits</h4><pre><code>数值型－      整数    </code></pre><table><thead><tr><th>类型</th><th>占用存储空间</th><th></th><th>表数范围</th></tr></thead><tbody><tr><td>byte</td><td>1 字节</td><td>2^7</td><td>（-128~127）</td></tr><tr><td>short</td><td>2 字节</td><td>2^15</td><td>(-3w—3w)</td></tr><tr><td>int</td><td>4 字节</td><td>2^31</td><td>(-21亿—21亿)</td></tr><tr><td>long</td><td>8 字节</td><td>2^ 63</td><td>非常非常大</td></tr></tbody></table><p>默认是 int 后面加L强制转换；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试整形变量</span><br><span class="line"></span><br><span class="line">        int &lt;u&gt;a&lt;/u&gt; = 15;</span><br><span class="line"></span><br><span class="line">        int b = 015;//0开头的是八进制</span><br><span class="line"></span><br><span class="line">        int c = 0x15;//0x开头的是十六进制</span><br><span class="line"></span><br><span class="line">        int d = 0b0001111;//0b开头的都是二进制</span><br><span class="line"></span><br><span class="line">        System.out.println(b);</span><br><span class="line"></span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        byte  age  = 30;</span><br><span class="line"></span><br><span class="line">        short  salary  = 30000;</span><br><span class="line"></span><br><span class="line">        int  population = 2100000000;</span><br><span class="line"></span><br><span class="line">        long   globalPopulation = 700000000000000l;</span><br></pre></td></tr></table></figure><pre><code>132115</code></pre><h5 id="引用数据类型（reference-data-type）"><a href="#引用数据类型（reference-data-type）" class="headerlink" title="引用数据类型（reference data type）"></a>引用数据类型（reference data type）</h5>]]></content>
     
@@ -242,6 +242,29 @@
     
     
       <category term="java" scheme="https://wadezhx.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>吃苦</title>
+    <link href="https://wadezhx.github.io/2018/11/15/%E5%90%83%E8%8B%A6/"/>
+    <id>https://wadezhx.github.io/2018/11/15/吃苦/</id>
+    <published>2018-11-15T02:22:22.000Z</published>
+    <updated>2018-12-06T03:16:18.720Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="你不会的东西，觉得难的东西，一定不要躲。"><a href="#你不会的东西，觉得难的东西，一定不要躲。" class="headerlink" title="你不会的东西，觉得难的东西，一定不要躲。"></a>你不会的东西，觉得难的东西，一定不要躲。</h5><h5 id="先搞明白，后精湛，你就比别人优秀了。"><a href="#先搞明白，后精湛，你就比别人优秀了。" class="headerlink" title="先搞明白，后精湛，你就比别人优秀了。"></a>先搞明白，后精湛，你就比别人优秀了。</h5><h5 id="因为大部分人都不舍得花力气去钻研，自动淘汰，所以你执着的努力，就占了大便宜。"><a href="#因为大部分人都不舍得花力气去钻研，自动淘汰，所以你执着的努力，就占了大便宜。" class="headerlink" title="因为大部分人都不舍得花力气去钻研，自动淘汰，所以你执着的努力，就占了大便宜。"></a>因为大部分人都不舍得花力气去钻研，自动淘汰，所以你执着的努力，就占了大便宜。</h5><h5 id="奋斗就是每一天都很难，可一年比一年容易。不奋斗就是每一天都很容易，可一年比一年越难。"><a href="#奋斗就是每一天都很难，可一年比一年容易。不奋斗就是每一天都很容易，可一年比一年越难。" class="headerlink" title="奋斗就是每一天都很难，可一年比一年容易。不奋斗就是每一天都很容易，可一年比一年越难。"></a>奋斗就是每一天都很难，可一年比一年容易。不奋斗就是每一天都很容易，可一年比一年越难。</h5><h5 id="怕吃苦的人吃苦一辈子，不怕吃苦的人吃苦一阵子"><a href="#怕吃苦的人吃苦一辈子，不怕吃苦的人吃苦一阵子" class="headerlink" title="怕吃苦的人吃苦一辈子，不怕吃苦的人吃苦一阵子"></a>怕吃苦的人吃苦一辈子，不怕吃苦的人吃苦一阵子</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;你不会的东西，觉得难的东西，一定不要躲。&quot;&gt;&lt;a href=&quot;#你不会的东西，觉得难的东西，一定不要躲。&quot; class=&quot;headerlink&quot; title=&quot;你不会的东西，觉得难的东西，一定不要躲。&quot;&gt;&lt;/a&gt;你不会的东西，觉得难的东西，一定不要躲。&lt;/h5&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="吃苦" scheme="https://wadezhx.github.io/tags/%E5%90%83%E8%8B%A6/"/>
     
   </entry>
   
