@@ -13,7 +13,7 @@
 <meta property="og:description" content="wade.zhx Java的数据类型可分为两大类： 基本数据类型（primitive data type）3类8种1 Byte =8 bits数值型－       整数        类型 占用存储空间  表数范围     byte 1 字节 2^7 （-128~127）   short 2 字节 2^15 (-3w—3w)   int 4 字节 2^31 (-21亿—21亿)   long 8">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="en-resource://database/7196:1">
-<meta property="og:updated_time" content="2018-12-05T14:35:53.936Z">
+<meta property="og:updated_time" content="2018-12-06T01:51:39.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习第三次笔记">
 <meta name="twitter:description" content="wade.zhx Java的数据类型可分为两大类： 基本数据类型（primitive data type）3类8种1 Byte =8 bits数值型－       整数        类型 占用存储空间  表数范围     byte 1 字节 2^7 （-128~127）   short 2 字节 2^15 (-3w—3w)   int 4 字节 2^31 (-21亿—21亿)   long 8">
@@ -129,7 +129,7 @@
 </tbody>
 </table>
 <p>默认是 int 后面加L强制转换；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试整形变量</span><br><span class="line"></span><br><span class="line">        int &lt;u&gt;a&lt;/u&gt; = 15;</span><br><span class="line"></span><br><span class="line">        int b = 015;//0开头的是八进制</span><br><span class="line"></span><br><span class="line">        int c = 0x15;//0x开头的是十六进制</span><br><span class="line"></span><br><span class="line">        int d = 0b0001111;//0b开头的都是二进制</span><br><span class="line"></span><br><span class="line">        System.out.println(b);</span><br><span class="line"></span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        byte  age  = 30;</span><br><span class="line"></span><br><span class="line">        short  salary  = 30000;</span><br><span class="line"></span><br><span class="line">        int  population = 2100000000;</span><br><span class="line"></span><br><span class="line">        long   globalPopulation = 700000000000000l;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试整形变量</span><br><span class="line"></span><br><span class="line">        int &lt;u&gt;a&lt;/u&gt; = 15;</span><br><span class="line"></span><br><span class="line">        int b = 015;//0开头的是八进制</span><br><span class="line"></span><br><span class="line">        int c = 0x15;//0x开头的是十六进制</span><br><span class="line"></span><br><span class="line">        int d = 0b0001111;//0b开头的都是二进制</span><br><span class="line"></span><br><span class="line">        System.out.println(b);</span><br><span class="line"></span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        byte  age  = 30;</span><br><span class="line"></span><br><span class="line">        short  salary  = 30000;</span><br><span class="line"></span><br><span class="line">        int  population = 2100000000;</span><br><span class="line"></span><br><span class="line">        long   globalPopulation = 700000000000000l;</span><br></pre></td></tr></table></figure>
 <pre><code>13
 
 21
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第三次笔记/" data-id="cjpbadje40004pkrq82jaqeoz" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第三次笔记/" data-id="cjpby6pb20002a0rqdfntufrg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -148,19 +148,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/12/05/java学习第四次笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/05/java学习第五次笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          java学习第四次笔记
+          java学习第五次笔记
         
       </div>
     </a>
   
   
-    <a href="/2018/11/26/java学习第一次笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/12/05/java学习第二次笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">java学习第一次笔记</div>
+      <div class="article-nav-title">java学习第二次笔记</div>
     </a>
   
 </nav>
@@ -197,19 +197,19 @@
       <ul>
         
           <li>
-            <a href="/2018/12/05/java学习第二次笔记/">java学习第二次笔记</a>
-          </li>
-        
-          <li>
             <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/java学习第四次笔记/">java学习第四次笔记</a>
+            <a href="/2018/12/05/java学习第三次笔记/">java学习第三次笔记</a>
           </li>
         
           <li>
-            <a href="/2018/12/05/java学习第三次笔记/">java学习第三次笔记</a>
+            <a href="/2018/12/05/java学习第二次笔记/">java学习第二次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第四次笔记/">java学习第四次笔记</a>
           </li>
         
           <li>
