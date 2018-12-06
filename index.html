@@ -62,45 +62,39 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-1 - 副本 (3)" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-新建文本文档" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/06/1 - 副本 (3)/" class="article-date">
-  <time datetime="2018-12-06T13:06:25.000Z" itemprop="datePublished">2018-12-06</time>
+    <a href="/2018/12/06/新建文本文档/" class="article-date">
+  <time datetime="2018-12-06T13:27:39.173Z" itemprop="datePublished">2018-12-06</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用表单设计调查表时，为了减少用户的操作，使用选择框是一个好主意，html中有两种选择框，即单选框和复选框，两者的区别是单选框中的选项用户只能选择一项，而复选框中用户可以任意选择多项，甚至全选。请看下面的例子:</p>
-<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input   type=&quot;radio/checkbox&quot;   value=&quot;值&quot;    name=&quot;名称&quot;   checked=&quot;checked&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>1、type:</p>
-<p>   当 type=”radio” 时，控件为单选框</p>
-<p>   当 type=”checkbox” 时，控件为复选框</p>
-<p>2、value：提交数据到服务器的值（后台程序PHP使用）</p>
-<p>3、name：为控件命名，以备后台程序 ASP、PHP 使用</p>
-<p>4、checked：当设置 checked=”checked” 时，该选项被默认选中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;单选框、复选框&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;form action=&quot;save.php&quot; method=&quot;post&quot; &gt;</span><br><span class="line">    &lt;label&gt;性别:&lt;/label&gt;</span><br><span class="line">    &lt;label&gt;男&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;1&quot;  name=&quot;gender&quot; /&gt;</span><br><span class="line">    &lt;label&gt;女&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;2&quot;  name=&quot;gender&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>title: Distributed2：SQL Server 创建分布式数据库<br>date: 2018-12-06 21:06:25<br>tags: 分布式数据库<br>分布式数据库的优势是将IO分散在不同的Physical Disk上，每次查询都由多台Server的CPU,I/O共同负载，通过各节点并行处理数据来提高性能，劣势是消耗大量的网络带宽资源，管理难度大。在SQL Server 2012 版本中，创建水平切分的分布式数据库，必须分两步来实现：划分子集和对子集进行并集操作。</p>
+<p>划分子集是将原始表水平切分成若干个较小的成员表，每一个成员表都是全集的一个划分（各子集的并集是全集，其交集是空集）。每个成员表包含与原始表相同数量的列，并且每一列具有与原始表中的相应列同样的特性（如数据类型、大小、排序规则），成员表的schema和原始表相同，只是存储的数据不同。水平切分原始表，也叫做数据库水平分片，sharding。在查询时，利用分区视图来实现水平分片对用户透明，分区视图对分布在不同服务器中的分区数据进行并集操作，使数据看起来来自一个表。</p>
+<p>分布在不同场地的SQL Server通过Linked Server相互通信，通过MSDTC来保证查询的事务特性。Linked Server定义从某一数据库服务器到另一数据库服务器的单向通信路径，而MSDTC能够保证一个事务在不同的Server上实现ACID属性。例如，在一个事务中存在 Server1上的 Insert 操作和 Server2上 Update 操作 ，如果事务回滚，那么MSDTC保证Server1 和 Server2的操作都要回滚；如果事务提交，MSDTC保证Server1 和 Server2的操作都要Commit。</p>
+<p>设计目的：将table dbo.Person 的数据水平分片，分布到两天SQL Server上，Column [PersonType] 共有6个值，分别是：(‘IN’,’EM’,’SP’),(‘SC’,’VC’,’GC’)；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE [dbo].[Person]</span><br><span class="line">(</span><br><span class="line">    [PersonID] [int] NOT NULL,</span><br><span class="line">    [PersonType] [nchar](2) NOT NULL,</span><br><span class="line">    [FirstName] [sysname] NOT NULL,</span><br><span class="line">    [MiddleName] [sysname] NOT NULL,</span><br><span class="line">    [LastName] [sysname] NOT NULL</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--default instance</span><br><span class="line">CREATE TABLE [dbo].[Person](</span><br><span class="line">    [PersonID] [int] NOT NULL,</span><br><span class="line">    [PersonType] [nchar](2) NOT NULL,</span><br><span class="line">    [FirstName] sysname,</span><br><span class="line">    [MiddleName] sysname ,</span><br><span class="line">    [LastName] sysname,</span><br><span class="line">    constraint   chk__Person_PersonType check([PersonType] in (&apos;IN&apos;,&apos;EM&apos;,&apos;SP&apos;)) </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h5 id="step1，打开Win10-MSDTC（Microsoft-Distributed-Transaction-Coordinator）"><a href="#step1，打开Win10-MSDTC（Microsoft-Distributed-Transaction-Coordinator）" class="headerlink" title="step1，打开Win10 MSDTC（Microsoft Distributed Transaction Coordinator）"></a>step1，打开Win10 MSDTC（Microsoft Distributed Transaction Coordinator）</h5><p>参考《Win10 打开MSDTC》，不再赘述。</p>
+<h5 id="step2，分别在两台Server上创建数据库和表，数据库分别是DBtest1-和-DBTest2，将DBTest1作为Master-DB，将DBTest2作为Slave-DB"><a href="#step2，分别在两台Server上创建数据库和表，数据库分别是DBtest1-和-DBTest2，将DBTest1作为Master-DB，将DBTest2作为Slave-DB" class="headerlink" title="step2，分别在两台Server上创建数据库和表，数据库分别是DBtest1 和 DBTest2，将DBTest1作为Master DB，将DBTest2作为Slave DB"></a>step2，分别在两台Server上创建数据库和表，数据库分别是DBtest1 和 DBTest2，将DBTest1作为Master DB，将DBTest2作为Slave DB</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--named instance</span><br><span class="line">CREATE TABLE [dbo].[Person](</span><br><span class="line">    [PersonID] [int] NOT NULL,</span><br><span class="line">    [PersonType] [nchar](2) NOT NULL,</span><br><span class="line">    [FirstName] sysname,</span><br><span class="line">    [MiddleName] sysname ,</span><br><span class="line">    [LastName] sysname,</span><br><span class="line">    constraint   chk__Person_PersonType check([PersonType] in (&apos;SC&apos;,&apos;VC&apos;,&apos;GC&apos;)) </span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">##### Step3，在Master DB中，添加Linked Server</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">--add linked server</span><br><span class="line">exec sys.sp_addlinkedserver @server= N&apos;db1&apos;</span><br><span class="line">    ,@srvproduct= N&apos;&apos;</span><br><span class="line">    ,@provider= N&apos;SQLNCLI&apos;</span><br><span class="line">    ,@datasrc=  N&apos;LJHPC\NamedInstance1&apos;  </span><br><span class="line">    ,@location= null</span><br><span class="line">    ,@provstr= null </span><br><span class="line">    ,@catalog= N&apos;dbtest2&apos;</span><br><span class="line"></span><br><span class="line">--check </span><br><span class="line">select *</span><br><span class="line">from sys.servers</span><br><span class="line">where is_linked=1</span><br><span class="line"></span><br><span class="line">--drop linked server</span><br><span class="line">--EXEC sys.sp_dropserver @server=N&apos;db1&apos;, @droplogins=&apos;droplogins&apos;</span><br><span class="line"></span><br><span class="line">--add login</span><br><span class="line">exec sp_addlinkedsrvlogin @rmtsrvname = &apos;db1&apos; </span><br><span class="line">     ,@useself=false</span><br><span class="line">     ,@locallogin=null</span><br><span class="line">     ,@rmtuser =&apos;sa&apos;</span><br><span class="line">     ,@rmtpassword=&apos;sa&apos;</span><br></pre></td></tr></table></figure>
+<h5 id="step4，创建分布式水平分区视图"><a href="#step4，创建分布式水平分区视图" class="headerlink" title="step4，创建分布式水平分区视图"></a>step4，创建分布式水平分区视图</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">create view dbo.view_Person</span><br><span class="line">as</span><br><span class="line">    select [PersonID]</span><br><span class="line">          ,[PersonType]</span><br><span class="line">          ,[FirstName]</span><br><span class="line">          ,[MiddleName]</span><br><span class="line">          ,[LastName]</span><br><span class="line">    from [dbo].[Person]  with(nolock)</span><br><span class="line">    where [PersonType] in(&apos;IN&apos;,&apos;EM&apos;,&apos;SP&apos;)</span><br><span class="line">    union all</span><br><span class="line">    select [PersonID]</span><br><span class="line">          ,[PersonType]</span><br><span class="line">          ,[FirstName]</span><br><span class="line">          ,[MiddleName]</span><br><span class="line">          ,[LastName]</span><br><span class="line">    from db1.[DBTest2].[dbo].[Person] with(nolock)</span><br><span class="line">    where [PersonType] in(&apos;SC&apos;,&apos;VC&apos;,&apos;GC&apos;)</span><br><span class="line">    with check OPTION;</span><br></pre></td></tr></table></figure>
+<h5 id="Step5，查询分布式数据，查看执行计划"><a href="#Step5，查询分布式数据，查看执行计划" class="headerlink" title="Step5，查询分布式数据，查看执行计划"></a>Step5，查询分布式数据，查看执行计划</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">from dbo.view_Person p </span><br><span class="line">where p.PersonType in (&apos;em&apos;,&apos;sc&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="Step6，优化"><a href="#Step6，优化" class="headerlink" title="Step6，优化"></a>Step6，优化</h5><p>分布式事务使用的资源远大于内部事务，通常使用OPENQUERY等相关行集函数，避免过度依赖分布式事务。</p>
+<h5 id="1，使用OpenQuery，避免DTC的干预"><a href="#1，使用OpenQuery，避免DTC的干预" class="headerlink" title="1，使用OpenQuery，避免DTC的干预"></a>1，使用OpenQuery，避免DTC的干预</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">create view dbo.view_Person</span><br><span class="line">as</span><br><span class="line">    select [PersonID]</span><br><span class="line">          ,[PersonType]</span><br><span class="line">          ,[FirstName]</span><br><span class="line">          ,[MiddleName]</span><br><span class="line">          ,[LastName]</span><br><span class="line">    from [dbo].[Person]  with(nolock)</span><br><span class="line">    where [PersonType] in(&apos;IN&apos;,&apos;EM&apos;,&apos;SP&apos;)</span><br><span class="line">    union all</span><br><span class="line">    select [PersonID]</span><br><span class="line">              ,[PersonType]</span><br><span class="line">              ,[FirstName]</span><br><span class="line">              ,[MiddleName]</span><br><span class="line">              ,[LastName]</span><br><span class="line">    from OPENQUERY ( db1 ,</span><br><span class="line">        N&apos;select [PersonID]</span><br><span class="line">              ,[PersonType]</span><br><span class="line">              ,[FirstName]</span><br><span class="line">              ,[MiddleName]</span><br><span class="line">              ,[LastName]</span><br><span class="line">        from db1.[DBTest2].[dbo].[Person] with(nolock)</span><br><span class="line">        where [PersonType] in(&apos;&apos;SC&apos;&apos;,&apos;&apos;VC&apos;&apos;,&apos;&apos;GC&apos;&apos;)&apos; ) as p</span><br><span class="line">    with check OPTION;</span><br></pre></td></tr></table></figure>
+<p>参考doc：</p>
+<p>Top 3 Performance Killers For Linked Server Queries<br>作者：悦光阴<br>出处：<a href="http://www.cnblogs.com/ljhdo/" target="_blank" rel="noopener">http://www.cnblogs.com/ljhdo/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/1 - 副本 (3)/" data-id="cjpcmrhs40000w0rqhf1ftk20" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/新建文本文档/" data-id="cjpcn5hq90015jkrqw49j2phn" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
-
     </footer>
   </div>
   
@@ -135,7 +129,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/1 - 副本 (2)/" data-id="cjpcmrhsb0001w0rqmm9ttvav" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/1 - 副本 (2)/" data-id="cjpcn5hoo0000jkrqhh89nn7m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-1 - 副本 (3)" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/1 - 副本 (3)/" class="article-date">
+  <time datetime="2018-12-06T13:06:25.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用表单设计调查表时，为了减少用户的操作，使用选择框是一个好主意，html中有两种选择框，即单选框和复选框，两者的区别是单选框中的选项用户只能选择一项，而复选框中用户可以任意选择多项，甚至全选。请看下面的例子:</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input   type=&quot;radio/checkbox&quot;   value=&quot;值&quot;    name=&quot;名称&quot;   checked=&quot;checked&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>1、type:</p>
+<p>   当 type=”radio” 时，控件为单选框</p>
+<p>   当 type=”checkbox” 时，控件为复选框</p>
+<p>2、value：提交数据到服务器的值（后台程序PHP使用）</p>
+<p>3、name：为控件命名，以备后台程序 ASP、PHP 使用</p>
+<p>4、checked：当设置 checked=”checked” 时，该选项被默认选中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;单选框、复选框&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;form action=&quot;save.php&quot; method=&quot;post&quot; &gt;</span><br><span class="line">    &lt;label&gt;性别:&lt;/label&gt;</span><br><span class="line">    &lt;label&gt;男&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;1&quot;  name=&quot;gender&quot; /&gt;</span><br><span class="line">    &lt;label&gt;女&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;2&quot;  name=&quot;gender&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/06/1 - 副本 (3)/" data-id="cjpcn5hp20003jkrqylwg8fo9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -202,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/分布式数据库/" data-id="cjpcmrhtn000ww0rqdt6m5ddo" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/分布式数据库/" data-id="cjpcn5hpz000tjkrq8zbbp6oy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -733,7 +773,7 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/数据结构中各种树/" data-id="cjpcmrhv5001bw0rq6y6ejqno" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/数据结构中各种树/" data-id="cjpcn5hr2001cjkrq65yycrwx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -839,7 +879,7 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/经典排序算法总结与实现/" data-id="cjpcmrhun0019w0rqlly1v91g" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/经典排序算法总结与实现/" data-id="cjpcn5hqk001ajkrq1ciop8wf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -886,7 +926,7 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/1 - 副本 (4)/" data-id="cjpcmrhsi0003w0rq6bqy1tri" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/05/1 - 副本 (4)/" data-id="cjpcn5hox0001jkrqk8u28wup" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -935,7 +975,7 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第五次笔记/" data-id="cjpcmrhti000rw0rque4lopuv" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第五次笔记/" data-id="cjpcn5hpy000rjkrq3eqcr9yb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -976,7 +1016,7 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" data-id="cjpcmrhtw0012w0rqyjhfc16l" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" data-id="cjpcn5hq50013jkrqrxj74r58" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1041,50 +1081,10 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/04/Web Service/" data-id="cjpcmrhss000aw0rqr6ksllam" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/04/Web Service/" data-id="cjpcn5hpn000fjkrqmmeynep4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Service/">Web Service</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-1 - 副本 (5)" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/03/1 - 副本 (5)/" class="article-date">
-  <time datetime="2018-12-03T13:06:25.000Z" itemprop="datePublished">2018-12-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/03/1 - 副本 (5)/">前端学习 1-6</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是代码注释？代码注释的作用是帮助程序员标注代码的用途，过一段时间后再看你所编写的代码，就能很快想起这段代码的用途。代码注释不仅方便程序员自己回忆起以前代码的用途，还可以帮助其他程序员很快的读懂你的程序的功能，方便多人合作开发网页代码。语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--注释文字 --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如：右边编辑器的代码的第 8、12 行都是，但是你会发现注释代码是不会在结果窗口中显示出来的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;HTML的代码注释&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;!--在线咨询 begin--&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;p&gt;一站式报名咨询、助学答疑服务，无论是报名、选课、学习、做作业、考试、写论文，毕业，这里都有专业老师为你答疑解惑！&lt;a href=&quot;#&quot;&gt;向报名顾问咨询&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;!--在线咨询 end--&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/03/1 - 副本 (5)/" data-id="cjpcmrhsj0004w0rqhw7uogu5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
 
     </footer>
   </div>
@@ -1141,11 +1141,15 @@ bool delete_value(int data) {
       <ul>
         
           <li>
-            <a href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
+            <a href="/2018/12/06/新建文本文档/">(no title)</a>
           </li>
         
           <li>
             <a href="/2018/12/06/1 - 副本 (2)/">前端学习 1-9</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
           </li>
         
           <li>
@@ -1154,10 +1158,6 @@ bool delete_value(int data) {
         
           <li>
             <a href="/2018/12/06/数据结构中各种树/">数据结构中各种树</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
           </li>
         
       </ul>
