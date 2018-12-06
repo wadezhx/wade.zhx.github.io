@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>在N个不相等的整数中找出最大的第K个数(N&gt;K) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目：在N个不相等的整数中找出最大的第K个数(N&amp;gt;K)。思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。代码： 1 #include 2 #include 3 #include 4 #include 5 #include 67">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在N个不相等的整数中找出最大的第K个数(N&gt;K)">
+<meta property="og:url" content="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目：在N个不相等的整数中找出最大的第K个数(N&amp;gt;K)。思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。代码： 1 #include 2 #include 3 #include 4 #include 5 #include 67">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-06T02:58:36.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在N个不相等的整数中找出最大的第K个数(N&gt;K)">
+<meta name="twitter:description" content="题目：在N个不相等的整数中找出最大的第K个数(N&amp;gt;K)。思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。代码： 1 #include 2 #include 3 #include 4 #include 5 #include 67">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wadezhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-在N个不相等的整数中找出最大的第K个数(NK)" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" class="article-date">
+  <time datetime="2018-12-04T02:46:37.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在N个不相等的整数中找出最大的第K个数(N&gt;K)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。"><a href="#题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。" class="headerlink" title="题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。"></a>题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。</h1><p>思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。<br>代码：</p>
+<p>1 #include <cstdio><br>2 #include <cstdlib><br>3 #include <cmath><br>4 #include <ctime><br>5 #include <iostream><br>6<br>7 #define N 90<br>8 #define K 13<br>9<br>10<br>11 void HeapAdjust (int <em>heap, int beginidx, int endidx);<br>12 void HeapConstruct (int </em>heap);<br>13<br>14 void SetData (int <em>data);<br>15 void ShowData (int </em>data);<br>16<br>17 int main (int argc, char *<em>argv)<br>18 {<br>19 int i;<br>20 int h[N + 1];<br>21<br>22 SetData(h);<br>23 ShowData(h);<br>24<br>25 HeapConstruct(h);<br>26 for (i = K + 1; i &lt;= N; i++)<br>27 {<br>28 if (h[i] &gt; h[1])<br>29 {<br>30 h[1] = h[i];<br>31 HeapAdjust(h, 1, K);<br>32 }<br>33 }<br>34<br>35 printf(“The Kth biggest number: %d\n”, h[1]);<br>36 return 0;<br>37 }<br>38<br>39 void HeapAdjust (int </em>heap, int beginidx, int endidx)<br>40 {<br>41 int &amp;current = beginidx;<br>42 int tmp, left, right, data = heap[current];<br>43<br>44 while (left = (current &lt;&lt; 1), left &lt;= endidx)<br>45 {<br>46 right = left | 1;<br>47 if ((left == endidx) || (heap[left] &lt; heap[right]))<br>48 {<br>49 tmp = left;<br>50 }<br>51 else<br>52 {<br>53 tmp = right;<br>54 }<br>55 if (data &gt; heap[tmp])<br>56 {<br>57 heap[current] = heap[tmp];<br>58 current = tmp;<br>59 }<br>60 else<br>61 {<br>62 break;<br>63 }<br>64 }<br>65 heap[current] = data;<br>66 }<br>67<br>68 void HeapConstruct (int <em>heap)<br>69 {<br>70 int i;<br>71 for (i = K/2; i &gt; 0; i–)<br>72 {<br>73 HeapAdjust(heap, i, K);<br>74 }<br>75 }<br>76<br>77 void SetData (int </em>data)<br>78 {<br>79 bool <em>bdata = new bool[N + 1];<br>80 memset(bdata, false, N + 1);<br>81 srand(time(NULL));<br>82 data[0] = -1;<br>83 for (int i = 1; i &lt;= N; i++)<br>84 {<br>85 data[i] = rand() % N + 1;<br>86 while (bdata[data[i]])<br>87 {<br>88 data[i] = rand() % N + 1;<br>89 }<br>90 bdata[data[i]] = true;<br>91 }<br>92 delete []bdata;<br>93 }<br>94<br>95 void ShowData (int </em>data)<br>96 {<br>97 for (int i = 1; i &lt;= N; i++)<br>98 {<br>99 printf(“%02d “, data[i]);<br>100 }<br>101 puts(“”);<br>102 }</iostream></ctime></cmath></cstdlib></cstdio></p>
+<p>时间复杂度：O((N-K+1)<em>K</em>lgK).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" data-id="cjpc0ildb000a70rq0nslxbdt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/05/java学习第五次笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java学习第五次笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/04/Web Service/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Web Service</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Service/">Web Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Web-Service/" style="font-size: 10px;">Web Service</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/06/数据结构中各种树/">数据结构中各种树</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第三次笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wadezhx<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

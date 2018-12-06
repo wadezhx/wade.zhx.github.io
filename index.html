@@ -84,8 +84,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数据结构中各种树</p>
-<p>原文出处： Poll的笔记<br>数据结构中有很多树的结构，其中包括二叉树、二叉搜索树、2-3树、红黑树等等。本文中对数据结构中常见的几种树的概念和用途进行了汇总，不求严格精准，但求简单易懂。1. 二叉树<br>二叉树是数据结构中一种重要的数据结构，也是树表家族最为基础的结构。<br>二叉树的定义：二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。二叉树的第i层至多有2i-1个结点；深度为k的二叉树至多有2k-1个结点；对任何一棵二叉树T，如果其终端结点数为n0，度为2的结点数为n2，则n0=n2+1。<br>二叉树的示例：</p>
+        <h1 id="数据结构中各种树"><a href="#数据结构中各种树" class="headerlink" title="数据结构中各种树"></a>数据结构中各种树</h1><p>原文出处： Poll的笔记<br>数据结构中有很多树的结构，其中包括二叉树、二叉搜索树、2-3树、红黑树等等。本文中对数据结构中常见的几种树的概念和用途进行了汇总，不求严格精准，但求简单易懂。1. 二叉树<br>二叉树是数据结构中一种重要的数据结构，也是树表家族最为基础的结构。<br>二叉树的定义：二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。二叉树的第i层至多有2i-1个结点；深度为k的二叉树至多有2k-1个结点；对任何一棵二叉树T，如果其终端结点数为n0，度为2的结点数为n2，则n0=n2+1。<br>二叉树的示例：</p>
 <p>满二叉树和完全二叉树：<br>满二叉树：除最后一层无任何子节点外，每一层上的所有结点都有两个子结点。也可以这样理解，除叶子结点外的所有结点均有两个子结点。节点数达到最大值，所有叶子结点必须在同一层上。<br>满二叉树的性质：<br>1) 一颗树深度为h，最大层数为k，深度与最大层数相同，k=h;<br>2) 叶子数为2h;<br>3) 第k层的结点数是：2k-1;<br>4) 总结点数是：2k-1，且总节点数一定是奇数。<br>完全二叉树：若设二叉树的深度为h，除第 h 层外，其它各层 (1～(h-1)层) 的结点数都达到最大个数，第h层所有的结点都连续集中在最左边，这就是完全二叉树。<br>注：完全二叉树是效率很高的数据结构，堆是一种完全二叉树或者近似完全二叉树，所以效率极高，像十分常用的排序算法、Dijkstra算法、Prim算法等都要用堆才能优化，二叉排序树的效率也要借助平衡性来提高，而平衡性基于完全二叉树。</p>
 <p>二叉树的性质：<br>1) 在非空二叉树中，第i层的结点总数不超过2i-1, i&gt;=1;<br>2) 深度为h的二叉树最多有2h-1个结点(h&gt;=1)，最少有h个结点;<br>3) 对于任意一棵二叉树，如果其叶结点数为N0，而度数为2的结点总数为N2，则N0=N2+1;<br>4) 具有n个结点的完全二叉树的深度为log2(n+1);<br>5)有N个结点的完全二叉树各结点如果用顺序方式存储，则结点之间有如下关系：<br>若I为结点编号则 如果I&gt;1，则其父结点的编号为I/2；<br>如果2I&lt;=N，则其左儿子（即左子树的根结点）的编号为2I；若2I&gt;N，则无左儿子；<br>如果2I+1&lt;=N，则其右儿子的结点编号为2I+1；若2I+1&gt;N，则无右儿子。<br>6)给定N个节点，能构成h(N)种不同的二叉树，其中h(N)为卡特兰数的第N项，h(n)=C(2*n, n)/(n+1)。<br>7)设有i个枝点，I为所有枝点的道路长度总和，J为叶的道路长度总和J=I+2i。2. 二叉查找树<br>二叉查找树定义：又称为是二叉排序树（Binary Sort Tree）或二叉搜索树。二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：<br>1) 若左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>2) 若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；<br>3) 左、右子树也分别为二叉排序树；<br>4) 没有键值相等的节点。<br>二叉查找树的性质：对二叉查找树进行中序遍历，即可得到有序的数列。<br>二叉查找树的时间复杂度：它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡（比如，我们查找上图（b）中的“93”，我们需要进行n次查找操作）。我们追求的是在最坏的情况下仍然有较好的时间复杂度，这就是平衡查找树设计的初衷。<br>二叉查找树的高度决定了二叉查找树的查找效率。<br>二叉查找树的插入过程如下：<br>1) 若当前的二叉查找树为空，则插入的元素为根节点;<br>2) 若插入的元素值小于根节点值，则将元素插入到左子树中;<br>3) 若插入的元素值不小于根节点值，则将元素插入到右子树中。<br>二叉查找树的删除，分三种情况进行处理：<br>1) p为叶子节点，直接删除该节点，再修改其父节点的指针（注意分是根节点和不是根节点），如图a;<br>2) p为单支节点（即只有左子树或右子树）。让p的子树与p的父亲节点相连，删除p即可（注意分是根节点和不是根节点），如图b;<br>3) p的左子树和右子树均不空。找到p的后继y，因为y一定没有左子树，所以可以删除y，并让y的父亲节点成为y的右子树的父亲节点，并用y的值代替p的值；或者方法二是找到p的前驱x，x一定没有右子树，所以可以删除x，并让x的父亲节点成为y的左子树的父亲节点。如图c。</p>
 <p>二叉树相关实现源码：<br>插入操作：</p>
@@ -584,9 +583,347 @@ bool delete_value(int data) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/06/数据结构中各种树/" data-id="cjpc0amss00014grqi15zjop3" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/06/数据结构中各种树/" data-id="cjpc0ilec000k70rq8u3at5zz" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-经典排序算法总结与实现" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/经典排序算法总结与实现/" class="article-date">
+  <time datetime="2018-12-06T02:46:37.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="经典排序算法总结与实现"><a href="#经典排序算法总结与实现" class="headerlink" title="经典排序算法总结与实现"></a>经典排序算法总结与实现</h1><p>by WuChong, wuchong.me</p>
+<p>经典排序算法在面试中占有很大的比重，也是基础，为了未雨绸缪，在寒假里整理并用Python实现了七大经典排序算法，包括冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序。希望能帮助到有需要的同学。之所以用Python实现，主要是因为它更接近伪代码，能用更少的代码实现算法，更利于理解。<br>本篇博客所有排序实现均默认从小到大。一、冒泡排序 BubbleSort<br>介绍：<br>冒泡排序的原理非常简单，它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<pre><code>2. 
+</code></pre><p>对第0个到第n-1个数据做同样的工作。这时，最大的数就“浮”到了数组最后的位置上。</p>
+<pre><code>3. 
+</code></pre><p>针对所有的元素重复以上的步骤，除了最后一个。</p>
+<pre><code>4. 
+</code></pre><p>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<p>源代码：(python实现)</p>
+<p>def bubble_sort(arry):<br>n = len(arry) #获得数组的长度<br>for i in range(n):<br>for j in range(1,n-i):<br>if arry[j-1] &gt; arry[j] : #如果前者比后者大<br>arry[j-1],arry[j] = arry[j],arry[j-1] #则交换两者<br>return arry<br>不过针对上述代码还有两种优化方案。</p>
+<p>优化1：某一趟遍历如果没有数据交换，则说明已经排好序了，因此不用再进行迭代了。用一个标记记录这个状态即可。<br>优化2：记录某次遍历时最后发生数据交换的位置，这个位置之后的数据显然已经有序，不用再排序了。因此通过记录最后发生数据交换的位置就可以确定下次循环的范围了。<br>这两种优化方案的实现可以详见这里。二、选择排序 SelectionSort<br>介绍：<br>选择排序无疑是最简单直观的排序。它的工作原理如下。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。</p>
+<pre><code>2. 
+</code></pre><p>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</p>
+<pre><code>3. 
+</code></pre><p>以此类推，直到所有元素均排序完毕。</p>
+<p>源代码：(python实现)</p>
+<p>def select_sort(ary):<br>n = len(ary)<br>for i in range(0,n):<br>min = i #最小元素下标标记<br>for j in range(i+1,n):<br>if ary[j] &lt; ary[min] :<br>min = j #找到最小值的下标<br>ary[min],ary[i] = ary[i],ary[min] #交换两者<br>return ary三、插入排序 InsertionSort<br>介绍：<br>插入排序的工作原理是，对于每个未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>从第一个元素开始，该元素可以认为已经被排序</p>
+<pre><code>2. 
+</code></pre><p>取出下一个元素，在已经排序的元素序列中从后向前扫描</p>
+<pre><code>3. 
+</code></pre><p>如果被扫描的元素（已排序）大于新元素，将该元素后移一位</p>
+<pre><code>4. 
+</code></pre><p>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</p>
+<pre><code>5. 
+</code></pre><p>将新元素插入到该位置后</p>
+<pre><code>6. 
+</code></pre><p>重复步骤2~5</p>
+<p>排序演示：</p>
+<p>源代码：(python实现)四、希尔排序 ShellSort<br>介绍：<br>希尔排序，也称递减增量排序算法，实质是分组插入排序。由 Donald Shell 于1959年提出。希尔排序是非稳定排序算法。<br>希尔排序的基本思想是：将数组列在一个表中并对列分别进行插入排序，重复这过程，不过每次用更长的列（步长更长了，列数更少了）来进行。最后整个表就只有一列了。将数组转换至表是为了更好地理解这算法，算法本身还是使用数组进行排序。<br>例如，假设有这样一组数[ 13 14 94 33 82 25 59 94 65 23 45 27 73 25 39 10 ]，如果我们以步长为5开始进行排序，我们可以通过将这列表放在有5列的表中来更好地描述算法，这样他们就应该看起来是这样：</p>
+<p>13 14 94 33 82<br>25 59 94 65 23<br>45 27 73 25 39<br>10</p>
+<p>然后我们对每列进行排序：</p>
+<p>10 14 73 25 23<br>13 27 94 33 39<br>25 59 94 65 82<br>45</p>
+<p>将上述四行数字，依序接在一起时我们得到：[ 10 14 73 25 23 13 27 94 33 39 25 59 94 65 82 45 ]。这时10已经移至正确位置了，然后再以3为步长进行排序：</p>
+<p>10 14 73<br>25 23 13<br>27 94 33<br>39 25 59<br>94 65 82<br>45</p>
+<p>排序之后变为：</p>
+<p>10 14 13<br>25 23 33<br>27 25 59<br>39 65 73<br>45 94 82<br>94</p>
+<p>最后以1步长进行排序（此时就是简单的插入排序了）。<br>源代码：(python实现)</p>
+<p>def shell_sort(ary):<br>n = len(ary)<br>gap = round(n/2) #初始步长 , 用round四舍五入取整<br>while gap &gt; 0 :<br>for i in range(gap,n): #每一列进行插入排序 , 从gap 到 n-1<br>temp = ary[i]<br>j = i<br>while ( j &gt;= gap and ary[j-gap] &gt; temp ): #插入排序<br>ary[j] = ary[j-gap]<br>j = j - gap<br>ary[j] = temp<br>gap = round(gap/2) #重新设置步长<br>return ary<br>上面源码的步长的选择是从n/2开始，每次再减半，直至为0。步长的选择直接决定了希尔排序的复杂度。在维基百科上有对于步长串行的详细介绍。五、归并排序 MergeSort<br>介绍：<br>归并排序是采用分治法的一个非常典型的应用。归并排序的思想就是先递归分解数组，再合并数组。<br>先考虑合并两个有序数组，基本思路是比较两个数组的最前面的数，谁小就先取谁，取了后相应的指针就往后移一位。然后再比较，直至一个数组为空，最后把另一个数组的剩余部分复制过来即可。<br>再考虑递归分解，基本思路是将数组分解成left和right，如果这两个数组内部数据是有序的，那么就可以用上面合并数组的方法将这两个数组合并排序。如何让这两个数组内部是有序的？可以再二分，直至分解出的小组只含有一个元素时为止，此时认为该小组内部已有序。然后合并排序相邻二个小组即可。<br>排序演示：<br>源代码：(python实现)</p>
+<p>def merge_sort(ary):<br>if len(ary) &lt;= 1 : return ary<br>num = int(len(ary)/2) #二分分解<br>left = merge_sort(ary[:num])<br>right = merge_sort(ary[num:])<br>return merge(left,right) #合并数组def merge(left,right):<br>‘’’合并操作，<br>将两个有序数组left[]和right[]合并成一个大的有序数组’’’<br>l,r = 0,0 #left与right数组的下标指针<br>result = []<br>while l&lt;len(left) and r&lt;len(right) :<br>if left[l] &lt; right[r]:<br>result.append(left[l])<br>l += 1<br>else:<br>result.append(right[r])<br>r += 1<br>result += left[l:]<br>result += right[r:]<br>return result六、快速排序 QuickSort</p>
+<p>介绍：<br>快速排序通常明显比同为Ο(n log n)的其他算法更快，因此常被采用，而且快排采用了分治法的思想，所以在很多笔试面试中能经常看到快排的影子。可见掌握快排的重要性。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>从数列中挑出一个元素作为基准数。</p>
+<pre><code>2. 
+</code></pre><p>分区过程，将比基准数大的放到右边，小于或等于它的数都放到左边。</p>
+<pre><code>3. 
+</code></pre><p>再对左右区间递归执行第二步，直至各区间只有一个数。</p>
+<p>排序演示：<br>源代码：(python实现)</p>
+<p>def quick_sort(ary):<br>return qsort(ary,0,len(ary)-1)def qsort(ary,left,right):</p>
+<p>#快排函数，ary为待排序数组，left为待排序的左边界，right为右边界<br>if left &gt;= right : return ary<br>key = ary[left] #取最左边的为基准数<br>lp = left #左指针<br>rp = right #右指针<br>while lp &lt; rp :<br>while ary[rp] &gt;= key and lp &lt; rp :<br>rp -= 1<br>while ary[lp] &lt;= key and lp &lt; rp :<br>lp += 1<br>ary[lp],ary[rp] = ary[rp],ary[lp]<br>ary[left],ary[lp] = ary[lp],ary[left]<br>qsort(ary,left,lp-1)<br>qsort(ary,rp+1,right)<br>return ary七、堆排序 HeapSort<br>介绍：<br>堆排序在 top K 问题中使用比较频繁。堆排序是采用二叉堆的数据结构来实现的，虽然实质上还是一维数组。二叉堆是一个近似完全二叉树 。<br>二叉堆具有以下性质：</p>
+<pre><code>1. 
+</code></pre><p>父节点的键值总是大于或等于（小于或等于）任何一个子节点的键值。</p>
+<pre><code>2. 
+</code></pre><p>每个节点的左右子树都是一个二叉堆（都是最大堆或最小堆）。</p>
+<p>步骤：</p>
+<pre><code>1. 
+</code></pre><p>构造最大堆（Build_Max_Heap）：若数组下标范围为0~n，考虑到单独一个元素是大根堆，则从下标n/2开始的元素均为大根堆。于是只要从n/2-1开始，向前依次构造大根堆，这样就能保证，构造到某个节点时，它的左右子树都已经是大根堆。</p>
+<pre><code>2. 
+</code></pre><p>堆排序（HeapSort）：由于堆是用数组模拟的。得到一个大根堆后，数组内部并不是有序的。因此需要将堆化数组有序化。思想是移除根节点，并做最大堆调整的递归运算。第一次将heap[0]与heap[n-1]交换，再对heap[0…n-2]做最大堆调整。第二次将heap[0]与heap[n-2]交换，再对heap[0…n-3]做最大堆调整。重复该操作直至heap[0]和heap[1]交换。由于每次都是将最大的数并入到后面的有序区间，故操作完后整个数组就是有序的了。</p>
+<pre><code>3. 
+</code></pre><p>最大堆调整（Max_Heapify）：该方法是提供给上述两个过程调用的。目的是将堆的末端子节点作调整，使得子节点永远小于父节点 。</p>
+<p>排序演示：<br>源代码：(python实现)</p>
+<p>def heap_sort(ary) :<br>n = len(ary)<br>first = int(n/2-1) #最后一个非叶子节点<br>for start in range(first,-1,-1) : #构造大根堆<br>max_heapify(ary,start,n-1)<br>for end in range(n-1,0,-1): #堆排，将大根堆转换成有序数组<br>ary[end],ary[0] = ary[0],ary[end]<br>max_heapify(ary,0,end-1)<br>return ary</p>
+<p>#最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点</p>
+<p>#start为当前需要调整最大堆的位置，end为调整边界<br>def max_heapify(ary,start,end):<br>root = start<br>while True :<br>child = root*2 +1 #调整节点的子节点<br>if child &gt; end : break child = child+1 #取较大的子节点<br>if ary[root] &lt; ary[child] : #较大的子节点成为父节点<br>ary[root],ary[child] = ary[child],ary[root] #交换<br>root = child<br>else :<br>break总结<br>下面为七种经典排序算法指标对比情况：<br>参考资料<br>注：本文所有源代码已共享到GitHub。<br>-EOF-<br>Original Page: <a href="http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/" target="_blank" rel="noopener">http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/06/经典排序算法总结与实现/" data-id="cjpc0ildw000i70rq04huwvfm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第三次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/05/java学习第三次笔记/" class="article-date">
+  <time datetime="2018-12-05T12:28:51.563Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: java学习第三次笔记<br>date: 2018-11-29 20:28:32</p>
+<h2 id="tags-java"><a href="#tags-java" class="headerlink" title="tags: java"></a>tags: java</h2><p>wade.zhx</p>
+<h4 id="Java的数据类型可分为两大类："><a href="#Java的数据类型可分为两大类：" class="headerlink" title="Java的数据类型可分为两大类："></a>Java的数据类型可分为两大类：</h4><p><img src="en-resource://database/7196:1" alt="76878d3244bd49c9b4584402f32d1c37.png"></p>
+<h5 id="基本数据类型（primitive-data-type）3类8种"><a href="#基本数据类型（primitive-data-type）3类8种" class="headerlink" title="基本数据类型（primitive data type）3类8种"></a>基本数据类型（primitive data type）3类8种</h5><h4 id="1-Byte-8-bits"><a href="#1-Byte-8-bits" class="headerlink" title="1 Byte =8 bits"></a>1 Byte =8 bits</h4><pre><code>数值型－ 
+     整数    
+</code></pre><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用存储空间</th>
+<th></th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>1 字节</td>
+<td>2^7</td>
+<td>（-128~127）</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2 字节</td>
+<td>2^15</td>
+<td>(-3w—3w)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4 字节</td>
+<td>2^31</td>
+<td>(-21亿—21亿)</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8 字节</td>
+<td>2^ 63</td>
+<td>非常非常大</td>
+</tr>
+</tbody>
+</table>
+<p>默认是 int 后面加L强制转换；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试整形变量</span><br><span class="line"></span><br><span class="line">        int &lt;u&gt;a&lt;/u&gt; = 15;</span><br><span class="line"></span><br><span class="line">        int b = 015;//0开头的是八进制</span><br><span class="line"></span><br><span class="line">        int c = 0x15;//0x开头的是十六进制</span><br><span class="line"></span><br><span class="line">        int d = 0b0001111;//0b开头的都是二进制</span><br><span class="line"></span><br><span class="line">        System.out.println(b);</span><br><span class="line"></span><br><span class="line">        System.out.println(c);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        byte  age  = 30;</span><br><span class="line"></span><br><span class="line">        short  salary  = 30000;</span><br><span class="line"></span><br><span class="line">        int  population = 2100000000;</span><br><span class="line"></span><br><span class="line">        long   globalPopulation = 700000000000000l;</span><br></pre></td></tr></table></figure>
+<pre><code>13
+
+21
+
+15
+</code></pre><h5 id="引用数据类型（reference-data-type）"><a href="#引用数据类型（reference-data-type）" class="headerlink" title="引用数据类型（reference data type）"></a>引用数据类型（reference data type）</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第三次笔记/" data-id="cjpc0ilcv000470rqj62zb7vy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第五次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/05/java学习第五次笔记/" class="article-date">
+  <time datetime="2018-12-05T12:28:32.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h5><p><img src="en-resource://database/7241:1" alt="6d408ddd2a3f5b00edd918de34fc52fa.png"></p>
+<blockquote>
+<h5 id="整数运算："><a href="#整数运算：" class="headerlink" title="整数运算：　"></a>整数运算：　</h5><ol>
+<li>如果两个操作数有一个为Long, 则结果也为long。　</li>
+<li>没有long时，结果为int。即使操作数全为short，byte，结果也是int。　　<h5 id="浮点运算："><a href="#浮点运算：" class="headerlink" title="浮点运算：　　"></a>浮点运算：　　</h5></li>
+<li>如果两个操作数有一个为double，则结果为double。　</li>
+<li>只有两个操作数都是float，则结果才为float。　　<h5 id="取模运算："><a href="#取模运算：" class="headerlink" title="取模运算：　　"></a>取模运算：　　</h5>1.其操作数可以为浮点数,一般使用整数，结果是“余数”，<br><strong>“余数”符号和左边操作数相同，</strong><br>如：<strong>7%3=1，-7%3=-1，7%-3=1。</strong></li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(-9%5);</span><br><span class="line">    </span><br><span class="line">-4</span><br></pre></td></tr></table></figure>
+<p>算术运算符中++，–属于一元运算符，该类运算符只需要一个操作数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        byte &lt;u&gt;a1&lt;/u&gt; = 1;</span><br><span class="line"></span><br><span class="line">        int b1 = 2;</span><br><span class="line"></span><br><span class="line">        // byte c = a+b;</span><br><span class="line"></span><br><span class="line">        long b2 = 3;</span><br><span class="line"></span><br><span class="line">        // &lt;u&gt;int&lt;/u&gt; c2 = b2+b; 因为不接受into &lt;u&gt;int&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float f1 = 3.14f;</span><br><span class="line"></span><br><span class="line">        double &lt;u&gt;d&lt;/u&gt; = b1+b2;//</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        float &lt;u&gt;f2&lt;/u&gt; = f1+6.2f;//浮点型默认double</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        System.out.println(-9%5);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        //测试自增自减</span><br><span class="line"></span><br><span class="line">        int a = 3;</span><br><span class="line"></span><br><span class="line">        int b = a++;//先赋值后++</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=3</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">         a = 3;</span><br><span class="line"></span><br><span class="line">         b = ++a; //先++后赋值</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;a=&quot;+a+&quot;\nb=&quot;+b);</span><br><span class="line"></span><br><span class="line">        //a=4</span><br><span class="line"></span><br><span class="line">        //b=4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/05/java学习第五次笔记/" data-id="cjpc0ilcy000570rqhm9hpszv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-在N个不相等的整数中找出最大的第K个数(NK)" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" class="article-date">
+  <time datetime="2018-12-04T02:46:37.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。"><a href="#题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。" class="headerlink" title="题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。"></a>题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。</h1><p>思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。<br>代码：</p>
+<p>1 #include <cstdio><br>2 #include <cstdlib><br>3 #include <cmath><br>4 #include <ctime><br>5 #include <iostream><br>6<br>7 #define N 90<br>8 #define K 13<br>9<br>10<br>11 void HeapAdjust (int <em>heap, int beginidx, int endidx);<br>12 void HeapConstruct (int </em>heap);<br>13<br>14 void SetData (int <em>data);<br>15 void ShowData (int </em>data);<br>16<br>17 int main (int argc, char *<em>argv)<br>18 {<br>19 int i;<br>20 int h[N + 1];<br>21<br>22 SetData(h);<br>23 ShowData(h);<br>24<br>25 HeapConstruct(h);<br>26 for (i = K + 1; i &lt;= N; i++)<br>27 {<br>28 if (h[i] &gt; h[1])<br>29 {<br>30 h[1] = h[i];<br>31 HeapAdjust(h, 1, K);<br>32 }<br>33 }<br>34<br>35 printf(“The Kth biggest number: %d\n”, h[1]);<br>36 return 0;<br>37 }<br>38<br>39 void HeapAdjust (int </em>heap, int beginidx, int endidx)<br>40 {<br>41 int &amp;current = beginidx;<br>42 int tmp, left, right, data = heap[current];<br>43<br>44 while (left = (current &lt;&lt; 1), left &lt;= endidx)<br>45 {<br>46 right = left | 1;<br>47 if ((left == endidx) || (heap[left] &lt; heap[right]))<br>48 {<br>49 tmp = left;<br>50 }<br>51 else<br>52 {<br>53 tmp = right;<br>54 }<br>55 if (data &gt; heap[tmp])<br>56 {<br>57 heap[current] = heap[tmp];<br>58 current = tmp;<br>59 }<br>60 else<br>61 {<br>62 break;<br>63 }<br>64 }<br>65 heap[current] = data;<br>66 }<br>67<br>68 void HeapConstruct (int <em>heap)<br>69 {<br>70 int i;<br>71 for (i = K/2; i &gt; 0; i–)<br>72 {<br>73 HeapAdjust(heap, i, K);<br>74 }<br>75 }<br>76<br>77 void SetData (int </em>data)<br>78 {<br>79 bool <em>bdata = new bool[N + 1];<br>80 memset(bdata, false, N + 1);<br>81 srand(time(NULL));<br>82 data[0] = -1;<br>83 for (int i = 1; i &lt;= N; i++)<br>84 {<br>85 data[i] = rand() % N + 1;<br>86 while (bdata[data[i]])<br>87 {<br>88 data[i] = rand() % N + 1;<br>89 }<br>90 bdata[data[i]] = true;<br>91 }<br>92 delete []bdata;<br>93 }<br>94<br>95 void ShowData (int </em>data)<br>96 {<br>97 for (int i = 1; i &lt;= N; i++)<br>98 {<br>99 printf(“%02d “, data[i]);<br>100 }<br>101 puts(“”);<br>102 }</iostream></ctime></cmath></cstdlib></cstdio></p>
+<p>时间复杂度：O((N-K+1)<em>K</em>lgK).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" data-id="cjpc0ildb000a70rq0nslxbdt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Web Service" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/Web Service/" class="article-date">
+  <time datetime="2018-12-04T02:23:45.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/04/Web Service/">Web Service</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、环境配置：MyEclipse7.0<br>JDK1.6<br>二、创建Web Service Project<br>1）在MyEclipse中选择File—&gt;New—&gt;Other，选择Web Service Project</p>
+<p>2）Project Name：WebServiceServer，Framework：XFire，其他选项默认</p>
+<p>3）Next，这一步保持默认值<br>4）Project Library选择，选择XFire 1.2 Core Libraries</p>
+<p>5）Finish，创建成功后看到的工程目录如下：</p>
+<p>6）完成以上5步后，查看WebRoot/WEB-INF/web.xml</p>
+<p>这里指明了当遇到/services/*请求时，将选用XFireConfigurableServlet来处理  </p>
+<p>三、创建Web Service Code<br>1）通过File—&gt;New—&gt;Other—&gt;Web Services—&gt;Web Service wizard创建JAVA CODE</p>
+<p>2）选择通过JAVA CLASS创建Web Service</p>
+<p>3）创建HelloWebService.java，通过New创建com.service package，向导将为工程自动创建对应的接口类与实现类</p>
+<p>创建成功后查看WebServices/services.xml，发现配置文件多了以下内容：</p>
+<p>4）修改HelloWebServiceImpl.java<br>package com.service;<br>//Generated by meteorWJ</p>
+<p>public class HelloWebServiceImpl implements IHelloWebService {</p>
+<p>public String example(String message) {<br>return getAuthor()+”,”+message;<br>}<br>private String getAuthor(){<br>return “meteorWJ”;<br>}</p>
+<p>}</p>
+<p>四、部署并测试WebSericeServer</p>
+<p>1）部署WebServiceServer</p>
+<p>在部署向导中选择项目、服务器</p>
+<p>2）启动服务器</p>
+<p>3）测试WebService<br>MyEclipse提供了一个Web Service Explorer来测试Web Service</p>
+<p>选择列表中的Launch SOAP Web Services Explorer<br>4）选择WSDL模式</p>
+<p>5）在Explorer中选择WSDL Main，在右边的URL中输入<br><a href="http://localhost:9090/WebServiceServer/services/HelloWebService?WSDL，单击&quot;Go&quot;" target="_blank" rel="noopener">http://localhost:9090/WebServiceServer/services/HelloWebService?WSDL，单击&quot;Go&quot;</a><br>其中9090是服务器端口号，services在之前的web.xml中指定<br>若在Status中显示成功打开WSDL文件则测试成功</p>
+<p>五、创建WebService客户端<br>经过以上几步，我们已经成功发布了一个WebService，现在需要创建一个客户端来调用该服务<br>1）创建Java Project：WebServiceClient<br>2）引入MyEclipse Libraries<br>右键WebServiceClient—&gt;Build Path—&gt;Add Libraries</p>
+<p>选择XFire 1.2 HTTP Client Libraries</p>
+<p>3）创建HelloWebService.java<br>在src目录下创建com.client.HelloWebService.java<br>package com.client;</p>
+<p>import java.net.URL;<br>import org.codehaus.xfire.client.Client;</p>
+<p>public class HelloWebService {<br>public static void main(String[] args) throws Exception<br>{<br>Client client = new Client(new URL(“<a href="http://localhost:9090/WebServiceServer/services/HelloWebService?wsdl&quot;))" target="_blank" rel="noopener">http://localhost:9090/WebServiceServer/services/HelloWebService?wsdl&quot;))</a>;<br>Object[] results = client.invoke(“example”, new Object[] {“hello”});<br>System.out.println((String) results[0]);<br>}<br>}</p>
+<p>4）在确认服务器启动的情况下，运行HelloWebService.java<br>右键点击Run As&gt;Java Application，在控制台中看到如下输出</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/04/Web Service/" data-id="cjpc0ilct000370rq4hnv6qj4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Service/">Web Service</a></li></ul>
+
     </footer>
   </div>
   
@@ -703,7 +1040,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/03/取石子游戏算法/" data-id="cjpc0amqt00004grqptiwlvqg" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/03/取石子游戏算法/" data-id="cjpc0ilde000d70rqbxsgpb31" class="article-share-link">Share</a>
       
       
     </footer>
@@ -713,7 +1050,202 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
 
 
   
+    <article id="post-java学习第四次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/java学习第四次笔记/" class="article-date">
+  <time datetime="2018-12-02T12:28:32.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/java学习第四次笔记/">java学习第四次笔记</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java学习第四次笔记"><a href="#java学习第四次笔记" class="headerlink" title="java学习第四次笔记"></a>java学习第四次笔记</h1><p>  小数    浮点数 // 不精确<br>| 类型 |  占用存储空间|  |表数范围  |<br>| — | — | — | — |<br>|   float 单精度| 4 字节  || -3.403e38—3.403e38 |<br>|double 双精度| 8 字节 |   |  -1.7989e308—1.798e308 |     </p>
+<p> 科学计数法  3.14e2; 314e-2<br> 默认是double ，后面加f 强制转换；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">import java.math.*;</span><br><span class="line"></span><br><span class="line">public class TestprimitiveDataType &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[]args)&#123;</span><br><span class="line"></span><br><span class="line">        //测试浮点型变量</span><br><span class="line"></span><br><span class="line">    float &lt;u&gt;a&lt;/u&gt; = 3.14f;//默认是double，放不进去，加f转换</span><br><span class="line"></span><br><span class="line">    double b =6.28;</span><br><span class="line"></span><br><span class="line">    double c = 628e-2;</span><br><span class="line"></span><br><span class="line">    System.out.println(b);</span><br><span class="line"></span><br><span class="line">    System.out.println(c);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    //浮点数不精确，不可以比较；</span><br><span class="line"></span><br><span class="line">    float f = 0.1f;</span><br><span class="line"></span><br><span class="line">    double d = 1/10;</span><br><span class="line"></span><br><span class="line">    System.out.println(f==d);//false</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    float d1 = 1246235867;</span><br><span class="line"></span><br><span class="line">    float d2 = d1+1;</span><br><span class="line"></span><br><span class="line">    if(d1==d2)&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1==d2&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    else&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;d1!=d2&quot;);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;//精度不够</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(&quot;#####&quot;);//使用精确用&lt;u&gt;bigdecimal&lt;/u&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd = BigDecimal.valueOf(1.0);</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    bd = bd.subtract(BigDecimal.valueOf(0.1));</span><br><span class="line"></span><br><span class="line">    System.out.println(bd);//0.5</span><br><span class="line"></span><br><span class="line">    System.out.println(1.0-0.1-0.1-0.1-0.1-0.1);//0.5000000000000001</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    BigDecimal bd2 = BigDecimal.valueOf(0.1);</span><br><span class="line"></span><br><span class="line">    BigDecimal bd3 = </span><br><span class="line">BigDecimal.valueOf(1.0/10.0);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    System.out.println(bd2.equals(bd3));//true</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"><a href="#java-math包下面的两个有用的类：BigInteger和-BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。" class="headerlink" title="java.math包下面的两个有用的类：BigInteger和 BigDecimal，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。"></a>java.math包下面的两个有用的类：<u>BigInteger</u>和 <u>BigDecimal</u>，这两个类可以处理任意长度的数值。BigInteger实现了任意精度的整数运算。BigDecimal实现了任意精度的浮点运算。</h6><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用存储空间</th>
+<th></th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符型</td>
+<td>char</td>
+<td>2字节</td>
+<td>‘a’</td>
+</tr>
+<tr>
+<td>布尔型</td>
+<td>boolean</td>
+<td>1位</td>
+<td>即0或1  bit</td>
+</tr>
+</tbody>
+</table>
+<p>字符 unicode  十六进制 0000—FFFF<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Testzifu3 &#123;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;a&lt;/u&gt; = &apos;z&apos;;</span><br><span class="line"></span><br><span class="line">    char &lt;u&gt;b&lt;/u&gt; = &apos;张&apos;;</span><br><span class="line"></span><br><span class="line">    char c = &apos;\u0061&apos;;</span><br><span class="line"></span><br><span class="line">    System.out.println(c);//a </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    String d = &quot;asdasdf&quot;;//&quot;字符串&quot;；</span><br><span class="line"></span><br><span class="line">    System.out.println(d );</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>\n  换行<br>\t  制表符 tab</p>
+<p>转义符|含义|Unicode值|<br>|—|—|—|<br>|\b|退格（backspace）|\u0008|<br>|\n|换行|\u000a|<br>|\r|回车|\u000d|<br>|\t|制表符（tab）|\u0009|<br>|\“|双引号|\u0022|<br>|\ ‘ |单引号|\u0027|<br>| \\ |反斜杠|\u005c|</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class boolean2 &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		</span><br><span class="line">	boolean man = true;</span><br><span class="line">	 if(man)//不推荐man==true</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(&quot;男性&quot;);</span><br><span class="line">		</span><br><span class="line">		 </span><br><span class="line">	 &#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/02/java学习第四次笔记/" data-id="cjpc0ild7000870rq5amzve0o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第二次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/28/java学习第二次笔记/" class="article-date">
+  <time datetime="2018-11-28T12:28:32.000Z" itemprop="datePublished">2018-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/28/java学习第二次笔记/">java学习第二次笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h5 id="局部变量-local-variable-从属于方法"><a href="#局部变量-local-variable-从属于方法" class="headerlink" title="局部变量(local  variable)   从属于方法"></a>局部变量(local  variable)   从属于方法</h5><pre><code>        {  
+         方法或语句块内部定义的变量。生命周期是从声明位置开始到到方法或语句块执行完毕为止。局部变量在使用前必须先声明、初始化(赋初值)再使用。
+}
+</code></pre><h5 id="成员变量（也叫实例变量-member-variable）"><a href="#成员变量（也叫实例变量-member-variable）" class="headerlink" title="成员变量（也叫实例变量  member variable）"></a>成员变量（也叫实例变量  member variable）</h5><pre><code>方法外部、类的内部定义的变量。从属于对象，生命周期伴随对象始终。如果不自行初始化，它会自动初始化成该类型的默认初始值。表2-3实例变量的默认初始值数据类型实始值
+</code></pre><p>   <img src="en-resource://database/7188:1" alt="31201947b053e56b2ca7ea3b79fbfead.png"></p>
+<h5 id="静态变量（类变量-static-variable）"><a href="#静态变量（类变量-static-variable）" class="headerlink" title="静态变量（类变量 static variable）"></a>静态变量（类变量 static variable）</h5><pre><code>使用static定义。 从属于类，生命周期伴随类始终，从类加载到卸载。最长
+</code></pre><h5 id="常量-Constant"><a href="#常量-Constant" class="headerlink" title="常量(Constant)"></a>常量(Constant)</h5><pre><code>    一般将1、2、3、’a’、’b’、true、false、”helloWorld”等称为字面常量，
+    而使用final修饰的PI等称为符号常量。
+
+
+final  type  varName = value;
+fina int PI = 3.141592653;
+</code></pre><h5 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h5><p>类成员变量：首字母小写和驼峰原则:  monthSalary</p>
+<p>类名：首字母大写和驼峰原则:  Man, GoodMan</p>
+<p>常量：大写字母和下划线：MAX_VALUE</p>
+<p>方法名：首字母小写和驼峰原则: run(), runRun()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class TestVarible &#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        final double PI = 3.14;</span><br><span class="line"></span><br><span class="line">        //PI = 3; 定义无效</span><br><span class="line"></span><br><span class="line">        double r = 4;</span><br><span class="line"></span><br><span class="line">        double area = PI * r * r;</span><br><span class="line"></span><br><span class="line">        double circle = 2 * PI * r;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;area =&quot;+ area);</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;circle=&quot;+ circle);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/11/28/java学习第二次笔记/" data-id="cjpc0ilcq000170rqe2dsu6zr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java学习第一次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/26/java学习第一次笔记/" class="article-date">
+  <time datetime="2018-11-26T14:38:40.000Z" itemprop="datePublished">2018-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/26/java学习第一次笔记/">java学习第一次笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h2 id="wade-zhx-1"><a href="#wade-zhx-1" class="headerlink" title="wade.zhx"></a><strong>wade.zhx</strong></h2><p>2018年11月28日22:34</p>
+<ol>
+<li><h4 id="工具-eclipse"><a href="#工具-eclipse" class="headerlink" title="工具 eclipse"></a>工具 eclipse</h4></li>
+<li><h4 id="学习网址"><a href="#学习网址" class="headerlink" title="学习网址"></a>学习网址</h4><ol>
+<li><a href="https://www.bilibili.com/video/av29306544/?p=25" target="_blank" rel="noopener">bilibili</a></li>
+<li><a href="http://www.sxt.cn/Java_jQuery_in_action/Java_Identifier.html" target="_blank" rel="noopener">尚学堂 </a></li>
+</ol>
+</li>
+<li><h4 id="记录："><a href="#记录：" class="headerlink" title="记录："></a>记录：</h4> JVM是虚拟机；java可以跨平台是因为虚拟机可以不同系统编译<pre><code>![16e79e25643f6d14796fb28087c339ba.png](en-resource://database/7186:1)
+</code></pre></li>
+<li><h4 id="DOS命令"><a href="#DOS命令" class="headerlink" title="DOS命令"></a>DOS命令</h4><pre><code>cd  cd ..  dir  cls
+</code></pre></li>
+<li><p>一个源文件中至多只能声明一个public的类，其它类的个数不限，如果源文件中包含一个public 类，源文件名必须和其中定义的public的类名相同，且以“.java”为扩展名</p>
+<ol start="7">
+<li>// 单行注释<br>/<em> 多行注释，灵活</em>/<br>/*<em> 文档注释 </em>/</li>
+</ol>
+</li>
+</ol>
+<p>8.</p>
+<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><pre><code>必须以字母、下划线_、美元符号$开头。 
+</code></pre><p> 其它部分可以是字母、下划线“_”、美元符“$”和数字的任意组合。</p>
+<pre><code>表示类名的标识符：每个单词的首字母大写，如Man, GoodMan
+表示方法和变量的标识符：第一个单词小写，从第二个单词开始首字  母大写，  我们称之为**驼峰原则**，如eat(), eatFood()
+</code></pre><ol start="9">
+<li><h5 id="变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。"><a href="#变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。" class="headerlink" title="变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。"></a>变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。</h5><ol>
+<li>我们可通过变量名来访问“对应的存储空间”，从而操纵这个“存储空间”存储的值。     </li>
+<li>Java是一种强类型语言，每个变量都必须声明其数据类型。变量的数据类型决定了变量占据存储空间的大小。</li>
+</ol>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/11/26/java学习第一次笔记/" data-id="cjpc0ilch000070rqmz4f3avh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -722,15 +1254,29 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Service/">Web Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Web-Service/" style="font-size: 10px;">Web Service</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
     </div>
   </div>
 
@@ -747,7 +1293,19 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
           </li>
         
           <li>
-            <a href="/2018/12/03/取石子游戏算法/">取石子游戏算法</a>
+            <a href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第三次笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
           </li>
         
       </ul>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>经典排序算法总结与实现 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="经典排序算法总结与实现by WuChong, wuchong.me 经典排序算法在面试中占有很大的比重，也是基础，为了未雨绸缪，在寒假里整理并用Python实现了七大经典排序算法，包括冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序。希望能帮助到有需要的同学。之所以用Python实现，主要是因为它更接近伪代码，能用更少的代码实现算法，更利于理解。本篇博客所有排序实现均默认从小到大">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典排序算法总结与实现">
+<meta property="og:url" content="https://wadezhx.github.io/2018/12/06/经典排序算法总结与实现/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="经典排序算法总结与实现by WuChong, wuchong.me 经典排序算法在面试中占有很大的比重，也是基础，为了未雨绸缪，在寒假里整理并用Python实现了七大经典排序算法，包括冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序。希望能帮助到有需要的同学。之所以用Python实现，主要是因为它更接近伪代码，能用更少的代码实现算法，更利于理解。本篇博客所有排序实现均默认从小到大">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-06T02:58:27.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典排序算法总结与实现">
+<meta name="twitter:description" content="经典排序算法总结与实现by WuChong, wuchong.me 经典排序算法在面试中占有很大的比重，也是基础，为了未雨绸缪，在寒假里整理并用Python实现了七大经典排序算法，包括冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序。希望能帮助到有需要的同学。之所以用Python实现，主要是因为它更接近伪代码，能用更少的代码实现算法，更利于理解。本篇博客所有排序实现均默认从小到大">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wadezhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-经典排序算法总结与实现" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/经典排序算法总结与实现/" class="article-date">
+  <time datetime="2018-12-06T02:46:37.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      经典排序算法总结与实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="经典排序算法总结与实现"><a href="#经典排序算法总结与实现" class="headerlink" title="经典排序算法总结与实现"></a>经典排序算法总结与实现</h1><p>by WuChong, wuchong.me</p>
+<p>经典排序算法在面试中占有很大的比重，也是基础，为了未雨绸缪，在寒假里整理并用Python实现了七大经典排序算法，包括冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序。希望能帮助到有需要的同学。之所以用Python实现，主要是因为它更接近伪代码，能用更少的代码实现算法，更利于理解。<br>本篇博客所有排序实现均默认从小到大。一、冒泡排序 BubbleSort<br>介绍：<br>冒泡排序的原理非常简单，它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+<pre><code>2. 
+</code></pre><p>对第0个到第n-1个数据做同样的工作。这时，最大的数就“浮”到了数组最后的位置上。</p>
+<pre><code>3. 
+</code></pre><p>针对所有的元素重复以上的步骤，除了最后一个。</p>
+<pre><code>4. 
+</code></pre><p>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+<p>源代码：(python实现)</p>
+<p>def bubble_sort(arry):<br>n = len(arry) #获得数组的长度<br>for i in range(n):<br>for j in range(1,n-i):<br>if arry[j-1] &gt; arry[j] : #如果前者比后者大<br>arry[j-1],arry[j] = arry[j],arry[j-1] #则交换两者<br>return arry<br>不过针对上述代码还有两种优化方案。</p>
+<p>优化1：某一趟遍历如果没有数据交换，则说明已经排好序了，因此不用再进行迭代了。用一个标记记录这个状态即可。<br>优化2：记录某次遍历时最后发生数据交换的位置，这个位置之后的数据显然已经有序，不用再排序了。因此通过记录最后发生数据交换的位置就可以确定下次循环的范围了。<br>这两种优化方案的实现可以详见这里。二、选择排序 SelectionSort<br>介绍：<br>选择排序无疑是最简单直观的排序。它的工作原理如下。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。</p>
+<pre><code>2. 
+</code></pre><p>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</p>
+<pre><code>3. 
+</code></pre><p>以此类推，直到所有元素均排序完毕。</p>
+<p>源代码：(python实现)</p>
+<p>def select_sort(ary):<br>n = len(ary)<br>for i in range(0,n):<br>min = i #最小元素下标标记<br>for j in range(i+1,n):<br>if ary[j] &lt; ary[min] :<br>min = j #找到最小值的下标<br>ary[min],ary[i] = ary[i],ary[min] #交换两者<br>return ary三、插入排序 InsertionSort<br>介绍：<br>插入排序的工作原理是，对于每个未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>从第一个元素开始，该元素可以认为已经被排序</p>
+<pre><code>2. 
+</code></pre><p>取出下一个元素，在已经排序的元素序列中从后向前扫描</p>
+<pre><code>3. 
+</code></pre><p>如果被扫描的元素（已排序）大于新元素，将该元素后移一位</p>
+<pre><code>4. 
+</code></pre><p>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</p>
+<pre><code>5. 
+</code></pre><p>将新元素插入到该位置后</p>
+<pre><code>6. 
+</code></pre><p>重复步骤2~5</p>
+<p>排序演示：</p>
+<p>源代码：(python实现)四、希尔排序 ShellSort<br>介绍：<br>希尔排序，也称递减增量排序算法，实质是分组插入排序。由 Donald Shell 于1959年提出。希尔排序是非稳定排序算法。<br>希尔排序的基本思想是：将数组列在一个表中并对列分别进行插入排序，重复这过程，不过每次用更长的列（步长更长了，列数更少了）来进行。最后整个表就只有一列了。将数组转换至表是为了更好地理解这算法，算法本身还是使用数组进行排序。<br>例如，假设有这样一组数[ 13 14 94 33 82 25 59 94 65 23 45 27 73 25 39 10 ]，如果我们以步长为5开始进行排序，我们可以通过将这列表放在有5列的表中来更好地描述算法，这样他们就应该看起来是这样：</p>
+<p>13 14 94 33 82<br>25 59 94 65 23<br>45 27 73 25 39<br>10</p>
+<p>然后我们对每列进行排序：</p>
+<p>10 14 73 25 23<br>13 27 94 33 39<br>25 59 94 65 82<br>45</p>
+<p>将上述四行数字，依序接在一起时我们得到：[ 10 14 73 25 23 13 27 94 33 39 25 59 94 65 82 45 ]。这时10已经移至正确位置了，然后再以3为步长进行排序：</p>
+<p>10 14 73<br>25 23 13<br>27 94 33<br>39 25 59<br>94 65 82<br>45</p>
+<p>排序之后变为：</p>
+<p>10 14 13<br>25 23 33<br>27 25 59<br>39 65 73<br>45 94 82<br>94</p>
+<p>最后以1步长进行排序（此时就是简单的插入排序了）。<br>源代码：(python实现)</p>
+<p>def shell_sort(ary):<br>n = len(ary)<br>gap = round(n/2) #初始步长 , 用round四舍五入取整<br>while gap &gt; 0 :<br>for i in range(gap,n): #每一列进行插入排序 , 从gap 到 n-1<br>temp = ary[i]<br>j = i<br>while ( j &gt;= gap and ary[j-gap] &gt; temp ): #插入排序<br>ary[j] = ary[j-gap]<br>j = j - gap<br>ary[j] = temp<br>gap = round(gap/2) #重新设置步长<br>return ary<br>上面源码的步长的选择是从n/2开始，每次再减半，直至为0。步长的选择直接决定了希尔排序的复杂度。在维基百科上有对于步长串行的详细介绍。五、归并排序 MergeSort<br>介绍：<br>归并排序是采用分治法的一个非常典型的应用。归并排序的思想就是先递归分解数组，再合并数组。<br>先考虑合并两个有序数组，基本思路是比较两个数组的最前面的数，谁小就先取谁，取了后相应的指针就往后移一位。然后再比较，直至一个数组为空，最后把另一个数组的剩余部分复制过来即可。<br>再考虑递归分解，基本思路是将数组分解成left和right，如果这两个数组内部数据是有序的，那么就可以用上面合并数组的方法将这两个数组合并排序。如何让这两个数组内部是有序的？可以再二分，直至分解出的小组只含有一个元素时为止，此时认为该小组内部已有序。然后合并排序相邻二个小组即可。<br>排序演示：<br>源代码：(python实现)</p>
+<p>def merge_sort(ary):<br>if len(ary) &lt;= 1 : return ary<br>num = int(len(ary)/2) #二分分解<br>left = merge_sort(ary[:num])<br>right = merge_sort(ary[num:])<br>return merge(left,right) #合并数组def merge(left,right):<br>‘’’合并操作，<br>将两个有序数组left[]和right[]合并成一个大的有序数组’’’<br>l,r = 0,0 #left与right数组的下标指针<br>result = []<br>while l&lt;len(left) and r&lt;len(right) :<br>if left[l] &lt; right[r]:<br>result.append(left[l])<br>l += 1<br>else:<br>result.append(right[r])<br>r += 1<br>result += left[l:]<br>result += right[r:]<br>return result六、快速排序 QuickSort</p>
+<p>介绍：<br>快速排序通常明显比同为Ο(n log n)的其他算法更快，因此常被采用，而且快排采用了分治法的思想，所以在很多笔试面试中能经常看到快排的影子。可见掌握快排的重要性。<br>步骤：</p>
+<pre><code>1. 
+</code></pre><p>从数列中挑出一个元素作为基准数。</p>
+<pre><code>2. 
+</code></pre><p>分区过程，将比基准数大的放到右边，小于或等于它的数都放到左边。</p>
+<pre><code>3. 
+</code></pre><p>再对左右区间递归执行第二步，直至各区间只有一个数。</p>
+<p>排序演示：<br>源代码：(python实现)</p>
+<p>def quick_sort(ary):<br>return qsort(ary,0,len(ary)-1)def qsort(ary,left,right):</p>
+<p>#快排函数，ary为待排序数组，left为待排序的左边界，right为右边界<br>if left &gt;= right : return ary<br>key = ary[left] #取最左边的为基准数<br>lp = left #左指针<br>rp = right #右指针<br>while lp &lt; rp :<br>while ary[rp] &gt;= key and lp &lt; rp :<br>rp -= 1<br>while ary[lp] &lt;= key and lp &lt; rp :<br>lp += 1<br>ary[lp],ary[rp] = ary[rp],ary[lp]<br>ary[left],ary[lp] = ary[lp],ary[left]<br>qsort(ary,left,lp-1)<br>qsort(ary,rp+1,right)<br>return ary七、堆排序 HeapSort<br>介绍：<br>堆排序在 top K 问题中使用比较频繁。堆排序是采用二叉堆的数据结构来实现的，虽然实质上还是一维数组。二叉堆是一个近似完全二叉树 。<br>二叉堆具有以下性质：</p>
+<pre><code>1. 
+</code></pre><p>父节点的键值总是大于或等于（小于或等于）任何一个子节点的键值。</p>
+<pre><code>2. 
+</code></pre><p>每个节点的左右子树都是一个二叉堆（都是最大堆或最小堆）。</p>
+<p>步骤：</p>
+<pre><code>1. 
+</code></pre><p>构造最大堆（Build_Max_Heap）：若数组下标范围为0~n，考虑到单独一个元素是大根堆，则从下标n/2开始的元素均为大根堆。于是只要从n/2-1开始，向前依次构造大根堆，这样就能保证，构造到某个节点时，它的左右子树都已经是大根堆。</p>
+<pre><code>2. 
+</code></pre><p>堆排序（HeapSort）：由于堆是用数组模拟的。得到一个大根堆后，数组内部并不是有序的。因此需要将堆化数组有序化。思想是移除根节点，并做最大堆调整的递归运算。第一次将heap[0]与heap[n-1]交换，再对heap[0…n-2]做最大堆调整。第二次将heap[0]与heap[n-2]交换，再对heap[0…n-3]做最大堆调整。重复该操作直至heap[0]和heap[1]交换。由于每次都是将最大的数并入到后面的有序区间，故操作完后整个数组就是有序的了。</p>
+<pre><code>3. 
+</code></pre><p>最大堆调整（Max_Heapify）：该方法是提供给上述两个过程调用的。目的是将堆的末端子节点作调整，使得子节点永远小于父节点 。</p>
+<p>排序演示：<br>源代码：(python实现)</p>
+<p>def heap_sort(ary) :<br>n = len(ary)<br>first = int(n/2-1) #最后一个非叶子节点<br>for start in range(first,-1,-1) : #构造大根堆<br>max_heapify(ary,start,n-1)<br>for end in range(n-1,0,-1): #堆排，将大根堆转换成有序数组<br>ary[end],ary[0] = ary[0],ary[end]<br>max_heapify(ary,0,end-1)<br>return ary</p>
+<p>#最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点</p>
+<p>#start为当前需要调整最大堆的位置，end为调整边界<br>def max_heapify(ary,start,end):<br>root = start<br>while True :<br>child = root*2 +1 #调整节点的子节点<br>if child &gt; end : break child = child+1 #取较大的子节点<br>if ary[root] &lt; ary[child] : #较大的子节点成为父节点<br>ary[root],ary[child] = ary[child],ary[root] #交换<br>root = child<br>else :<br>break总结<br>下面为七种经典排序算法指标对比情况：<br>参考资料<br>注：本文所有源代码已共享到GitHub。<br>-EOF-<br>Original Page: <a href="http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/" target="_blank" rel="noopener">http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/06/经典排序算法总结与实现/" data-id="cjpc0ildw000i70rq04huwvfm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/06/数据结构中各种树/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构中各种树
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/05/java学习第三次笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Service/">Web Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Web-Service/" style="font-size: 10px;">Web Service</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/06/数据结构中各种树/">数据结构中各种树</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第三次笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wadezhx<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

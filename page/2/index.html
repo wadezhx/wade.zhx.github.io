@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://wadezhx.github.io/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wadezhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-oracle" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/15/oracle/" class="article-date">
+  <time datetime="2018-11-15T02:22:22.000Z" itemprop="datePublished">2018-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/15/oracle/">Oracle 上机实验手册</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Oracle上机实验手册</p>
+<p>Oracle管理    2</p>
+<ol>
+<li>Oracle启动和关闭    3</li>
+<li>Oracle用户和权限    4<br>SQL数据操作和查询    6</li>
+<li>SQL简介    7</li>
+<li>Oracle数据类型    7</li>
+<li>创建表和约束    8</li>
+<li>数据操纵语言（DML）    11</li>
+<li>操作符    16</li>
+<li>高级查询    17</li>
+<li>本章总结    25</li>
+<li>本章练习    26<br>子查询和常用函数    28</li>
+<li>子查询    29</li>
+<li>Oracle中的伪列    31</li>
+<li>Oracle函数    34</li>
+<li>本章总结    43</li>
+<li>本章练习    44<br>表空间、数据库对象    46</li>
+<li>Oracle数据库对象    47</li>
+<li>同义词    47</li>
+<li>序列    50</li>
+<li>视图    52</li>
+<li>索引    54</li>
+<li>表空间    56</li>
+<li>本章总结    60</li>
+<li>本章练习    61<br>PL/SQL程序设计    63</li>
+<li>PL/SQL简介    64</li>
+<li>PL/SQL块    65</li>
+<li>PL/SQL数据类型    69</li>
+<li>PL/SQL条件控制和循环控制    71</li>
+<li>PL/SQL中动态执行SQL语句    81</li>
+<li>PL/SQL的异常处理    83</li>
+<li>本章总结    89</li>
+<li>本章练习    90<br>数据库导入导出    92</li>
+<li>Oracle导入导出    93</li>
+<li>EXP导出数据    93</li>
+<li>IMP导入    96</li>
+<li>常见问题    97</li>
+</ol>
+<p>Oracle管理</p>
+<pre><code>主要内容
+    Oracle创建用户和角色
+</code></pre><p>    客户端链接Oracle服务器</p>
+<ol>
+<li>Oracle启动和关闭<br>Oracle的启动和关闭是最基本的命令，在SQL*Plus中，启动Oracle必须是sys用户，命令格式是：</li>
+</ol>
+<p>startup open</p>
+<p>图24 Oracle服务启动</p>
+<pre><code>Oracle服务关闭用命令：shutdown immediate
+</code></pre><p>图25 Oracle服务关闭</p>
+<ol start="2">
+<li>Oracle用户和权限<br>Oracle中，一般不会轻易在一个服务器上创建多个数据库，在一个数据库中，不同的项目由不同的用户访问，每一个用户拥有自身创建的数据库对象，因此用户的概念在Oracle中非常重要。Oracle的用户可以用CREATE USER命令来创建。其语法是：</li>
+</ol>
+<p>语法结构：创建用户<br>CREATE USER 用户名 IDENTIFIED BY 口令 [ACCOUNT LOCK|UNLOCK]<br>语法解析：<br>    LOCK|UNLOCK创建用户时是否锁定，默认为锁定状态。锁定的用户无法正常的登录进行数据库操作。</p>
+<p>代码演示：创建用户<br>SQL&gt; CREATE USER jerry<br>2  IDENTIFIED BY tom<br>3  ACCOUNT UNLOCK;</p>
+<pre><code> Oracle在SQL*Plus中的命令以分号（；）结尾，代表命令完毕并执行，系统同时会把该命令保存在缓存中，缓存中只保存最近执行过的命令，如果重新执行缓存中的命令，直接使用左斜杠符号（/）。如果命令不以分号结尾，该命令只是写入缓存保存起来，但并不执行。
+
+尽管用户成功创建，但是还不能正常的登录Oracle数据库系统，因为该用户还没有任何权限。如果用户能够正常登录，至少需要CREATE SESSION系统权限。
+
+Oracle用户对数据库管理或对象操作的权利，分为系统权限和数据库对象权限。系统权限比如：CREATE SESSION，CREATE TABLE等，拥有系统权限的用户，允许拥有相应的系统操作。数据库对象权限，比如对表中的数据进行增删改操作等，拥有数据库对象权限的用户可以对所拥有的对象进行对应的操作。
+
+还有一个概念就是数据库角色（role），数据库角色就是若干个系统权限的集合。下面介绍几个常用角色：
+</code></pre><p>    CONNECT角色，主要应用在临时用户，特别是那些不需要建表的用户，通常只赋予他们CONNECT role。CONNECT是使用Oracle的简单权限，拥有CONNECT角色的用户，可以与服务器建立连接会话（session，客户端对服务器连接，称为会话）。<br>    RESOURCE角色，更可靠和正式的数据库用户可以授予RESOURCE role。RESOURCE提供给用户另外的权限以创建他们自己的表、序列、过程（procedure）、触发器（trigger）、索引（index）等。<br>    DBA角色，DBA role拥有所有的系统权限—-包括无限制的空间限额和给其他用户授予各种权限的能力。用户SYSTEM拥有DBA角色。</p>
+<p>一般情况下，一个普通的用户（如SCOTT），拥有CONNECT和RESOURCE两个角色即可进行常规的数据库开发工作。</p>
+<pre><code>可以把某个权限授予某个角色，可以把权限、角色授予某个用户。系统权限只能由DBA用户授权，对象权限由拥有该对象的用户授权，授权语法是： 
+</code></pre><p>语法结构：授权<br>GRANT角色|权限 TO 用户（角色）</p>
+<p>代码演示：授权<br>SQL&gt; GRANT CONNECT TO jerry;<br>授权成功。<br>SQL&gt; GRANT RESOURCE TO jerry;<br>授权成功。<br>SQL&gt;</p>
+<p>语法结构：其他操作<br>//回收权限<br>REVOKE 角色|权限 FROM 用户（角色）<br>//修改用户的密码<br>ALTER USER 用户名 IDENTIFIED BY 新密码<br>//修改用户处于锁定（非锁定）状态<br>ALTER USER 用户名 ACCOUNT LOCK|UNLOCK</p>
+<p>第2章</p>
+<p>SQL数据操作和查询</p>
+<pre><code>主要内容
+    Oracle数据类型
+</code></pre><p>    SQL建表和约束<br>    SQL对数据增删改<br>    SQL查询<br>    Oracle伪列</p>
+<ol>
+<li>SQL简介<br>在Oracle开发中，客户端把SQL语句发送给服务器，服务器对SQL语句进行编译、执行，把执行的结果返回给客户端。Oracle SQL语句由如下命令组成：<br>    数据定义语言（DDL），包括CREATE（创建）命令、ALTER（修改）命令、DROP（删除）命令等。<br>    数据操纵语言（DML），包括INSERT（插入）命令、UPDATE（更新）命令、DELETE（删除）命令、SELECT … FOR UPDATE（查询）等。<br>    数据查询语言（DQL），包括基本查询语句、Order By子句、Group By子句等。<br>    事务控制语言（TCL），包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。<br>    数据控制语言（DCL），GRANT（授权）命令、REVOKE（撤销）命令。</li>
+</ol>
+<p>目前主流的数据库产品（比如：SQL Server、Oracle）都支持标准的SQL语句。数据定义语言，表的增删改操作，数据的简单查询，事务的提交和回滚，权限的授权和撤销等，Oracle与SQL Server在操作上基本一致。</p>
+<ol start="2">
+<li>Oracle数据类型<br>Oracle数据库的核心是表，表中的列使用到的常见数据类型如下：</li>
+</ol>
+<p>类型    含义<br>CHAR(length)    存储固定长度的字符串。参数length指定了长度，如果存储的字符串长度小于length，用空格填充。默认长度是1，最长不超过2000字节。<br>VARCHAR2(length)    存储可变长度的字符串。length指定了该字符串的最大长度。默认长度是1，最长不超过4000字符。<br>NUMBER(p，s)    既可以存储浮点数，也可以存储整数，p表示数字的最大位数（如果是小数包括整数部分和小数部分和小数点，p默认是38为），s是指小数位数。<br>DATE    存储日期和时间，存储纪元、4位年、月、日、时、分、秒，存储时间从公元前4712年1月1日到公元后4712年12月31日。<br>TIMESTAMP    不但存储日期的年月日，时分秒，以及秒后6位，同时包含时区。<br>CLOB    存储大的文本，比如存储非结构化的XML文档<br>BLOB    存储二进制对象，如图形、视频、声音等。<br>表1  Oracle的部分数据类型</p>
+<pre><code>对应NUMBER类型的示例：
+</code></pre><p>格式    输入的数字    实际的存储<br>NUMBER    1234.567    1234.567<br>NUMBER（6，2）    123.4567    123.46<br>NUMBER（4，2）    12345.67    输入的数字超过了所指定的精度，数据库不能存储<br>表2  Number示例</p>
+<pre><code>对于日期类型，可以使用sysdate内置函数可以获取当前的系统日期和时间，返回DATE类型，用systimestamp函数可以返回当前日期、时间和时区。
+</code></pre><p>图1  sysdate和sysTimestamp</p>
+<pre><code>Oracle的查询中，必须使用“select 列… from 表”的完整语法，当查询单行函数的时候，from后面使用DUAL表，dual表在系统中只有一行一列，该表在输出单行函数时为了select…from的语法完整性而使用。
+</code></pre><ol start="3">
+<li>创建表和约束<br>Oracle创建表同SQL Server一样，使用CREATE TABLE命令来完成。创建约束则使用如下命令：<br>语法格式：ALTER TABLE命令<br>ALTER TABLE 表名 ADD CONSTRAINT 约束名 约束内容。</li>
+</ol>
+<p>不论创建表还是约束，与SQL Server基本相同，注意：在Oracle中default是一个值，而SQL Server中default是一个约束，因此Oracle的default设置可以在建表的时候创建。</p>
+<p>案例1：创建一个学生信息（INFOS）表和约束</p>
+<p>代码演示：Oracle创建表和约束<br>CREATE TABLE INFOS<br>(<br>  STUID VARCHAR2(7) NOT NULL,    –学号 学号=‘S’+班号+2位序号<br>  STUNAME VARCHAR2(10) NOT NULL,  –姓名<br>  GENDER VARCHAR2(2) NOT NULL,    –性别<br>  AGE NUMBER(2) NOT NULL,        –年龄<br>  SEAT NUMBER(2) NOT NULL,        –座号<br>  ENROLLDATE DATE,      –入学时间<br>  STUADDRESS VARCHAR2(50) DEFAULT ‘地址不详’,      –住址<br>  CLASSNO VARCHAR2(4) NOT NULL    –班号 班号=学期序号+班级序号<br>)<br>/  ①<br>ALTER TABLE INFOS ADD CONSTRAINT PK_INFOS PRIMARY KEY(STUID)  ②<br>/<br>ALTER TABLE INFOS ADD CONSTRAINT CK_INFOS_GENDER<br>CHECK(GENDER = ‘男’ OR GENDER = ‘女’)  ③<br>/<br>ALTER TABLE INFOS ADD CONSTRAINT CK_INFOS_SEAT<br>CHECK(SEAT &gt;=0 AND SEAT &lt;=50)  ④<br>/<br>ALTER TABLE INFOS ADD CONSTRAINT CK_INFOS_AGE<br>CHECK(AGE &gt;=0 AND AGE&lt;=100)  ⑤<br>/<br>ALTER TABLE INFOS ADD CONSTRAINT CK_INFOS_CLASSNO<br>CHECK((CLASSNO &gt;=’1001’ AND CLASSNO&lt;=’1999’) OR<br>(CLASSNO &gt;=’2001’ AND CLASSNO&lt;=’2999’))  ⑥<br>/<br>ALTER TABLE INFOS ADD CONSTRAINTS UN_STUNAME UNIQUE(STUNAME)  ⑦<br>/<br>代码解析：<br>①    在Oracle代码中，“/”执行缓存区中的语句，由于缓冲区中只存储一条刚刚保存过语句，由于每条语句没有用分号结尾，只是保存在缓冲区，因此每条语句后面都有单独一行“/”。<br>②    创建一个主键约束。<br>③    与 ④ ⑤ ⑥ ⑦一起创建各种check约束。其中⑦是唯一约束，表示该列值是唯一的，列中的值不能重复。</p>
+<p>Oracle中创建外键约束与SQL Server相同。比如：现有成绩表定义如下：</p>
+<p>案例2：创建一个成绩表（SCORES）表和约束</p>
+<p>代码演示：Oracle创建表和约束<br>CREATE TABLE SCORES<br>(<br>     ID NUMBER ,        –ID  ①<br>     TERM VARCHAR2(2),                    –学期 S1或S2<br>      STUID VARCHAR2(7) NOT NULL,            –学号<br>      EXAMNO VARCHAR2(7) NOT NULL,            –考号 E+班号+序号<br>      WRITTENSCORE NUMBER(4,1) NOT NULL,    –笔试成绩<br>      LABSCORE NUMBER(4,1) NOT NULL        –机试成绩<br>)<br>ALTER TABLE SCORES<br>    ADD CONSTRAINT CK_SCORES_TERM CHECK(TERM = ‘S1’ OR TERM =’S2’)<br>/<br>ALTER TABLE SCORES<br>    ADD CONSTRAINT FK_SCORES_INFOS_STUID FOREIGN KEY(STUID) REFERENCES INFOS(STUID)  ②<br>/<br>代码解析：<br>①    SQL Server中可以使用identify创建自动增长列，但是Oracle中的自动增长需要借助序列（Sequence）完成，在后面章节中讲解。<br>②    Oracle中的外键约束定义。</p>
+<ol start="4">
+<li>数据操纵语言（DML）<br>数据操纵语言（DML）用于对数据库的表中数据进行添加、修改、删除和SELECT…For UPDATE(后面专门学习该查询)操作。对比一期学习过的SQL Server操作，接下来一一介绍在Oracle中的操作。</li>
+</ol>
+<p>    简单查询</p>
+<p>数据查询是用SELECT命令从数据库的表中提取信息。SELECT语句的语法是：</p>
+<p>语法结构：简单查询<br>SELECT *|列名|表达式 FROM 表名 WHERE 条件 ORDER BY 列名<br>语法解析：</p>
+<ol>
+<li>*表示表中的所有列。</li>
+<li>列名可以选择若干个表中的列名，各个列表中间用逗号分隔。</li>
+<li>表达式可以是列名、函数、常数等组成的表达式。</li>
+<li>WHERE子句是查询的条件。</li>
+<li>ORDER BY 要求在查询的结果中排序，默认是升序。</li>
+</ol>
+<p>图2  数据查询</p>
+<pre><code>Oracle中可以把查询的结果根据结果集中的表结构和数据形成一张新表。
+</code></pre><p>语法结构：根据结果集创建表<br>CREATE TABLE 表名 AS SELECT语句</p>
+<p>代码演示：根据结果集创建表<br>SQL&gt; CREATE TABLE INFOS1 AS SELECT * FROM INFOS;<br>TABLE CREATED</p>
+<pre><code>使用上面命令创建的新表中，不存在任何约束，并且把查询的数据一起插入到新表中。如果只复制表结构，只需使查询的条件不成立（比如where 1=2），就不会查询从出任何数据，从而复制一个表结构。
+</code></pre><p>代码演示：复制表结构<br>SQL&gt; CREATE TABLE INFOS2 AS SELECT * FROM INFOS WHERE 1=2;<br>TABLE CREATED</p>
+<p>    数据插入</p>
+<p>用INSERT命令完成对数据的插入。</p>
+<p>语法结构：根据结果集创建表<br>INSERT INTO 表名(列名1，列名2……) VALUES (值1，值2……)<br>语法解析：</p>
+<ol>
+<li>列名可以省略。当省略列名时，默认是表中的所有列名，列名顺序为表定义中列的先后顺序。</li>
+<li>值的数量和顺序要与列名的数量和顺序一致。值的类型与列名的类型一致。</li>
+</ol>
+<p>代码演示：向INFOS表和SCORES表中插入数据<br>SQL&gt; INSERT INTO INFOS VALUES (  ①<br>  2  ‘s100102’, ‘林冲’, ‘男’, 22, 2,<br>  3  TO_DATE(‘2009-8-9 06:30:10’,’ YYYY-MM-DD HH24:MI:SS ‘),  ②<br>  4  ‘西安’, ‘1001’<br>  5  )<br>  6  /<br>1 row inserted<br>SQL&gt; INSERT INTO INFOS VALUES (<br>‘s100104’,’阮小二’,’男’,26,3,SYSDATE,default,’1001’);  ③<br> 1 row inserted<br>SQL&gt;COMMIT;  ④<br>代码解析：<br>①    表名后面缺省了列名，默认是表Infos中的所有列名，values中的值要与表中列一一对应，包括顺序和数据类型的对应。在SQL*Plus中一条语句可以写在多行，那么从第二行开始，sqlplus会为每一行前面给出行号。<br>②    在Oracle中，日期是国际化的，不同的区域安装的数据库，默认的日期格式不同，因此为了程序便于移植，日期的输入要使用TO_DATE函数对日期格式化后输入，采用格式化字符串对日期进行格式化时，格式化字符串中字符不区分大小写，常见的格式化字符如下：</p>
+<ol>
+<li>yyyy表示四位年份</li>
+<li>mm表示两位月份，比如3月表示为03</li>
+<li>dd表示两位日期</li>
+<li>hh24表示小时从0-23，hh12也表示小时从0-11。</li>
+<li>mi 表示分钟</li>
+<li>ss表示秒<br>③    在遇到存在默认值的列时，可以使用default值代替。<br>④    commit是把用户操作（添加、删除、修改操作）提交，只有提交操作后，数据才能真正更新到表中，否则其他用户无法查询到当前用户操作的结果。</li>
+</ol>
+<p>在Oracle中，一个INSERT命令可以把一个结果集一次性插入到一张表中。使用的语句是：INSERT INTO 表 SELECT子句，如下示例：</p>
+<p>代码演示：INSERT向表中插入一个结果集<br>SQL&gt; INSERT INTO INFOS2 SELECT * FROM INFOS;<br>5 rows inserted </p>
+<p>在这种语法下，要求结果集中每一列的数据类型必须与表中的每一列的数据类型一致，结果集中的列的数量与表中的列的数量一致。比如表INFOS2，该表的结构与INFO表一样，那么可以把INFO表中的所有记录一次性插入到INFOS2表中。</p>
+<p>Oracle的简单查询和SQL Server一样都可以在查询列中使用常量，如图： </p>
+<p>图3  Select中的常量</p>
+<p>可以使用刚才的做法，把该结果集中的数据插入到表INFOS中。</p>
+<p>代码演示：INSERT向表中插入一个常量结果集<br>SQL&gt; INSERT INTO INFOS<br>SELECT ‘s100106’,’卢俊义’,’男’,23,5,<br>               TO_DATE(‘2009-8-9 08:00:10’,’YYYY-MM-DD HH24:MI:SS’),<br>               ‘青龙寺’,’1001’<br>FROM DUAL;<br>1 rows inserted<br>SQL&gt;COMMIT;</p>
+<p>    更新数据</p>
+<p>Oracle在表中更新数据的语法是：</p>
+<p>语法结构：UPDATE操作<br>UPDATE 表名 SET 列名1=值，列名2=值…… WHERE 条件</p>
+<p>代码演示：UPDATE操作<br>SQL&gt; UPDATE INFOS SET CLASSNO=’1002’,STUADDRESS=’山东莱芜’<br>WHERE STUNAME=’阮小二’;<br>1 rows updated<br>SQL&gt; commit;</p>
+<p>    删除数据</p>
+<p>Oracle在表中删除数据的语法是：</p>
+<p>语法结构：DELETE操作<br>DELETE FROM表名 WHERE 条件</p>
+<p>代码演示：DELETE操作<br>SQL&gt; DELETE FROM INFOS WHERE STUID=’s100103’;<br>1 ROW DELETED<br>SQL&gt; COMMIT;</p>
+<p>    TRUNCATE</p>
+<p>在数据库操作中， TRUNCATE命令（是一个DDL命令）可以把表中的所有数据一次性全部删除，语法是：</p>
+<p>语法结构：TRUNCATE<br>TRUNCATE TABLE 表名</p>
+<p>TRUNCATE和DELETE都能把表中的数据全部删除，他们的区别是：</p>
+<ol>
+<li>TRUNCATE是DDL命令，删除的数据不能恢复；DELETE命令是DML命令，删除后的数据可以通过日志文件恢复。</li>
+<li>如果一个表中数据记录很多，TRUNCATE相对DELETE速度快。</li>
+</ol>
+<p>由于TRUNCATE命令比较危险，因此在实际开发中，TRUNCATE命令慎用。</p>
+<pre><code>Oracle默认安装中，已经创建了一个SCOTT用户，默认密码是：tiger，该用户下有四张表分别是：雇员表（EMP），部门表（DEPT），工资登记表和奖金表，请参考本章后面的附表。接下来很多操作都是在该用户下完成的。
+</code></pre><ol start="5">
+<li>操作符<br>Oracle开发中，依然存在算术运算，关系运算，和逻辑运算。</li>
+</ol>
+<p>    算术运算</p>
+<p>Oracle中的算术运算符，没有C#中的算术运算符丰富，只有+、-、*、/四个，其中除号(/)的结果是浮点数。求余运算只能借助函数：MOD(x,y)：返回x除以y的余数。</p>
+<p>案例3：每名员工年终奖是2000元，请显示基本工资在2000元以上的员工的月工资，年总工资。<br>该案例的表请参见本章练习的附表1、附表2、附表3，这三张表是ORACLE 10g自带的。</p>
+<p>代码演示：查询中的算术运算<br>SQL&gt; SELECT ENAME,SAL,(SAL<em>12+2000) FROM EMP WHERE SAL&gt;2000;<br>ENAME     SAL     (SAL</em>12+2000)<br>JONES     2975     37700<br>BLAKE     2850     36200<br>CLARK     2450     31400<br>SCOTT     3000     38000<br>KING     5000     62000<br>FORD     3000     38000<br>6 rows selected</p>
+<p>    关系运算和逻辑运算</p>
+<p>Oracle中Where子句经中经常见到关系运算和逻辑运算，常见的关系运算有：</p>
+<p>运算符    说明    运算符    说明<br>=    等于     &gt;    大于<br>&lt;&gt;或者!=    不等于    &lt;=    小于或者等于<br>&lt;    小于    &gt;=    大于或者等于<br>表3  Oracle的关系运算符</p>
+<p>逻辑运算符有三个：AND、OR、NOT</p>
+<p>关系运算和逻辑运算与前面SQL Server学习过的一致。</p>
+<p>    字符串连接操作符（||）</p>
+<p>在Oracle中，字符串的连接用双竖线（||）表示。比如，在EMP表中，查询工资在2000元以上的姓名以及工作。</p>
+<p>代码演示：字符串连接<br>SQL&gt; SELECT (ENAME || ‘is a ‘ || JOB) AS “Employee Details”  ①<br>  2  FROM EMP<br>  3  WHERE SAL&gt;2000; </p>
+<h2 id="Employee-Details"><a href="#Employee-Details" class="headerlink" title="Employee Details"></a>Employee Details</h2><p>JONESis a MANAGER<br>BLAKEis a MANAGER<br>CLARKis a MANAGER<br>SCOTTis a ANALYST<br>KINGis a PRESIDENT<br>FORDis a ANALYST<br>6 rows selected<br>代码解析：<br>①    Oracle中字符串可以用单引号，也可以用双引号，在别名中存在空格时，必须用双引号。在表名、列名时用双引号。</p>
+<ol start="6">
+<li>高级查询<br>在第一期学习过SQL的简单查询和连接查询。现在学习一些新的SQL操作符。</li>
+</ol>
+<p>    消除重复行</p>
+<p>在Oracle查询中结果中，可能出现若干行相同的情况，那么可以使用DISTINCT消除重复行。具体的用法如示例：</p>
+<p>代码演示：DISTINCT消除重复行<br>SQL&gt; SELECT DISTINCT DEPTNO FROM EMP; </p>
+<h2 id="DEPTNO"><a href="#DEPTNO" class="headerlink" title="DEPTNO"></a>DEPTNO</h2><pre><code>30
+20
+10
+</code></pre><p>    NULL操作</p>
+<p>如果某条记录中有缺少的数据值，就是空值（NULL值）。空值不等于0或者空格，空值是指未赋值、未知或不可用的值。任何数据类型的列都可以包括NULL值，除非该列被定义为非空或者主键。</p>
+<p>代码演示：EMP中的NULL值<br>SQL&gt; SELECT ENAME,JOB,SAL,COMM FROM EMP WHERE SAL&lt;2000;<br>ENAME     JOB     SAL     COMM<br>SMITH     CLERK     800<br>ALLEN     SALESMAN     1600     300<br>WARD     SALESMAN     1250     500<br>MARTIN     SALESMAN     1250     1400<br>TURNER     SALESMAN     1500     0<br>ADAMS     CLERK     1100<br>JAMES     CLERK     950<br>7 rows selected</p>
+<pre><code>在查询条件中NULL值用IS NULL作条件，非NULL值用NOT IS NULL做条件。    
+</code></pre><p>案例4：查询EMP表中没有发奖金的员工。</p>
+<p>代码演示：NULL值查询<br>SQL&gt; SELECT ENAME,JOB,SAL,COMM FROM EMP<br>2   WHERE SAL&lt;2000 AND COMM IS NULL;<br> ENAME     JOB     SAL     COMM<br>SMITH     CLERK     800<br>ADAMS     CLERK     1100<br>JAMES     CLERK     950<br>MILLER     CLERK     1300     </p>
+<p>    IN 操作</p>
+<p>在Where子句中可以使用IN操作符来查询其列值在指定的列表中的行。比如：查询出工作职责是SALESMAN、PRESIDENT或者ANALYST的员工。条件有两种表示方法：</p>
+<ol>
+<li>WHERE job = ‘SALESMAN ‘ OR job = ‘PRESIDENT ‘ OR job = ‘ANALYST ‘</li>
+<li>WHERE job IN (‘SALESMAN’, ‘PRESIDENT’, ‘ANALYST’)</li>
+</ol>
+<p>代码演示：IN操作<br>SQL&gt; SELECT ENAME,JOB,SAL FROM EMP<br>2  WHERE job IN (‘SALESMAN’, ‘PRESIDENT’, ‘ANALYST’);<br>ENAME     JOB     SAL<br>ALLEN     SALESMAN     1600<br>WARD     SALESMAN     1250<br>MARTIN     SALESMAN     1250<br>SCOTT     ANALYST     3000<br>KING     PRESIDENT     5000<br>TURNER     SALESMAN     1500<br>FORD     ANALYST     3000<br>7 rows selected</p>
+<pre><code>对应IN操作的还有NOT IN，用法一样，结果相反。
+</code></pre><p>    BETWEEN…AND…</p>
+<p>在WHERE子句中，可以使用BETWEEN操作符来查询列值包含在指定区间内的行。比如，查询工资从1000到2000之间的员工。可以使用传统方法：</p>
+<pre><code>WHERE SAL&gt;=1000 AND SAL&lt;=2000
+
+也可以使用：
+    WHERE SAL BETWEEN 1000 AND 2000
+BWTWEEN操作所指定的范围也包括边界。
+</code></pre><p>代码演示：BETWEEN操作<br>SQL&gt; SELECT ename,job,sal FROM EMP WHERE sal BETWEEN 1000 AND 2000;<br>ENAME     JOB     SAL<br>ALLEN     SALESMAN     1600<br>WARD     SALESMAN     1250<br>MARTIN     SALESMAN     1250<br>TURNER     SALESMAN     1500<br>ADAMS     CLERK     1100<br>MILLER     CLERK     1300<br>6 rows selected</p>
+<p>    LIKE模糊查询</p>
+<p>在一些查询时，可能把握不准需要查询的确切值，比如百度搜索时输入关键字即可查询出相关的结果，这种查询称为模糊查询。模糊查询使用LIKE关键字通过字符匹配检索出所需要的数据行。字符匹配操作可以使用通配符“%”和“_”:<br>    %：表示零个或者多个任意字符。<br>    _：代表一个任意字符。</p>
+<p>语法是：LIKE ‘字符串’[ESCAPE ‘字符’]。匹配的字符串中，ESCAPE后面的“字符”作为转义字符。与一期SQLServer中ESCAPE用法相同。</p>
+<p>通配符表达式    说明<br>‘S%’    以S开头的字符串。<br>‘_S%’    第二个字符时S的字符串。<br>‘%30\%%’ escape ‘\’    包含“30%”的字符串，“\”指转义字符，“\%”在字符串中表示一个字符“%”。<br>表4  通配符示例</p>
+<p>案例5：显示员工名称以J开头以S结尾的员工的姓名、工资和工资。</p>
+<p>代码演示：LIKE操作<br>SQL&gt; SELECT ENAME,JOB,SAL FROM EMP WHERE ENAME LIKE ‘J%S’;</p>
+<p>ENAME      JOB             SAL</p>
+<hr>
+<p>JONES      MANAGER     2975.00<br>JAMES      CLERK         950.00</p>
+<p>    集合运算</p>
+<p>集合运算就是将两个或者多个结果集组合成为一个结果集。集合运算包括：<br>    INTERSECT(交集)，返回两个查询共有的记录。<br>    UNION ALL(并集)，返回各个查询的所有记录，包括重复记录。<br>    UNION(并集)，返回各个查询的所有记录，不包括重复记录。<br>    MINUS(补集)，返回第一个查询检索出的记录减去第二个查询检索出的记录之后剩余的记录。</p>
+<p>当使用集合操作的时候，要注意：查询所返回的列数以及列的类型必须匹配，列名可以不同。</p>
+<pre><code>案例6：查询出dept表中哪个部门下没有员工。只需求出dept表中的部门号和emp表中的部门号的补集即可。
+</code></pre><p>代码演示：求补运算<br>SQL&gt; SELECT DEPTNO FROM DEPT<br>  2  MINUS<br>  3  SELECT DEPTNO FROM EMP; </p>
+<h2 id="DEPTNO-1"><a href="#DEPTNO-1" class="headerlink" title="DEPTNO"></a>DEPTNO</h2><pre><code>40
+
+前面学习过可以通过insert into …select把一个结果集插入到另一张结构相同的表中，因此可以使用union把若干条记录一次性插入到一张表中。
+</code></pre><p>代码演示：用union插入多条数据<br>SQL&gt; INSERT INTO DEPT<br>  2  SELECT 50,’公关部’,’台湾’ FROM DUAL<br>  3  UNION<br>  4  SELECT 60,’研发部’,’西安’ FROM DUAL<br>  5  UNION<br>  6  SELECT 70,’培训部’,’西安’ FROM DUAL<br>  7  /<br>3 rows inserted</p>
+<p>    连接查询</p>
+<p>在SQL Server中已经学习过内联接(inner join)、外联接(outer join)，外联接又分为左外联接(left outer join)和右外联接(right outer join)。Oracle中对两个表或者若干表之间的外联接用（+）表示。</p>
+<p>案例7：请查询出工资大于2000元的，员工姓名，部门，工作，工资。</p>
+<p>由于部门名称在dept中，其他的信息在emp表中，需要内联接才能完成。</p>
+<p>代码演示：内联接<br>SQL&gt; SELECT e.ENAME,e.JOB,e.SAL,d.DNAME<br>  2  FROM emp e,dept d<br>  3  WHERE e.deptno=d.deptno<br>  4  AND e.SAL&gt;2000;<br>ENAME     JOB     SAL     DNAME<br>JONES     MANAGER     2975     RESEARCH<br>BLAKE     MANAGER     2850     SALES<br>CLARK     MANAGER     2450     ACCOUNTING<br>SCOTT     ANALYST     3000     RESEARCH<br>KING     PRESIDENT     5000     ACCOUNTING<br>FORD     ANALYST     3000     RESEARCH<br>6 rows selected</p>
+<pre><code>也可以使用SQL/92标准中的内联接：
+</code></pre><p>代码演示：内联接<br>SELECT e.ENAME,e.JOB,e.SAL,d.DNAME<br> FROM EMP e INNER JOIN DEPT d ON e.DEPTNO=d.DEPTNO<br>WHERE e.SAL&gt;2000        </p>
+<p>这里INNER JOIN中，关键字INNER可以省略。</p>
+<p>案例8：请查询出每个部门下的员工姓名，工资。<br>案例分析：<br>Emp表用外键deptno引用Dept表中的deptno，在Dept表中如果有某些部门没有员工，那么用内联接，没有员工的部门将无法显示，因此必须以Dept表为基准的外联接。</p>
+<p>代码演示：外联接<br>SQL&gt; SELECT e.ENAME,e.JOB,e.SAL,d.DNAME<br>  2  FROM EMP e ,DEPT d<br>  3  WHERE  e.DEPTNO(+)=d.DEPTNO  ①<br>  4  /<br>ENAME     JOB     SAL     DNAME<br>SMITH     CLERK     800     RESEARCH<br>ALLEN     SALESMAN     1600     SALES<br>WARD     SALESMAN     1250     SALES<br>JONES     MANAGER     2975     RESEARCH<br>MARTIN     SALESMAN     1250     SALES<br>BLAKE     MANAGER     2850     SALES<br>CLARK     MANAGER     2450     ACCOUNTING<br>SCOTT     ANALYST     3000     RESEARCH<br>KING     PRESIDENT     5000     ACCOUNTING<br>TURNER     SALESMAN     1500     SALES<br>ADAMS     CLERK     1100     RESEARCH<br>JAMES     CLERK     950     SALES<br>FORD     ANALYST     3000     RESEARCH<br>MILLER     CLERK     1300     ACCOUNTING<br>                  公关部<br>                  研发部<br>                  培训部<br>                  OPERATIONS </p>
+<p> 18 rows selected<br>代码解析：<br>①     (+)：Oracle专用的联接符，在条件中出现在左边指右外联接，出现在右边指左外联接。</p>
+<pre><code>也可以使用SQL/92标准的写法：
+</code></pre><p>代码演示：外联接<br>SELECT e.ENAME,e.JOB,e.SAL,d.DNAME<br>FROM EMP e RIGHT OUTER JOIN DEPT d ON e.DEPTNO=d.DEPTNO</p>
+<pre><code>这里RIGHT OUTER JOIN中，关键字OUTER可以省略。
+
+ 虽然Oracle自身的联接查询语法比较好写，同时容易理解，但是为了程序便于移植，推荐使用SQL/92表中的联接查询。同时也可以与SQL Server获得一致。
+</code></pre><ol start="7">
+<li>本章总结<br>    Oracle SQL语句中有数据操纵语言（DML）、数据定义语言（DDL）、数据控制语言（DCL）、事务控制语言（TCL）等等。<br>    DML语句包括增删改查语句，DDL语句包括数据库对象创建、修改和删除语句，数据控制命令包括GRANT、REVOKE等，事务控制命令有COMMIT、ROLLBACK等。<br>    数据库中建表常用的类型有：数字类型number（p，s），可变字符串varchar2（length），日期date。<br>    Oracle中default是一个值，在Oracle中不存在default约束。<br>    Oracle的增删改语句与SQL Server基本一致，都是使用INSERT、UPDATE、DELETE完成。<br>    Oracle高级查询中要注意：DISTINCT、NULL、IN、BETWEEN…AND…。<br>    集合操作有：UNION、UNION ALL、INTESECT、MINUS。<br>    联接查询有内联接和外联接。</li>
+</ol>
+<ol start="8">
+<li>本章练习</li>
+<li>创建一查询，显示与Blake在同一部门工作的雇员的项目和受雇日期，但是Blake不包含在内。</li>
+<li>显示位置在Dallas的部门内的雇员姓名、变化以及工作。</li>
+<li>显示被King直接管理的雇员的姓名以及工资。</li>
+<li>创建一查询，显示能获得与Scott一样工资和奖金的其他雇员的姓名、受雇日期以及工资。</li>
+</ol>
+<p>附表1：Scott表中的EMP表：员工表<br>序号    列名    类型    说明<br>1    EMPNO    NUMBER(4)    员工编号，EMP表主键<br>2    ENAME    VARCHAR2(10)    员工姓名<br>3    JOB    VARCHAR2(9)    员工工作<br>4    MGR    NUMBER(4)    员工的领导编号，引用EMPNO<br>5    HIREDATE    DATE    入职日期<br>6    SAL    NUMBER(7,2)    员工工资<br>7    COMM    NUMBER(7,2)    员工奖金<br>8    DEPTNO    NUMBER(2)    员工部门编号，是表DEPT的外键。</p>
+<p>附表2：Scott表中的DEPT表：部门表<br>序号    列名    类型    说明<br>1    DEPTNO    NUMBER(2)    部门编号，主键<br>2    DNAME    VARCHAR2(14)    部门名称<br>3    LOC    VARCHAR2(13)    部门位置</p>
+<p>附表3：Scott表中的SALGRADE表：工资等级表<br>序号    列名    类型    说明<br>1    GRADE    NUMBER    等级<br>2    LOSAL    NUMBER    此等级下最低工资<br>3    HISAL    NUMBER    此等级下最高工资</p>
+<p>章节知识结构图</p>
+<p>第3章</p>
+<p>子查询和常用函数</p>
+<pre><code>主要内容
+    子查询
+</code></pre><p>    伪列<br>    锁的概念</p>
+<ol>
+<li>子查询<br>子查询在SELECT、UPDATE、DELETE语句内部可以出现SELECT语句。内部的SELECT语句结果可以作为外部语句中条件子句的一部分，也可以作为外部查询的临时表。子查询的类型有：</li>
+<li>单行子查询：不向外部返回结果，或者只返回一行结果。</li>
+<li>多行子查询：向外部返回零行、一行或者多行结果。</li>
+</ol>
+<p>案例1：查询出销售部（SALES）下面的员工姓名，工作，工资。<br>案例分析<br>该问题可以用联接查询实现，由于所需的结果信息都在Emp表中，可以先从Dept表中查询出销售部对应的部门号，然后根据当前部门号再到Emp表中查询出符合该部门的员工记录即可。从销售表中查询出的结果可以作为Emp表中查询的条件，SQL语句实现如下：</p>
+<p>代码演示：单行子查询<br>SQL&gt; SELECT ENAME,JOB,SAL FROM EMP<br>  2  WHERE DEPTNO=(SELECT DEPTNO FROM DEPT WHERE DNAME=’SALES’)  ①<br>  3  /<br> ENAME     JOB     SAL<br>ALLEN     SALESMAN     1600<br>WARD     SALESMAN     1250<br>MARTIN     SALESMAN     1250<br>BLAKE     MANAGER     2850<br>TURNER     SALESMAN     1500<br>JAMES     CLERK     950<br> 6 rows selected<br>代码解析：<br>①    内部查询的结果作为外部查询的条件。</p>
+<p>需要注意：<br>    如果内部查询不返回任何记录，则外部条件中字段DEPTNO与NULL比较永远为假，也就是说外部查询不返还任何结果。<br>    在单行子查询中外部查询可以使用=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;等比较运算符。<br>    内部查询返回的结果必须与外部查询条件中的字段（DEPTNO）匹配。<br>    如果内部查询返回多行结果则出现错误。</p>
+<p>案例2：查询出Emp表中比任意一个销售员(“SALESMAN”)工资低的员工姓名、工作、工资。<br>案例分析<br>销售员在Emp表中有很多条记录，每个人工资不相等，如果返回“比任意员工的工资还低”的条件，返回比“最高工资还低”即可。如果用子查询做，子查询中就会返回多条记录。用普通的关系符（&gt;、&lt;等）运行就会出错。这时候需要用关键字ANY。ANY放在比较运算符后面，表示“任意”的意思。</p>
+<p>代码演示：ANY子查询<br>SQL&gt; SELECT ENAME,JOB,SAL FROM EMP<br>  2  WHERE SAL&lt;ANY (SELECT SAL FROM EMP WHERE JOB=’SALESMAN’)  ①<br>  3  /<br>ENAME     JOB     SAL<br>SMITH     CLERK     800<br>JAMES     CLERK     950<br>ADAMS     CLERK     1100<br>WARD     SALESMAN     1250<br>MARTIN     SALESMAN     1250<br>MILLER     CLERK     1300<br>TURNER     SALESMAN     1500<br> 7 rows selected<br>代码解析：<br>①    <a href="any:比子查询结果中任意的值都小，也就是说，比子查询结果中最大值还小，那么同理" target="_blank" rel="noopener">any:比子查询结果中任意的值都小，也就是说，比子查询结果中最大值还小，那么同理</a>any表示比子查询结果中最小的还大。</p>
+<p>案例3：查询出比所有销售员的工资都高的员工姓名，工作，工资。</p>
+<p>案例分析<br>ANY可以表示任意的，但本案例中要求比所有销售员工资都高，那么就要使用另外一个关键字ALL。ALL与关系操作符一起使用，表示与子查询中所有元素比较。</p>
+<p>代码演示：ALL子查询<br>SQL&gt; SELECT ENAME,JOB,SAL FROM EMP<br>  2  WHERE SAL&gt;ALL (SELECT SAL FROM EMP WHERE JOB=’SALESMAN’)  ①<br>  3  /<br> ENAME     JOB     SAL<br>JONES     MANAGER     2975<br>BLAKE     MANAGER     2850<br>CLARK     MANAGER     2450<br>SCOTT     ANALYST     3000<br>KING     PRESIDENT     5000<br>FORD     ANALYST     3000<br>6 rows selected<br>代码解析：<br>①    &gt;ALL：比子查询结果中所有值还要大，也就是说，比子查询结果中最大值还要大。&lt;ALL表示比最小值还要小。</p>
+<p>对于子查询还可以使用IN和NOT IN操作符进行操作。</p>
+<ol start="2">
+<li>Oracle中的伪列<br>在Oracle的表的使用过程中，实际表中还有一些附加的列，称为伪列。伪列就像表中的列一样，但是在表中并不存储。伪列只能查询，不能进行增删改操作。接下来学习两个伪列：ROWID和ROWNUM。</li>
+</ol>
+<p>    ROWID</p>
+<p>表中的每一行在数据文件中都有一个物理地址，ROWID伪列返回的就是该行的物理地址。使用ROWID可以快速的定位表中的某一行。ROWID值可以唯一的标识表中的一行。由于ROWID返回的是该行的物理地址，因此使用ROWID可以显示行是如何存储的。</p>
+<p>代码演示：ROWID<br>SQL&gt; SELECT ROWID,ENAME FROM EMP WHERE SAL&gt;2000;<br>ROWID     ENAME<br>AAAMgzAAEAAAAAgAAD     JONES<br>AAAMgzAAEAAAAAgAAF     BLAKE<br>AAAMgzAAEAAAAAgAAG     CLARK<br>AAAMgzAAEAAAAAgAAH     SCOTT<br>AAAMgzAAEAAAAAgAAI     KING<br>AAAMgzAAEAAAAAgAAM     FORD<br>6 rows selected</p>
+<p>    ROWNUM</p>
+<p>在查询的结果集中，ROWNUM为结果集中每一行标识一个行号，第一行返回1，第二行返回2，以此类推。通过ROWNUM伪列可以限制查询结果集中返回的行数。</p>
+<pre><code>ROWNUM与ROWID不同，ROWID是插入记录时生成，ROWNUM是查询数据时生成。ROWID标识的是行的物理地址。ROWNUM标识的是查询结果中的行的次序。
+</code></pre><p>案例4：查询出员工表中前5名员工的姓名，工作，工资。</p>
+<p>代码演示：ROWNUM<br>SQL&gt; SELECT ROWNUM,ENAME,JOB,SAL FROM EMP WHERE ROWNUM&lt;=5;<br> ROWNUM     ENAME     JOB     SAL<br>1     SMITH     CLERK     800<br>2     ALLEN     SALESMAN     1600<br>3     WARD     SALESMAN     1250<br>4     JONES     MANAGER     2975<br>5     MARTIN     SALESMAN     1250</p>
+<p>案例5：查询出工资最高的前5名员工的姓名、工资和工资。<br>案例分析<br>“工资最高的前5名”需要先降序排序，再取前5名，但是生成ROWNUM操作比排序要早，排序时已经连同ROWNUM一起排序了，因此不能直接在案例1的语句中直接加上Order by就行，而是需要对排序的结果重新做二次查询，产生新的ROWNUM才能作为查询的条件依据。</p>
+<p>代码演示：ROWNUM应用<br>SQL&gt; SELECT ROWNUM,T.* FROM  ①<br>  2      (SELECT ENAME,JOB,SAL<br>  3       FROM EMP ORDER BY SAL DESC) T  ②<br>  4  WHERE ROWNUM&lt;=5<br>  5  /</p>
+<p>ROWNUM     ENAME     JOB     SAL<br>1     KING     PRESIDENT     5000<br>2     SCOTT     ANALYST     3000<br>3     FORD     ANALYST     3000<br>4     JONES     MANAGER     2975<br>5     BLAKE     MANAGER     2850</p>
+<p>代码解析：<br>①    T是子查询②的别名，这里的ROWNUM是第二次查询后的ROWNUM。</p>
+<p>案例6：查询出表EMP中第5条到第10条之间的记录。<br>案例分析<br>这是分页的应用。在查询条件中，如果查询条件中ROWNUM大于某一正整数，则不返还任何结果。</p>
+<p>代码演示：ROWNUM分页<br>SQL&gt; SELECT * FROM<br>  2     (SELECT ROWNUM R,ENAME,JOB,SAL  ①<br>  3      FROM EMP WHERE ROWNUM&lt;=10)  ②<br>  4  WHERE R&gt;5  ③<br>  5  /<br> R     ENAME     JOB     SAL<br>6     BLAKE     MANAGER     2850<br>7     CLARK     MANAGER     2450<br>8     SCOTT     ANALYST     3000<br>9     KING     PRESIDENT     5000<br>10     TURNER     SALESMAN     1500 </p>
+<p>代码解析：<br>①    内部查询中得到ROWNUM 并且用别名R记录，供外层条件③使用。<br>②    内部查询的ROWNUM，与外出的ROWNUM列是平等的两列。<br>③    使用的R是内层产生的ROWNUM，在外层看来，内层查询的ROWNUM是正常的一列。</p>
+<ol start="3">
+<li>Oracle函数<br>Oracle SQL提供了用于执行特定操作的专用函数。这些函数大大增强了SQL语言的功能。函数可以接受零个或者多个输入参数，并返回一个输出结果。Oracle数据库中主要使用两种类型的函数：</li>
+<li>单行函数：对每一个函数应用在表的记录中时，只能输入一行结果，返回一个结果，比如：MOD(x,y)返回x除以y的余数（x和y可以是两个整数，也可以是表中的整数列）。常用的单行函数有：<br>    字符函数：对字符串操作。<br>    数字函数：对数字进行计算，返回一个数字。<br>    转换函数：可以将一种数据类型转换为另外一种数据类型。<br>    日期函数：对日期和时间进行处理。</li>
+<li>聚合函数：聚合函数同时可以对多行数据进行操作，并返回一个结果。比如SUM(x)返回结果集中x列的总合。</li>
+</ol>
+<p>    字符函数</p>
+<p>字符函数接受字符参数，这些参数可以是表中的列，也可以是一个字符串表达式。下表列出了常用的字符函数。</p>
+<p>函数    说明<br>ASCII(x)    返回字符x的ASCII码。<br>CONCAT(x,y)    连接字符串x和y。<br>INSTR(x, str [,start] [,n)    在x中查找str，可以指定从start开始，也可以指定从第n次开始。<br>LENGTH(x)    返回x的长度。<br>LOWER(x)    x转换为小写。<br>UPPER(x)    x转换为大写。<br>LTRIM(x[,trim_str])    把x的左边截去trim_str字符串，缺省截去空格。<br>RTRIM(x[,trim_str])    把x的右边截去trim_str字符串，缺省截去空格。<br>TRIM([trim_str FROM] x)    把x的两边截去trim_str字符串，缺省截去空格。<br>REPLACE(x,old,new)    在x中查找old，并替换为new。<br>SUBSTR(x,start[,length])    返回x的字串，从staart处开始，截取length个字符，缺省length，默认到结尾。<br>表1  字符函数</p>
+<p>示例    示例结果<br>SELECT ASCII(‘a’) FROM DUAL    97<br>SELECT CONCAT(‘Hello’, ‘ world’) FROM DUAL    Hello world<br>SELECT INSTR(‘Hello world’，’or’) FROM DUAL    8<br>SELECT LENGTH(‘Hello’) FROM DUAL    5<br>SELECT LOWER(‘hElLO’) FROM DUAL;    hello<br>SELECT UPPER(‘hello’) FROM DUAL    HELLO<br>SELECT LTRIM(‘===HELLO===’, ‘=’) FROM DUAL    HELLO===<br>SELECT ‘==’||LTRIM(‘   HELLO===’) FROM DUAL    ==HELLO===<br>SELECT RTRIM(‘===HELLO===’, ‘=’) FROM DUAL    ===HELLO<br>SELECT ‘=’||TRIM(‘   HELLO   ‘)||’=’ FROM DUAL    =HELLO=<br>SELECT TRIM(‘=’ FROM ‘===HELLO===’) FROM DUAL    HELLO<br>SELECT REPLACE(‘ABCDE’,’CD’,’AAA’) FROM DUAL    ABAAAE<br>SELECT SUBSTR(‘ABCDE’,2) FROM DUAL    BCDE<br>SELECT SUBSTR(‘ABCDE’,2,3) FROM DUAL    BCD<br>表2  字符函数示例</p>
+<p>    数字函数</p>
+<p>数字函数接受数字参数，参数可以来自表中的一列，也可以是一个数字表达式。</p>
+<p>函数    说明    示例<br>ABS(x)    x绝对值    ABS(-3)=3<br>ACOS(x)    x的反余弦    ACOS(1)=0<br>COS(x)    余弦    COS(1)=1.57079633<br>CEIL(x)    大于或等于x的最小值    CEIL(5.4)=6<br>FLOOR(x)    小于或等于x的最大值    FLOOR(5.8)=5<br>LOG(x,y)    x为底y的对数    LOG(2,4)=2<br>MOD(x,y)    x除以y的余数    MOD(8,3)=2<br>POWER(x,y)    x的y次幂    POWER(2,3)=8<br>ROUND(x[,y])    x在第y位四舍五入    ROUND(3.456,2)=3.46<br>SQRT(x)    x的平方根    SQRT(4)=2<br>TRUNC(x[,y])    x在第y位截断    TRUNC(3.456,2)=3.45<br>表3  数字函数</p>
+<p>说明：</p>
+<ol>
+<li><p>ROUND(X[,Y])，四舍五入。<br>在缺省y时，默认y=0；比如：ROUND(3.56)=4。<br>y是正整数，就是四舍五入到小数点后y位。ROUND(5.654,2)=5.65。<br>y是负整数，四舍五入到小数点左边|y|位。ROUND(351.654,-2)=400。</p>
+</li>
+<li><p>TRUNC(x[,y])，直接截取，不四舍五入。<br>在缺省y时，默认y=0；比如：TRUNC (3.56)=3。<br>y是正整数，就是四舍五入到小数点后y位。TRUNC (5.654,2)=5.65。<br>y是负整数，四舍五入到小数点左边|y|位。TRUNC (351.654,-2)=300。</p>
+</li>
+</ol>
+<p>    日期函数</p>
+<p>日期函数对日期进行运算。常用的日期函数有：</p>
+<ol>
+<li>ADD_MONTHS(d,n)，在某一个日期d上，加上指定的月数n，返回计算后的新日期。d表示日期，n表示要加的月数。</li>
+</ol>
+<p>图1  ADD_MONTHS函数示例</p>
+<ol start="2">
+<li>LAST_DAY(d)，返回指定日期当月的最后一天。</li>
+</ol>
+<p>图2  LAST_DAY函数示例</p>
+<ol start="3">
+<li>ROUND(d[,fmt])，返回一个以fmt为格式的四舍五入日期值，d是日期，fmt是格式模型。默认fmt为DDD，即月中的某一天。<br>    如果fmt为“YEAR”则舍入到某年的1月1日，即前半年舍去，后半年作为下一年。<br>    如果fmt为“MONTH”则舍入到某月的1日，即前月舍去，后半月作为下一月。<br>    默认为“DDD”，即月中的某一天，最靠近的天，前半天舍去，后半天作为第二天。<br>    如果fmt为“DAY”则舍入到最近的周的周日，即上半周舍去，下半周作为下一周周日。</li>
+</ol>
+<p>图3  ROUND函数示例</p>
+<p>与ROUND对应的函数时TRUNC(d[,fmt])对日期的操作，TRUNC与ROUND非常相似，只是不对日期进行舍入，直接截取到对应格式的第一天。</p>
+<ol start="4">
+<li>EXTRACT(fmt FROM d)，提取日期中的特定部分。</li>
+</ol>
+<p>fmt为：YEAR、MONTH、DAY、HOUR、MINUTE、SECOND。其中YEAR、MONTH、DAY可以为DATE类型匹配，也可以与TIMESTAMP类型匹配；但是HOUR、MINUTE、SECOND必须与TIMESTAMP类型匹配。</p>
+<p>HOUR匹配的结果中没有加上时区，因此在中国运行的结果小8小时。</p>
+<p>图4  EXTRACT函数示例</p>
+<p>    转换函数</p>
+<p>转换函数将值从一种数据类型转换为另外一种数据类型。常用的转换函数有：</p>
+<ol>
+<li>TO_CHAR(d|n[,fmt])</li>
+</ol>
+<p>把日期和数字转换为制定格式的字符串。fmt是格式化字符串，日期的格式化字符串前面已经学习过。</p>
+<p>代码演示：TO_CHAR对日期的处理<br>SQL&gt; SELECT TO_CHAR(SYSDATE,’YYYY”年”MM”月”DD”日” HH24:MI:SS’) “date”  ①<br>  2  FROM DUAL;</p>
+<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><p>2009年08月11日 12:06:00<br>代码解析：<br>①    在格式化字符串中，使用双引号对非格式化字符进行引用。</p>
+<p>针对数字的格式化，格式化字符有：</p>
+<p>参数    示例    说明<br>9    999    指定位置处显示数字。<br>.    9.9    指定位置返回小数点<br>,    99,99    指定位置返回一个逗号<br>$    $999    数字开头返回一个美元符号<br>EEEE    9.99EEEE    科学计数法表示<br>L    L999    数字前加一个本地货币符号<br>PR    999PR    如果数字式负数则用尖括号进行表示<br>表4  数字格式化字符</p>
+<p>代码演示：TO_CHAR对数字的处理<br>SQL&gt; SELECT TO_CHAR(-123123.45,’L9.9EEEEPR’) “date”<br>  2  FROM DUAL<br>  3  /</p>
+<h2 id="date-1"><a href="#date-1" class="headerlink" title="date"></a>date</h2><p> &lt;￥1.2E+05&gt;</p>
+<ol start="2">
+<li><p>TO_DATE(x [,fmt])<br>把一个字符串以fmt格式转换为一个日期类型，前面已经学习过。</p>
+</li>
+<li><p>TO_NUMBER(x[,fmt])<br>把一个字符串以fmt格式转换为一个数字。fmt格式字符参考表3。</p>
+</li>
+</ol>
+<p>代码演示：TO_NUM函数<br>SQL&gt; SELECT TO_NUMBER(‘-$12,345.67’,’$99,999.99’) “NUM”<br>  2  FROM DUAL<br>  3  / </p>
+<h2 id="NUM"><a href="#NUM" class="headerlink" title="   NUM"></a>   NUM</h2><p> -12345.67</p>
+<p>    其他单行函数</p>
+<ol>
+<li><p>NVL(x,value)<br>如果x为空，返回value，否则返回x。</p>
+<p>案例7：对工资是2000元以下的员工，如果没有发奖金，每人奖金100元。</p>
+</li>
+</ol>
+<p>代码演示：NVL函数<br>SQL&gt; SELECT ENAME,JOB,SAL,NVL(COMM,100) FROM EMP WHERE SAL&lt;2000;<br>ENAME     JOB     SAL     NVL(COMM,100)<br>SMITH     CLERK     800     100<br>ALLEN     SALESMAN     1600     300<br>WARD     SALESMAN     1250     500<br>MARTIN     SALESMAN     1250     1400<br>TURNER     SALESMAN     1500     50<br>ADAMS     CLERK     1100     100<br>JAMES     CLERK     950     100 </p>
+<p>7 rows selected</p>
+<ol start="2">
+<li>NVL2(x,value1,value2)<br>如果x非空，返回value1，否则返回value2。</li>
+</ol>
+<p>案例8：对EMP表中工资为2000元以下的员工，如果没有奖金，则奖金为200元，如果有奖金，则在原来的奖金基础上加100元。</p>
+<p>代码演示：NVL2函数<br>SQL&gt; SELECT ENAME,JOB,SAL,NVL2(COMM,comm+100,200) “comm”<br>  2  FROM EMP WHERE SAL&lt;2000;<br> ENAME     JOB     SAL     comm<br>SMITH     CLERK     800     200<br>ALLEN     SALESMAN     1600     400<br>WARD     SALESMAN     1250     600<br>MARTIN     SALESMAN     1250     1500<br>TURNER     SALESMAN     1500     150<br>ADAMS     CLERK     1100     200<br>JAMES     CLERK     950     200<br>MILLER     CLERK     1300     200<br>8 rows selected</p>
+<p>    聚合函数</p>
+<p>聚合函数同时对一组数据进行操作，返回一行结果，比如计算一组数据的总和，平均值等。</p>
+<p>名称    作用    语法<br>AVG    平均值    AVG(表达式)<br>SUM    求和    SUM(表达式)<br>MIN、MAX    最小值、最大值    MIN(表达式)、MAX(表达式)<br>COUNT    数据统计    COUNT(表达式)<br>表 5  聚合函数</p>
+<p>案例9：求本月所有员工的基本工资总和。</p>
+<p>代码演示：SUM函数<br>SQL&gt; select sum(sal) from emp; </p>
+<h2 id="SUM-SAL"><a href="#SUM-SAL" class="headerlink" title="  SUM(SAL)"></a>  SUM(SAL)</h2><pre><code>29025
+</code></pre><p>案例10：求不同部门的平均工资。</p>
+<p>代码演示：AVG函数下的分组查询<br>SQL&gt; SELECT DEPTNO,AVG(SAL) FROM EMP GROUP BY DEPTNO; </p>
+<p>DEPTNO   AVG(SAL)</p>
+<hr>
+<pre><code>30    1566.66666
+20    2175
+10    2916.66666
+</code></pre><ol start="4">
+<li>本章总结<br>    Oracle常用函数有字符相关的函数、数字相关的函数、日期相关的函数、转换函数等。<br>    EXTRACT函数能够获取日期中的某个字段的值。<br>    TO_CHAR函数能够把数字和日期转换成固定的字符串格式。TO_DATE    函数能够把固定格式的字符串转换为日期类型。<br>    子查询中有返回单行的子查询和返回多行的子查询。<br>    Oracle中存在ROWID、ROWNUM等伪列。</li>
+</ol>
+<ol start="5">
+<li>本章练习</li>
+<li>描述TO_CHAR和TO_DATE函数的用法。</li>
+<li>描述EXTRACT函数的用法。</li>
+<li>你知道有哪些关于日期函数的用法？</li>
+</ol>
+<p>章节知识结构图</p>
+<p>第4章</p>
+<p>表空间、数据库对象</p>
+<pre><code>主要内容
+    同义词概念
+</code></pre><p>    序列的应用<br>    视图的概念<br>    索引的概念<br>    表空间的概念</p>
+<ol>
+<li>Oracle数据库对象<br>数据库对象是数据库的组成部分，常常用CREATE命令进行创建，可以使用ALTER命令修改，用DROP执行删除操作。前面已经接触过的数据库对象有表、用户等。</li>
+</ol>
+<p>本次学习更多的Oracle数据库对象：<br>    同义词：就是给数据库对象一个别名。<br>    序列：Oracle中实现增长的对象。<br>    视图：预定义的查询，作为表一样的查询使用，是一张虚拟表。<br>    索引：对数据库表中的某些列进行排序，便于提高查询效率。</p>
+<ol start="2">
+<li><p>同义词<br>同义词（Synonym）是数据库对象的一个别名，Oracle可以为表、视图、序列、过程、函数、程序包等指定一个别名。同义词有两种类型：<br>    私有同义词：拥有CREATE SYNONYM权限的用户（包括非管理员用户）即可创建私有同义词，创建的私有同义词只能由当前用户使用。<br>    公有同义词：系统管理员可以创建公有同义词，公有同义词可以被所有用户访问。</p>
+<p>创建同义词的语法是：</p>
+</li>
+</ol>
+<p>语法结构：同义词<br>CREATE [OR REPLACE] [PUBLIC] SYSNONYM [schema.]synonym_name<br>FOR [schema.]object_name<br>语法解析：<br>①    CREATE [OR REPLACE：]表示在创建同义词时，如果该同义词已经存在，那么就用新创建的同义词代替旧同义词。<br>②    PULBIC：创建公有同义词时使用的关键字，一般情况下不需要创建公有同义词。<br>③    Oracle中一个用户可以创建表、视图等多种数据库对象，一个用户和该用户下的所有数据库对象的集合称为Schema（中文称为模式或者方案），用户名就是Schema名。一个数据库对象的全称是：用户名.对象名，即schema.object_name。</p>
+<p>如果一个用户有权限访问其他用户对象时，就可以使用全称来访问。比如：</p>
+<p>代码演示：System用户访问Scott用户的Emp表<br>SQL&gt; conn system/manager@orcl;<br>Connected to Oracle Database 10g Enterprise Edition Release 10.2.0.3.0<br>Connected as system</p>
+<p>SQL&gt;  SELECT ENAME,JOB,SAL FROM SCOTT.EMP WHERE SAL&gt;2000;  ①<br> ENAME     JOB     SAL<br>JONES     MANAGER     2975<br>BLAKE     MANAGER     2850<br>CLARK     MANAGER     2450<br>SCOTT     ANALYST     3000<br>KING     PRESIDENT     5000<br>FORD     ANALYST     3000<br> 6 rows selected<br>代码解析：<br>①    管理员用户可以访问任何用户的数据库对象，SYSTEM用户访问SCOTT用户的EMP表时，必须使用SCOTT.EMP。</p>
+<p>案例1：创建一个用户XiaoMei，该用户拥有CONNECT角色和RESOURCE角色。为SCOTT用户的EMP表创建同义词，并通过同义词访问该EMP表。</p>
+<p>代码演示：创建同义词并访问<br>SQL&gt; CONN system/manager@orcl;<br>Connected to Oracle Database 10g Enterprise Edition Release 10.2.0.3.0<br>Connected as system<br>SQL&gt; CREATE USER XiaoMei IDENTIFIED BY XiaoMei;  ①<br>User created<br>SQL&gt; GRANT CONNECT TO XiaoMei;<br>Grant succeeded<br>SQL&gt; GRANT RESOURCE TO XiaoMei;<br>Grant succeeded<br>SQL&gt; GRANT CREATE SYNONYM TO XiaoMei;<br>Grant succeeded</p>
+<p>SQL&gt; CONN XiaoMei/XiaoMei@ORCL;<br>Connected to Oracle Database 10g Enterprise Edition Release 10.2.0.3.0<br>Connected as XiaoMei </p>
+<p>SQL&gt; CREATE SYNONYM MyEmp FOR SCOTT.EMP;  ②<br>Synonym created<br>SQL&gt; SELECT <em> FROM MYEMP;  ③<br>SELECT </em> FROM MYEMP<br>ORA-00942: 表或视图不存在 </p>
+<p>SQL&gt; CONNECT SCOTT/tiger@ORCL<br>Connected to Oracle Database 10g Enterprise Edition Release 10.2.0.3.0<br>Connected as SCOTT </p>
+<p>SQL&gt; GRANT ALL ON EMP TO XiaoMei;  ④<br>Grant succeeded </p>
+<p>SQL&gt; CONNECT XiaoMei/XiaoMei@ORCL;<br>Connected to Oracle Database 10g Enterprise Edition Release 10.2.0.3.0<br>Connected as XiaoMei</p>
+<p>SQL&gt;  SELECT ENAME,JOB,SAL FROM MyEmp WHERE SAL&gt;2000;  ⑤<br> ENAME     JOB     SAL<br>JONES     MANAGER     2975<br>BLAKE     MANAGER     2850<br>CLARK     MANAGER     2450<br>SCOTT     ANALYST     3000<br>KING     PRESIDENT     5000<br>FORD     ANALYST     3000<br> 6 rows selected<br>代码解析：<br>①    在管理员用户下创建用户XiaoMei，对用户XiaoMei授予CONNECT和RESOURCE角色。为了XiaoMei能够创建序列，必须授予系统权限：CREATE SYNONYM。<br>②    在XiaoMei用户下，为SCOTT.EMP创建私有同义词MyEmp，同义词MyEmp只能在XiaoMei用户下使用。访问MyEmp就是访问SCOTT.EMP对象。<br>③    访问MyEmp对象出错：对象不存在。因为XiaoMei如果访问MyEmp，就相当于访问SCOTT.EMP对象，那么SCOTT用户必须对XiaoMei授予相应的权限。<br>④    SCOTT用户下，把EMP表的所有权限（增删改查）授予XiaoMei。<br>⑤    对MyEmp执行查询操作。MyEmp就可以像在本地的表一样使用。</p>
+<p>删除同义词使用的语法是：</p>
+<p>语法结构：删除同义词<br>DROP [PUBLIC] SYNONYM [schema.]sysnonym_name<br>语法解析：<br>①    PUBLIC：删除公共同义词。<br>②    同义词的删除只能被拥有同义词对象的用户或者管理员删除。<br>③    此命令只能删除同义词，不能删除同义词下的源对象。</p>
+<ol start="3">
+<li>序列<br>序列(Sequence)是用来生成连续的整数数据的对象。序列常常用来作为主键中增长列，序列中的可以升序生成，也可以降序生成。创建序列的语法是：</li>
+</ol>
+<p>语法结构：创建序列<br>CREATE SEQUENCE sequence_name<br>[START WITH num]<br>[INCREMENT BY increment]<br>[MAXVALUE num|NOMAXVALUE]<br>[MINVALUE num|NOMINVALUE]<br>[CYCLE|NOCYCLE]<br>[CACHE num|NOCACHE]<br>语法解析：<br>①    START WITH：从某一个整数开始，升序默认值是1，降序默认值是-1。<br>②    INCREMENT BY：增长数。如果是正数则升序生成，如果是负数则降序生成。升序默认值是1，降序默认值是-1。<br>③    MAXVALUE：指最大值。<br>④    NOMAXVALUE：这是最大值的默认选项，升序的最大值是：1027，降序默认值是-1。<br>⑤    MINVALUE：指最小值。<br>⑥    NOMINVALUE：这是默认值选项，升序默认值是1，降序默认值是-1026。<br>⑦    CYCLE：表示如果升序达到最大值后，从最小值重新开始；如果是降序序列，达到最小值后，从最大值重新开始。<br>⑧    NOCYCLE：表示不重新开始，序列升序达到最大值、降序达到最小值后就报错。默认NOCYCLE。<br>⑨    CACHE：使用CACHE选项时，该序列会根据序列规则预生成一组序列号。保留在内存中，当使用下一个序列号时，可以更快的响应。当内存中的序列号用完时，系统再生成一组新的序列号，并保存在缓存中，这样可以提高生成序列号的效率。Oracle默认会生产20个序列号。<br>⑩    NOCACHE：不预先在内存中生成序列号。</p>
+<p>案例2：创建一个从1开始，默认最大值，每次增长1的序列，要求NOCYCLE，缓存中有30个预先分配好的序列号。</p>
+<p>代码演示：生成序列号<br>SQL&gt; CREATE SEQUENCE MYSEQ<br>  2  MINVALUE 1<br>  3  START WITH 1<br>  4  NOMAXVALUE<br>  5  INCREMENT BY 1<br>  6  NOCYCLE<br>  7  CACHE 30<br>  8  /</p>
+<p>Sequence created</p>
+<p>序列创建之后，可以通过序列对象的CURRVAL和NEXTVAL两个“伪列”分别访问该序列的当前值和下一个值。</p>
+<p>代码演示：序列使用<br>SQL&gt; SELECT MYSEQ.NEXTVAL FROM DUAL; </p>
+<h2 id="NEXTVAL"><a href="#NEXTVAL" class="headerlink" title="NEXTVAL"></a>NEXTVAL</h2><p>   1<br>SQL&gt; SELECT MYSEQ.NEXTVAL FROM DUAL; </p>
+<h2 id="NEXTVAL-1"><a href="#NEXTVAL-1" class="headerlink" title="NEXTVAL"></a>NEXTVAL</h2><p>2<br>SQL&gt; SELECT MYSEQ.CURRVAL FROM DUAL; </p>
+<h2 id="CURRVAL"><a href="#CURRVAL" class="headerlink" title="CURRVAL"></a>CURRVAL</h2><p>   2</p>
+<pre><code>使用ALTER SEQUENCE可以修改序列，在修改序列时有如下限制：
+</code></pre><ol>
+<li>不能修改序列的初始值。</li>
+<li>最小值不能大于当前值。</li>
+<li>最大值不能小于当前值。</li>
+</ol>
+<p>使用DROP SEQUENCE命令可以删除一个序列对象。</p>
+<p>代码演示：序列修改和删除<br>SQL&gt; ALTER SEQUENCE MYSEQ<br>  2  MAXVALUE 10000<br>  3  MINVALUE -300<br>  4  /<br>SEQUENCE ALTERED<br>SQL&gt; DROP SEQUENCE MYSEQ;<br>SEQUENCE DROPPED</p>
+<ol start="4">
+<li>视图<br>视图（View）实际上是一张或者多张表上的预定义查询，这些表称为基表。从视图中查询信息与从表中查询信息的方法完全相同。只需要简单的SELECT…FROM即可。</li>
+</ol>
+<p>视图具有以下优点：</p>
+<ol>
+<li>可以限制用户只能通过视图检索数据。这样就可以对最终用户屏蔽建表时底层的基表。</li>
+<li>可以将复杂的查询保存为视图。可以对最终用户屏蔽一定的复杂性。</li>
+<li>限制某个视图只能访问基表中的部分列或者部分行的特定数据。这样可以实现一定的安全性。</li>
+<li>从多张基表中按一定的业务逻辑抽出用户关心的部分，形成一张虚拟表。</li>
+</ol>
+<p>语法结构：创建视图<br>CREATE [OR REPLACE] [{FORCE|NOFORCE}] VIEW view_name<br>AS<br>SELECT查询<br>[WITH READ ONLY CONSTRAINT]<br>语法解析：</p>
+<ol>
+<li>OR REPLACE：如果视图已经存在，则替换旧视图。</li>
+<li>FORCE：即使基表不存在，也可以创建该视图，但是该视图不能正常使用，当基表创建成功后，视图才能正常使用。</li>
+<li>NOFORCE：如果基表不存在，无法创建视图，该项是默认选项。</li>
+<li>WITH READ ONLY：默认可以通过视图对基表执行增删改操作，但是有很多在基表上的限制（比如：基表中某列不能为空，但是该列没有出现在视图中，则不能通过视图执行insert操作），WITH READ ONLY说明视图是只读视图，不能通过该视图进行增删改操作。现实开发中，基本上不通过视图对表中的数据进行增删改操作。</li>
+</ol>
+<p>案例3：基于EMP表和DEPT表创建视图</p>
+<p>代码演示：视图<br>SQL&gt; CREATE OR REPLACE VIEW EMPDETAIL<br>  2  AS<br>  3  SELECT EMPNO,ENAME,JOB,HIREDATE,EMP.DEPTNO,DNAME<br>  4  FROM EMP JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO<br>  5  WITH READ ONLY<br>  6  / </p>
+<p>VIEW CREATED </p>
+<p>SQL&gt; SELECT * FROM EMPDETAIL;  ①<br> EMPNO     ENAME     JOB     HIREDATE     DEPTNO     DNAME<br>7369     SMITH     CLERK     17-12月-80     20     RESEARCH<br>7499     ALLEN     SALESMAN     20-2月 -81     30     SALES<br>7521     WARD     SALESMAN     22-2月 -81     30     SALES<br>7566     JONES     MANAGER     02-4月 -81     20     RESEARCH<br>7654     MARTIN     SALESMAN     28-9月 -81     30     SALES<br>7698     BLAKE     MANAGER     01-5月 -81     30     SALES<br>7782     CLARK     MANAGER     09-6月 -81     10     ACCOUNTING<br>7788     SCOTT     ANALYST     19-4月 -87     20     RESEARCH<br>7839     KING     PRESIDENT     17-11月-81     10     ACCOUNTING<br>7844     TURNER     SALESMAN     08-9月 -81     30     SALES<br>7876     ADAMS     CLERK     23-5月 -87     20     RESEARCH<br>7900     JAMES     CLERK     03-12月-81     30     SALES<br>7902     FORD     ANALYST     03-12月-81     20     RESEARCH<br>7934     MILLER     CLERK     23-1月 -82     10     ACCOUNTING<br>14 ROWS SELECTED<br>代码解析：<br>①     对视图可以像表一样进行查询。该视图中隐藏了员工的工资。</p>
+<p>删除视图可以使用“DROP VIEW 视图名称”，删除视图不会影响基表的数据。</p>
+<ol start="5">
+<li>索引<br>当我们在某本书中查找特定的章节内容时，可以先从书的目录着手，找到该章节所在的页码，然后快速的定位到该页。这种做法的前提是页面编号是有序的。如果页码无序，就只能从第一页开始，一页页的查找了。</li>
+</ol>
+<p>数据库中索引（Index）的概念与目录的概念非常类似。如果某列出现在查询的条件中，而该列的数据是无序的，查询时只能从第一行开始一行一行的匹配。创建索引就是对某些特定列中的数据排序，生成独立的索引表。在某列上创建索引后，如果该列出现在查询条件中，Oracle会自动的引用该索引，先从索引表中查询出符合条件记录的ROWID，由于ROWID是记录的物理地址，因此可以根据ROWID快速的定位到具体的记录，表中的数据非常多时，引用索引带来的查询效率非常可观。</p>
+<pre><code>    如果表中的某些字段经常被查询并作为查询的条件出现时，就应该考虑为该列创建索引。
+</code></pre><p>    当从很多行的表中查询少数行时，也要考虑创建索引。有一条基本的准则是：当任何单个查询要检索的行少于或者等于整个表行数的10%时，索引就非常有用。</p>
+<p>Oracle数据库会为表的主键和包含唯一约束的列自动创建索引。索引可以提高查询的效率，但是在数据增删改时需要更新索引，因此索引对增删改时会有负面影响。</p>
+<p>语法结构：创建索引<br>CREATE [UNIQUE] INDEX index_name ON table_name(column_name[,column_name…])<br>语法解析：</p>
+<ol>
+<li>UNIQUE:指定索引列上的值必须是唯一的。称为唯一索引。</li>
+<li>index_name：指定索引名。</li>
+<li>tabl_name：指定要为哪个表创建索引。</li>
+<li>column_name：指定要对哪个列创建索引。我们也可以对多列创建索引；这种索引称为组合索引。</li>
+</ol>
+<p>案例4：为EMP表的ENAME列创建创建唯一索引，为EMP表的工资列创建普通索引，把JOB列先变为小写再创建索引。</p>
+<p>代码演示：创建索引<br>SQL&gt; CREATE UNIQUE INDEX UQ_ENAME_IDX ON EMP(ENAME);  ①<br>Index created<br>SQL&gt; CREATE INDEX IDX_SAL ON EMP(SAL);  ②<br>Index created<br>SQL&gt; CREATE INDEX IDX_JOB_LOWER ON EMP(LOWER(JOB));  ③<br>Index created<br>代码解析：<br>①    为SCOTT.EMP表的ENAME列创建唯一索引。<br>②    为SCOTT.EMP表的SAL列创建索引。<br>③    在查询中可能经常使用job的小写作为条件的表达式，因此创建索引时，可以先对JOB列中的所有值转换为小写后创建索引，而这时需要使用lower函数，这种索引称为基于函数的索引。</p>
+<p>在select语句查询时，Oracle系统会自动为查询条件上的列应用索引。索引就是对某一列进行排序，因此在索引列上，重复值越少，索引的效果越明显。<br>Oracle可以为一些列值重复非常多且值有限的列（比如性别列）上创建位图索引。关于Oracle更多的索引类型（比如反向键索引等），请参考Oracle官方文档。</p>
+<ol start="6">
+<li>表空间<br>在数据库系统中，存储空间是较为重要的资源，合理利用空间，不但能节省空间，还可以提高系统的效率和工作性能。Oracle可以存放海量数据，所有数据都在数据文件中存储。而数据文件大小受操作系统限制，并且过大的数据文件对数据的存取性能影响非常大。同时Oracle是跨平台的数据库，Oracle数据可以轻松的在不同平台上移植，那么如何才能提供统一存取格式的大容量呢？Oracle采用表空间来解决。</li>
+</ol>
+<p>表空间只是一个逻辑概念，若干操作系统文件（文件可以不是很大）可以组成一个表空间。表空间统一管理空间中的数据文件，一个数据文件只能属于一个表空间。一个数据库空间由若干个表空间组成。如图所示：</p>
+<p>图1  数据空间、表空间和数据文件</p>
+<pre><code>Oracle中所有的数据（包括系统数据），全部保存在表空间中，常见的表空间有：
+</code></pre><p>    系统表空间：存放系统数据，系统表空间在数据库创建时创建。表空间名称为SYSTEM。存放数据字典和视图以及数据库结构等重要系统数据信息，在运行时如果SYSTEM空间不足，对数据库影响会比较大，虽然在系统运行过程中可以通过命令扩充空间，但还是会影响数据库的性能，因此有必要在创建数据库时适当的把数据文件设置大一些。<br>    TMEP表空间：临时表空间，安装数据库时创建，可以在运行时通过命令增大临时表空间。临时表空间的重要作用是数据排序。比如当用户执行了诸如Order by等命令后，服务器需要对所选取数据进行排序，如果数据很大，内存的排序区可能装不下太大数据，就需要把一些中间的排序结果写在硬盘的临时表空间中。<br>    用户表自定义空间：用户可以通过CREATE TABLESPACE命令创建表空间。</p>
+<p>创建表空间需要考虑数据库对分区（Extent，一个Oracle分区是数据库文件中一段连续的空间，Oracle分区是Oracle管理中最小的单位）的管理，比如当一个表创建后先申请一个分区，在Insert执行过程中，如果分区数据已满，需要重新申请另外的分区。如果一个数据库中的分区大小不一，创建表空间时需要考虑一系列问题。因此在Oracle8i之后，创建表空间都推荐使用“本地管理表空间”，这种表空间中的分区是一个固定大小的值，创建表空间的语法是：</p>
+<p>语法结构：创建表空间<br>CREATE TABLESPACE 空间名称<br>DATAFILE ‘文件名1’ SIZE 数字M<br>[,’文件名2’ SIZE 数字….]<br>EXTENT MANAGEMENT LOCAL<br>UNIFORM SIZE 数字M<br>语法解析：</p>
+<ol>
+<li>文件名包括完整路径和文件名，每个数据文件定义了文件的初始大小，初始大小一般以“M”为单位。一个表空间中可以有多个数据文件。</li>
+<li>EXTENT MANAGEMENT LOCAL指明表空间类型是：本地管理表空间。本地管理表空间要求Oracle中的数据分区（Extent）大小统一。</li>
+<li>UNIFORM SIZE：指定每个分区的统一大小。</li>
+</ol>
+<p>案例5：创建一个表空间，包含两个数据文件大小分别是10MB，5MB，要求extent的大小统一为1M。</p>
+<p>代码演示：创建表空间<br>SQL&gt; CREATE TABLESPACE MYSPACE<br>  2  DATAFILE ‘D:/A.ORA’ SIZE 10M,<br>  3             ‘D:/B.ORA’ SIZE 5M<br>  4  EXTENT MANAGEMENT LOCAL<br>  5  UNIFORM SIZE 1M<br>  6  /</p>
+<p>Tablespace created</p>
+<p>必须是管理员用户才能创建表空间，当表空间的空间不足时可以使用ALTER TABLESPACE命令向表空间中追加数据文件扩充表空间。</p>
+<p>代码演示：扩充表空间<br>SQL&gt; ALTER TABLESPACE MYSPACE<br>  2  ADD DATAFILE ‘D:/C.ORA’ SIZE 10M<br>  3  / </p>
+<p>Tablespace altered</p>
+<pre><code>表空间可以在不使用时删除，使用DROP TABLESPACE命令。
+
+数据库的所有数据全部在某一表空间中存放，在创建用户时，可以为用户指定某一表空间，那么该用户下的所有数据库对象（比如表）默认都存储在该空间中。
+</code></pre><p>代码演示：为某一用户指定默认表空间<br>SQL&gt; CREATE USER ACONG IDENTIFIED BY ACONG<br>  2   DEFAULT TABLESPACE MYSPACE<br>  3  / </p>
+<p>User created</p>
+<pre><code>在创建表时，表中数据存放在用户的默认表空间中，也可以通过tablespace子句为表指定表中数据存放在其他表空间中。
+</code></pre><p>代码演示：为表指定表空间<br>SQL&gt; CREATE TABLE SCORES<br>  2  (<br>  3          ID NUMBER ,<br>  4          TERM VARCHAR2(2),<br>  5          STUID VARCHAR2(7) NOT NULL,<br>  6          EXAMNO VARCHAR2(7) NOT NULL,<br>  7          WRITTENSCORE NUMBER(4,1) NOT NULL,<br>  8          LABSCORE NUMBER(4,1) NOT NULL<br>  9  )<br> 10  TABLESPACE MYSPACE<br> 11  / </p>
+<p>Table created</p>
+<pre><code>创建索引时也可以为索引指定表空间。
+</code></pre><p>代码演示：为索引指定表空间<br>SQL&gt; CREATE INDEX UQ_ID ON SCORES(ID)<br>  2  TABLESPACE MYSPACE;</p>
+<p>Index created</p>
+<pre><code>表和索引一旦创建，表空间无法修改。
+</code></pre><ol start="7">
+<li>本章总结<br>    Oracle数据库对象都是使用CREATE命令创建的。<br>    同义词就是数据库对象的一个别名。同义词的类型有公有同义词和私有同义词。只有管理员可以创建共有同义词。创建同义词的命令是：CREATE SYNONYM。<br>    序列能够产生一个连续不重复的整数。经常作为数据库的主键生成器。创建序列的命令是CREATE SEQUENCE。<br>    序列的访问使用两个“伪列”，CURRVAL表示序列的当前值，NEXTVAL表示序列的下一个值。<br>    视图就是一个预处理的查询语句，可以从若干表中过滤数据。<br>    索引就是在查询中经常使用的列进行排序。常见的索引有：普通索引、唯一序列、组合索引以及基于函数的索引。此外还有位图索引、反向键索引等。<br>    表空间是数据库的一个逻辑概念，表空间由若干个数据文件组成。为数据库对象和数据提供统一的空间管理。</li>
+</ol>
+<ol start="8">
+<li>本章练习</li>
+<li>产生一个用于DEPT表的主键值的序列，序列起始值是100，最大值是500，增长步长是10。</li>
+<li>用序列产生DEPT表的主键，向DEPT表中插入3条记录。</li>
+<li>为DEPT表创建一个同义词。</li>
+<li>创建一个视图包括EMP表的EMPNO,ENAME,JOB，部门表的DNAME列，只能包含销售部的记录。</li>
+<li>为EMP表的ENAME列创建唯一索引。</li>
+<li>为EMP表的SAL列创建一个普通索引。</li>
+<li>以学期和学生姓名为名称比如（S2XiaoMei）创建一个表空间，该表空间是以学生姓名为用户的默认表空间。</li>
+</ol>
+<p>章节知识结构图</p>
+<p>第5章</p>
+<p>PL/SQL程序设计</p>
+<pre><code>主要内容
+    PL/SQL数据类型
+</code></pre><p>    PL/SQL条件和循环控制<br>    动态执行SQL<br>    PL/SQL中的异常处理</p>
+<ol>
+<li><p>PL/SQL简介<br>Oracle PL/SQL语言（Procedural Language/SQL）是结合了结构化查询与Oracle自身过程控制为一体的强大语言，PL/SQL不但支持更多的数据类型，拥有自身的变量声明、赋值语句，而且还有条件、循环等流程控制语句。过程控制结构与SQL数据处理能力无缝的结合形成了强大的编程语言，可以创建过程和函数以及程序包。</p>
+<p>PL/SQL是一种块结构的语言，它将一组语句放在一个块中，一次性发送给服务器，PL/SQL引擎分析收到PL/SQL语句块中的内容，把其中的过程控制语句由PL/SQL引擎自身去执行，把PL/SQL块中的SQL语句交给服务器的SQL语句执行器执行。如图所示：</p>
+</li>
+</ol>
+<p>图1  PL/SQL体系结构</p>
+<pre><code>PL/SQL块发送给服务器后，先被编译然后执行，对于有名称的PL/SQL块（如子程序）可以单独编译，永久的存储在数据库中，随时准备执行。PL/SQL的优点还有：
+</code></pre><p>    支持SQL</p>
+<p>SQL是访问数据库的标准语言，通过SQL命令，用户可以操纵数据库中的数据。PL/SQL支持所有的SQL数据操纵命令、游标控制命令、事务控制命令、SQL函数、运算符和伪列。同时PL/SQL和SQL语言紧密集成，PL/SQL支持所有的SQL数据类型和NULL值。</p>
+<p>    支持面向对象编程</p>
+<p>PL/SQL支持面向对象的编程，在PL/SQL中可以创建类型，可以对类型进行继承，可以在子程序中重载方法等。</p>
+<p>    更好的性能</p>
+<p>SQL是非过程语言，只能一条一条执行，而PL/SQL把一个PL/SQL块统一进行编译后执行，同时还可以把编译好的PL/SQL块存储起来，以备重用，减少了应用程序和服务器之间的通信时间，PL/SQL是快速而高效的。</p>
+<p>    可移植性</p>
+<p>使用PL/SQL编写的应用程序，可以移植到任何操作系统平台上的Oracle服务器，同时还可以编写可移植程序库，在不同环境中重用。</p>
+<p>    安全性</p>
+<p>可以通过存储过程对客户机和服务器之间的应用程序逻辑进行分隔，这样可以限制对Oracle数据库的访问，数据库还可以授权和撤销其他用户访问的能力。</p>
+<ol start="2">
+<li>PL/SQL块<br>PL/SQL是一种块结构的语言，一个PL/SQL程序包含了一个或者多个逻辑块，逻辑块中可以声明变量，变量在使用之前必须先声明。除了正常的执行程序外，PL/SQL还提供了专门的异常处理部分进行异常处理。每个逻辑块分为三个部分，语法是：</li>
+</ol>
+<p>语法结构：PL/SQL块的语法<br>[DECLARE<br>     –declaration statements]  ①<br>BEGIN<br>     –executable statements  ②<br>[EXCEPTION<br>     –exception statements]  ③<br>END;<br>语法解析：<br>①    声明部分：声明部分包含了变量和常量的定义。这个部分由关键字DECLARE开始，如果不声明变量或者常量，可以省略这部分。<br>②    执行部分：执行部分是 PL/SQL块的指令部分，由关键字BEGIN开始，关键字END结尾。所有的可执行PL/SQL语句都放在这一部分，该部分执行命令并操作变量。其他的PL/SQL块可以作为子块嵌套在该部分。PL/SQL块的执行部分是必选的。注意END关键字后面用分号结尾。<br>③    异常处理部分：该部分是可选的，该部分用EXCEPTION关键字把可执行部分分成两个小部分，之前的程序是正常运行的程序，一旦出现异常就跳转到异常部分执行。</p>
+<p>PL/SQL是一种编程语言，与Java和C#一样，除了有自身独有的数据类型、变量声明和赋值以及流程控制语句外，PL/SQL还有自身的语言特性：</p>
+<p>PL/SQL对大小写不敏感，为了良好的程序风格，开发团队都会选择一个合适的编码标准。比如有的团队规定：关键字全部大些，其余的部分小写。</p>
+<p>PL/SQL块中的每一条语句都必须以分号结束，SQL语句可以是多行的，但分号表示该语句结束。一行中可以有多条SQL语句，他们之间以分号分隔，但是不推荐一行中写多条语句。</p>
+<p>PL/SQL中的特殊符号说明：</p>
+<p>类型    符号    说明<br>赋值运算符    :=    Java和C#中都是等号，PL/SQL的赋值是：=<br>特殊字符    ||    字符串连接操作符。<br>    –    PL/SQL中的单行注释。<br>    /<em>,</em>/    PL/SQL中的多行注释，多行注释不能嵌套。<br>    &lt;&lt;,&gt;&gt;    标签分隔符。只为了标识程序特殊位置。<br>    ..    范围操作符，比如：1..5 标识从１到５<br>算术运算符    +，-，*，/    基本算术运算符。<br>    <strong>    求幂操作，比如：3</strong>2=9<br>关系运算符    &gt;，&lt;,&gt;=,&lt;=,=    基本关系运算符，=表示相等关系，不是赋值。<br>    &lt;&gt;,!=    不等关系。<br>逻辑运算符    AND,OR,NOT    逻辑运算符。<br>表1  PL/SQL中的特殊符号和运算符</p>
+<p>    变量声明</p>
+<p>PL/SQL支持SQL中的数据类型，PL/SQL中正常支持NUMBER,VARCHAR2,DATE等Oracle SQL数据类型。声明变量必须指明变量的数据类型，也可以声明变量时对变量初始化，变量声明必须在声明部分。声明变量的语法是：</p>
+<p>语法格式：声明变量<br>变量名 数据类型[ :=初始值]<br>语法解析：<br>数据类型如果需要长度，可以用括号指明长度，比如：varchar2(20)。</p>
+<p>代码演示：声明变量<br>SQL&gt; DECLARE<br>  2       sname VARCHAR2(20) :=’jerry’;  ①<br>  3  BEGIN<br>  4       sname:=sname||’ and tom’;  ②<br>  5       dbms_output.put_line(sname);  ③<br>  6  END;<br>  7  /jerry<br>PL/SQL procedure successfully completed<br>代码解析：<br>①    声明一个变量sname，初始化值是“jerry”。字符串用单引号，如果字符串中出现单引号可以使用两个单引号（’’）来表示，即单引号同时也具有转义的作用。<br>②    对变量sname重新赋值，赋值运算符是“:=”。<br>③    dbms_output.put_line是输出语句，可以把一个变量的值输出，在SQL<em>Plus中输出数据时，可能没有结果显示，可以使用命令：set serveroutput on设置输出到SQL</em>Plus控制台上。</p>
+<p>对变量赋值还可以使用SELECT…INTO 语句从数据库中查询数据对变量进行赋值。但是查询的结果只能是一行记录，不能是零行或者多行记录。</p>
+<p>代码演示：变量赋值<br>SQL&gt; DECLARE<br>  2       sname VARCHAR2(20) DEFAULT ‘jerry’;  ①<br>  3  BEGIN<br>  4       SELECT ename INTO sname FROM emp WHERE empno=7934;  ②<br>  5       dbms_output.put_line(sname);<br>  6  END;<br>  7  /<br>MILLER<br>PL/SQL procedure successfully completed<br>代码解析：<br>①    变量初始化时，可以使用DEFAULT关键字对变量进行初始化。<br>②    使用select…into语句对变量sname赋值，要求查询的结果必须是一行，不能是多行或者没有记录。</p>
+<p>    声明常量</p>
+<p>常量在声明时赋予初值，并且在运行时不允许重新赋值。使用CONSTANT关键字声明常量。</p>
+<p>代码演示：声明常量<br>SQL&gt; DECLARE<br>  2       pi CONSTANT number :=3.14;   –圆周率长值  ①<br>  3       r number DEFAULT 3;   –圆的半径默认值3  ②<br>  4       area number;   –面积。<br>  5  BEGIN<br>  6       area:=pi<em>r</em>r;   –计算面积<br>  7       dbms_output.put_line(area);  –输出圆的面积<br>  8  END;<br>  9  /</p>
+<p>28.26</p>
+<p>PL/SQL procedure successfully completed<br>代码解析：<br>①    声明常量时使用关键字CONSTANT，常量初值可以使用赋值运算符（:=）赋值，也可以使用DEFAULT关键字赋值。</p>
+<p>在SQL*Plus中还可以声明Session（会话，也就是一个客户端从连接到退出的过程称为当前用户的会话。）全局级变量，该变量在整个会话过程中均起作用，类似的这种变量称为宿主变量。宿主变量在PL/SQL引用时要用“:变量名”引用。</p>
+<p>代码演示：宿主常量<br>SQL&gt; var emp_name varchar(30);  ①<br>SQL&gt; BEGIN<br>  2  SELECT ename INTO :emp_name FROM emp WHERE empno=7499;  ②<br>  3  END;<br>  4  /<br>PL/SQL procedure successfully completed</p>
+<h2 id="emp-name"><a href="#emp-name" class="headerlink" title="emp_name"></a>emp_name</h2><p>ALLEN</p>
+<p>SQL&gt; print emp_name;  ③</p>
+<h2 id="emp-name-1"><a href="#emp-name-1" class="headerlink" title="emp_name"></a>emp_name</h2><p>ALLEN<br>代码解析：<br>①    可以使用var声明宿主变量。<br>②    PL/SQL中访问宿主变量时要在变量前加“:”。<br>③    在SQL*Plus中，使用print可以输出变量中的结果。</p>
+<ol start="3">
+<li>PL/SQL数据类型<br>前面在建表时，学习过Oracle SQL的数据类型，PL/SQL不但支持这些数据类型，还具备自身的数据类型。PL/SQL的数据类型包括标量数据类型，引用数据类型和存储文本、图像、视频、声音等非结构化的大数据类型（LOB数据类型）等。下面列举一些常用的类型。</li>
+</ol>
+<p>    标量数据类型</p>
+<p>标量数据类型的变量只有一个值，且内部没有分量。标量数据类型包括数字型，字符型，日期型和布尔型。这些类型有的是Oracle SQL中定义的数据类型，有的是PL/SQL自身附加的数据类型。字符型和数字型又有子类型，子类型只与限定的范围有关，比如NUMBER类型可以表示整数，也可以表示小数，而其子类型POSITIVE只表示正整数。</p>
+<p>类型    说明<br>VARCHAR2(长度)    可变长度字符串，Oracle SQL定义的数据类型，在PL/SQL中使用时最常32767字节。在PL/SQL中使用没有默认长度，因此必须指定。<br>NUMBER(精度，小数)    Oracle SQL定义的数据类型，见第二章。<br>DATE    Oracle SQL定义的日期类型，见第二章。<br>TIMESTAMP    Oracle SQL定义的日期类型，见第二章。<br>CHAR(长度)    Oracle SQL定义的日期类型，固定长度字符，最长32767字节，默认长度是1，如果内容不够用空格代替。<br>LONG    Oracle SQL定义的数据类型，变长字符串基本类型，最长32760字节。在Oracle SQL中最长2147483647字节。<br>BOOLEAN    PL/SQL附加的数据类型，逻辑值为TRUE、FALSE、NULL<br>BINARY_INTEGER    PL/SQL附加的数据类型，介于-231和231之间的整数。<br>PLS_INTEGER    PL/SQL附加的数据类型，介于-231和231之间的整数。类似于BINARY_INTEGER，只是PLS_INTEGER值上的运行速度更快。<br>NATURAL    PL/SQL附加的数据类型，BINARY_INTEGER子类型，表示从0开始的自然数。<br>NATURALN    与NATURAL一样，只是要求NATURALN类型变量值不能为NULL。<br>POSITIVE    PL/SQL附加的数据类型，BINARY_INTEGER子类型，正整数。<br>POSITIVEN    与POSITIVE一样，只是要求POSITIVE的变量值不能为NULL。<br>REAL    Oracle SQL定义的数据类型，18位精度的浮点数<br>INT,INTEGER,SMALLINT    Oracle SQL定义的数据类型，NUMBERDE的子类型，38位精度整数。<br>SIGNTYPE    PL/SQL附加的数据类型，BINARY_INTEGER子类型。值有：1、-1、0。<br>STRING    与VARCHAR2相同。<br>表2  PL/SQL中标量数据类型。</p>
+<p>    属性数据类型</p>
+<p>当声明一个变量的值是数据库中的一行或者是数据库中某列时，可以直接使用属性类型来声明。Oracle中存在两种属性类型：%TYPE和%ROWTYPE。</p>
+<p>    % ROWTYPE<br>引用数据库表中的一行作为数据类型，即RECORD类型（记录类型），是PL/SQL附加的数据类型。表示一条记录，就相当于C#中的一个对象。可以使用“.”来访问记录中的属性。</p>
+<p>代码演示：<br>SQL&gt; DECLARE<br>  2       myemp EMP%ROWTYPE;  ①<br>  3  BEGIN<br>  4       SELECT * INTO myemp FROM emp WHERE empno=7934;  ②<br>  5       dbms_output.put_line(myemp.ename);  ③<br>  6  END;<br>  7  /<br>MILLER<br>PL/SQL procedure successfully completed<br>代码解析：<br>①    声明一个myemp对象，该对象表示EMP表中的一行。<br>②    从EMP表中查询一条记录放入myemp对象中。<br>③    访问该对象的属性可以使用“.”。</p>
+<p>    %TYPE<br>引用某个变量或者数据库的列的类型作为某变量的数据类型。</p>
+<p>代码演示：%TYPE应用<br>SQL&gt; DECLARE<br>  2       sal emp.sal%TYPE;  ①<br>  3       mysal number(4):=3000;<br>  4       totalsal mysal%TYPE;  ②<br>  5  BEGIN<br>  6       SELECT SAL INTO sal FROM emp WHERE empno=7934;<br>  7       totalsal:=sal+mysal;<br>  8       dbms_output.put_line(totalsal);<br> 9  END;<br> 10  /<br>4300<br>PL/SQL procedure successfully completed<br>代码解析：<br>①    定义变量sal为emp表中sal列的类型。<br>②    定义totalsal是变量mysal的类型。</p>
+<p>%TYPE可以引用表中的某列作的类型为变量的数据类型，也可以引用某变量的类型作为新变量的数据类型。</p>
+<ol start="4">
+<li>PL/SQL条件控制和循环控制<br>PL/SQL程序可通过条件或循环结构来控制命令执行的流程。PL/SQL提供了丰富的流程控制语句，与C#一样也有三种控制结构：<br>    顺序结构<br>    条件结构<br>    循环结构</li>
+</ol>
+<p>    条件控制</p>
+<p>C#中的条件控制使用关键字if和switch。PL/SQL中关于条件控制的关键字有IF-THEN、IF-THEN-ELSE、IF-THEN-ELSIF和多分枝条件CASE。</p>
+<p>    IF-THEN<br>该结构先判断一个条件是否为TRUE，条件成立则执行对应的语句块，与C#中的if语句很相似，具体语法是：</p>
+<p>C#中if语法    PL/SQL中IF语法<br>if (条件){<br>     //条件结构体<br>}    IF 条件 THEN<br>     –条件结构体<br>END IF;<br>表3  PL/SQL中条件语法</p>
+<p>说明：<br>①    用IF关键字开始，END IF关键字结束，注意END IF后面有一个分号。<br>②    条件部分可以不使用括号，但是必须以关键字THEN来标识条件结束，如果条件成立，则执行THEN后到对应END IF之间的语句块内容。如果条件不成立，则不执行条件语句块的内容。<br>③    C#结构用一对大括号来包含条件结构体的内容。PL/SQL中关键字THEN到END IF之间的内容是条件结构体内容。<br>④    条件可以使用关系运算符合逻辑运算符。</p>
+<p>案例1：查询JAMES的工资，如果大于900元，则发奖金800元。</p>
+<p>代码演示：IF-THEN应用<br>DECLARE<br>      newSal emp.sal % TYPE;<br> BEGIN<br>      SELECT sal INTO newSal FROM emp<br>      WHERE ename=’JAMES’;<br>      IF newSal&gt;900 THEN  ①<br>           UPDATE emp<br>           SET comm=800<br>           WHERE ename=’JAMES’;<br>      END IF;<br>      COMMIT ;  ②<br>END;<br>代码解析：<br>①    先判断条件，如果条件为TRUE，则执行条件结构体内部的内容。<br>②    在PL/SQL块中可以使用事务控制语句，该COMMIT同时也能把PL/SQL块外没有提交的数据一并提交，使用时需要注意。</p>
+<p>    IF-THEN-ELSE</p>
+<p>语法格式：IF-THEN-ELSE<br>C#中if语法    PL/SQL中IF语法<br>if (条件){<br>     //条件成立结构体<br>}<br>else{<br>    //条件不成立结构体<br>}    IF 条件 THEN<br>     –条件成立结构体<br>ELSE<br>     –条件不成立结构体<br>END IF;<br>表4  PL/SQL中条件语法</p>
+<p>语法解析：<br>把ELSE与IF-THEN连在一起使用，如果IF条件不成立则执行就会执行ELSE部分的语句。</p>
+<p>案例2：查询JAMES的工资，如果大于900元，则发奖金800元，否则发奖金400元。</p>
+<p>代码演示：IF-THEN-ELSE应用<br>DECLARE<br>      newSal emp.sal % TYPE;<br>BEGIN<br>      SELECT sal INTO newSal FROM emp<br>      WHERE ename=’JAMES’;<br>      IF newSal&gt;900 THEN<br>           UPDATE emp<br>           SET comm=800<br>           WHERE ename=’JAMES’;<br>      ELSE<br>           UPDATE emp<br>           SET comm=400<br>           WHERE ename=’JAMES’;<br>      END IF;<br>END;</p>
+<p>    IF-THEN-ELSIF</p>
+<p>语法格式：IF-THEN-ELSIF<br>C#中if语法    PL/SQL中IF语法<br>if (条件2){<br>     //条件成立结构体<br>}<br>else if(条件2){<br>    //条件不成立结构体<br>}<br>else{<br>    //以上条件都不成立结构体<br>}    IF 条件1 THEN<br>     –条件1成立结构体<br>ELSIF 条件2 THEN<br>     –条件2成立结构体<br>ELSE<br>     –以上条件都不成立结构体<br>END IF;<br>表5  PL/SQL中多分枝条件语法<br>语法解析：<br>PL/SQL中的再次条件判断中使用关键字ELSIF，而C#使用else if。</p>
+<p>案例3：查询JAMES的工资，如果大于1500元，则发放奖金100元，如果工作大于900元，则发奖金800元，否则发奖金400元。</p>
+<p>代码演示：IF-THEN-ELSIF应用<br>DECLARE<br>      newSal emp.sal % TYPE;<br>BEGIN<br>      SELECT sal INTO newSal FROM emp<br>      WHERE ename=’JAMES’;<br>      IF newSal&gt;1500 THEN<br>           UPDATE emp<br>           SET comm=1000<br>           WHERE ename=’JAMES’;<br>      ELSIF newSal&gt;1500 THEN<br>           UPDATE emp<br>           SET comm=800<br>           WHERE ename=’JAMES’;<br>      ELSE<br>           UPDATE emp<br>           SET comm=400<br>           WHERE ename=’JAMES’;<br>      END IF;<br>END;</p>
+<p>    CASE</p>
+<p>CASE是一种选择结构的控制语句，可以根据条件从多个执行分支中选择相应的执行动作。也可以作为表达式使用，返回一个值。类似于C#中的switch语句。语法是：</p>
+<p>语法格式：CASE<br>CASE [selector]<br>WHEN 表达式1 THEN 语句序列1；<br>WHEN 表达式2 THEN 语句序列2；<br>WHEN 表达式3 THEN 语句序列3；<br>……<br>[ELSE 语句序列N]；<br>END CASE;<br>语法解析：<br>    如果存在选择器selector，选择器selector与WHEN后面的表达式匹配，匹配成功就执行THEN后面的语句。如果所有表达式都与selector不匹配，则执行ELSE后面的语句。</p>
+<p>案例4：输入一个字母A、B、C分别输出对应的级别信息。</p>
+<p>代码演示：CASE中存在selector，不返回值<br>DECLARE<br>      v_grade CHAR(1):=UPPER(‘&amp;p_grade’);  ①<br>BEGIN<br>      CASE v_grade  ②<br>           WHEN ‘A’ THEN<br>               dbms_output.put_line(‘Excellent’);<br>           WHEN ‘B’ THEN<br>               dbms_output.put_line(‘Very Good’);<br>           WHEN ‘C’ THEN<br>               dbms_output.put_line(‘Good’);<br>           ELSE<br>               dbms_output.put_line(‘No such grade’);<br>      END CASE;<br>END;<br>代码解析：<br>①    &amp; grade表示在运行时由键盘输入字符串到grade变量中。<br>②    v_grade分别于WHEN后面的值匹配，如果成功就执行WHEN后的程序序列。</p>
+<p>CASE语句还可以作为表达式使用，返回一个值。</p>
+<p>代码演示：CASE中存在selector，作为表达式使用<br>DECLARE<br>      v_grade CHAR(1):=UPPER(‘&amp;grade’);<br>      p_grade VARCHAR(20) ;<br>BEGIN<br>      p_grade :=  ①<br>      CASE v_grade<br>           WHEN ‘A’ THEN<br>               ‘Excellent’<br>           WHEN ‘B’ THEN<br>               ‘Very Good’<br>           WHEN ‘C’ THEN<br>               ‘Good’<br>           ELSE<br>               ‘No such grade’<br>      END;<br>      dbms_output.put_line(‘Grade:’ ||v_grade||’,the result is ‘||p_grade);<br>END;<br>代码解析：<br>①    CASE语句可以返回一个结果给变量p_grade</p>
+<p>PL/SQL还提供了搜索CASE语句。也就是说，不使用CASE中的选择器，直接在WHEN后面判断条件，第一个条件为真时，执行对应THEN后面的语句序列。</p>
+<p>代码演示：搜索CASE<br>DECLARE<br>      v_grade CHAR(1):=UPPER(‘&amp;grade’);<br>      p_grade VARCHAR(20) ;<br>BEGIN<br>      p_grade :=<br>      CASE<br>           WHEN v_grade=’A’ THEN<br>               ‘Excellent’<br>           WHEN v_grade=’B’ THEN<br>               ‘Very Good’<br>           WHEN v_grade=’C’ THEN<br>               ‘Good’<br>           ELSE<br>               ‘No such grade’<br>      END;<br>      dbms_output.put_line(‘Grade:’ ||v_grade||’,the result is ‘||p_grade);<br>END;</p>
+<p>    循环结构</p>
+<p>PL/SQL提供了丰富的循环结构来重复执行一些列语句。Oracle提供的循环类型有：</p>
+<ol>
+<li>无条件循环LOOP-END LOOP语句</li>
+<li>WHILE循环语句</li>
+<li>FOR循环语句</li>
+</ol>
+<p>在上面的三类循环中EXIT用来强制结束循环，相当于C#循环中的break。</p>
+<p>    LOOP循环</p>
+<p>LOOP循环是最简单的循环，也称为无限循环，LOOP和END LOOP是关键字。</p>
+<p>语法格式：LOOP循环<br>LOOP<br>    –循环体<br>END LOOP；<br>语法格式：</p>
+<ol>
+<li>循环体在LOOP和END LOOP之间，在每个LOOP循环体中，首先执行循环体中的语句序列，执行完后再重新开始执行。</li>
+<li>在LOOP循环中可以使用EXIT或者[EXIT WHEN 条件]的形式终止循环。否则该循环就是死循环。</li>
+</ol>
+<p>案例5：执行1+2+3+…+100的值</p>
+<p>代码演示：LOOP循环<br>DECLARE<br>      counter number(3):=0;<br>      sumResult number:=0;<br>BEGIN<br>      LOOP<br>          counter := counter+1;<br>          sumResult := sumResult+counter;<br>          IF counter&gt;=100 THEN  ①<br>              EXIT;<br>          END IF;<br>          – EXIT WHEN counter&gt;=100;  ②<br>      END LOOP;<br>       dbms_output.put_line(‘result is :’||to_char(sumResult));<br>END;<br>代码解析：<br>①    LOOP循环中可以使用IF结构嵌套EXIT关键字退出循环<br>②    注释行，该行可以代替①中的循环结构，WHEN后面的条件成立时跳出循环。</p>
+<p>    WHILE循环</p>
+<p>与C#中的while循环很类似。先判断条件，条件成立再执行循环体。</p>
+<p>语法格式：WHILE<br>C#中while语法    PL/SQL中WHILE语法<br>while (条件){<br>     //循环体体<br>}    WHILE 条件 LOOP<br>    –循环体<br>END LOOP;<br>表5  PL/SQL中LOOP语法</p>
+<p>案例6：WHILE循环</p>
+<p>代码演示：WHILE循环<br>DECLARE<br>      counter number(3):=0;<br>      sumResult number:=0;<br>BEGIN<br>      WHILE counter&lt;100 LOOP<br>          counter := counter+1;<br>          sumResult := sumResult+counter;<br>      END LOOP;<br>       dbms_output.put_line(‘result is :’||sumResult);<br>END;</p>
+<p>    FOR循环</p>
+<p>FOR循环需要预先确定的循环次数，可通过给循环变量指定下限和上限来确定循环运行的次数，然后循环变量在每次循环中递增（或者递减）。FOR循环的语法是：</p>
+<p>语法格式：FOR循环<br>FOR 循环变量 IN [REVERSE] 循环下限..循环上限 LOOP LOOP<br>–循环体<br>END LOOP；<br>语法解析：<br>循环变量：该变量的值每次循环根据上下限的REVERSE关键字进行加1或者减1。<br>REVERSE：指明循环从上限向下限依次循环。</p>
+<p>案例7：FOR循环</p>
+<p>代码演示：FOR循环<br>DECLARE<br>      counter number(3):=0;<br>      sumResult number:=0;<br>BEGIN<br>      FOR counter IN 1..100 LOOP<br>          sumResult := sumResult+counter;<br>      END LOOP;<br>       dbms_output.put_line(‘result is :’||sumResult);<br>END;</p>
+<p>    顺序结构</p>
+<p>在程序顺序结构中有两个特殊的语句。GOTO和NULL</p>
+<p>    GOTO语句</p>
+<p>GOTO语句将无条件的跳转到标签指定的语句去执行。标签是用双尖括号括起来的标示符，在PL/SQL块中必须具有唯一的名称，标签后必须紧跟可执行语句或者PL/SQL块。GOTO不能跳转到IF语句、CASE语句、LOOP语句、或者子块中。</p>
+<p>    NULL语句</p>
+<p>NULL语句什么都不做，只是将控制权转到下一行语句。NULL语句是可执行语句。NULL语句在IF或者其他语句语法要求至少需要一条可执行语句，但又不需要具体操作的地方。比如GOTO的目标地方不需要执行任何语句时。</p>
+<p>案例8：GOGO 和 NULL</p>
+<p>代码演示：GOTO和NULL<br>DECLARE<br>    sumsal emp.sal%TYPE;<br>BEGIN<br>    SELECT SUM(sal) INTO sumsal FROM EMP;<br>    IF sumsal&gt;20000 THEN<br>        GOTO first_label;  ①<br>    ELSE<br>        GOTO second_label;  ②<br>    END IF;<br>    &lt;&lt;first_label&gt;&gt;  ③<br>    dbms_output.put_line(‘ABOVE 20000:’ || sumsal);<br>    &lt;&lt;second_label&gt;&gt;  ④<br>    NULL;<br>END;<br>代码解析：<br>①    跳转到程序first_label位置，就是②的位置，first_label是一个标签，用两个尖括号包含。<br>②    无条件跳转到sedond_label位置，就是④的位置。④处不执行任何内容，因此是一个NULL语句。</p>
+<p>与C#一样，在PL/SQL中，各种循环之间可以相互嵌套。</p>
+<ol start="5">
+<li>PL/SQL中动态执行SQL语句<br>在PL/SQL程序开发中，可以使用DML语句和事务控制语句，但是还有很多语句（比如DDL语句）不能直接在PL/SQL中执行。这些语句可以使用动态SQL来实现。</li>
+</ol>
+<p>PL/SQL块先编译然后再执行，动态SQL语句在编译时不能确定，只有在程序执行时把SQL语句作为字符串的形式由动态SQL命令来执行。在编译阶段SQL语句作为字符串存在，程序不会对字符串中的内容进行编译，在运行阶段再对字符串中的SQL语句进行编译和执行，动态SQL的语法是：</p>
+<p>语法格式：动态SQL<br>EXECUTE IMMEDIATE 动态语句字符串<br>[INTO 变量列表]<br>[USING 参数列表]<br>语法解析：<br>    如果动态语句是SELECT语句，可以把查询的结果保存到INTO后面的变量中。如果动态语句中存在参数，USING为语句中的参数传值。<br>    动态SQL中的参数格式是：[:参数名]，参数在运行时需要使用USING传值。<br>    案例9：动态SQL</p>
+<p>代码演示：动态SQL<br>DECLARE<br>   sql_stmt    VARCHAR2(200);  –动态SQL语句<br>   emp_id      NUMBER(4) := 7566;<br>   salary      NUMBER(7,2);<br>   dept_id     NUMBER(2) := 90;<br>   dept_name   VARCHAR2(14) := ‘PERSONNEL’;<br>   location    VARCHAR2(13) := ‘DALLAS’;<br>   emp_rec     emp%ROWTYPE;<br>BEGIN<br>   –无子句的execute immediate<br>   EXECUTE IMMEDIATE ‘CREATE TABLE bonus1 (id NUMBER, amt NUMBER)’;  ①<br>   —-using子句的execute immediate<br>   sql_stmt := ‘INSERT INTO dept VALUES (:1, :2, :3)’;<br>   EXECUTE IMMEDIATE sql_stmt USING dept_id, dept_name, location;  ②<br>   —-into子句的execute immediate<br>   sql_stmt := ‘SELECT * FROM emp WHERE empno = :id’;<br>   EXECUTE IMMEDIATE sql_stmt INTO emp_rec USING emp_id;  ③</p>
+<p>   —-returning into子句的execute immediate<br>   sql_stmt := ‘UPDATE emp SET sal = 2000 WHERE empno = :1<br>      RETURNING sal INTO :2’;<br>   EXECUTE IMMEDIATE sql_stmt USING emp_id RETURNING INTO salary;  ④</p>
+<p>   EXECUTE IMMEDIATE ‘DELETE FROM dept WHERE deptno = :num’<br>      USING dept_id;  ⑤<br>END;<br>代码解析：<br>①    动态执行一个完整的SQL语句。<br>②    SQL语句中存在3个参数分别标识为：[:1、:2、:3]，因此需要用USING关键字对三个参数分别赋值。<br>③    对动态查询语句可以使用INTO子句把查询的结果保存到一个变量中，要求该结果只能是单行。<br>④    在Oracle的insert，update，delete语句都可以使用RETURNING子句把操作影响的行中的数据返回，对SQL语句中存在RETURNING子句时，在动态执行时可以使用RETURNING INTO来接收。<br>⑤    动态执行参数中可以是：[:数字]也可以是[:字符串]。</p>
+<ol start="6">
+<li>PL/SQL的异常处理<br>在程序运行时出现的错误，称为异常。发生异常后，语句将停止执行，PL/SQL引擎立即将控制权转到PL/SQL块的异常处理部分。异常处理机制简化了代码中的错误检测。PL/SQL中任何异常出现时，每一个异常都对应一个异常码和异常信息。比如：</li>
+</ol>
+<p>图1  PL/SQL中的异常</p>
+<p>    预定义异常</p>
+<p>为了Oracle开发和维护的方便，在Oracle异常中，为常见的异常码定义了对应的异常名称，称为预定义异常，常见的预定义异常有：</p>
+<p>异常名称    异常码    描述<br>DUP_VAL_ON_INDEX    ORA-00001    试图向唯一索引列插入重复值<br>INVALID_CURSOR    ORA-01001    试图进行非法游标操作。<br>INVALID_NUMBER    ORA-01722    试图将字符串转换为数字<br>NO_DATA_FOUND    ORA-01403    SELECT INTO语句中没有返回任何记录。<br>TOO_MANY_ROWS    ORA-01422    SELECT INTO语句中返回多于1条记录。<br>ZERO_DIVIDE    ORA-01476    试图用0作为除数。<br>CURSOR_ALREADY_OPEN    ORA-06511    试图打开一个已经打开的游标<br>表6  PL/SQL中预定义异常</p>
+<pre><code>PL/SQL中用EXCEPTION关键字开始异常处理。具体语法是：
+</code></pre><p>语法格式：异常处理<br>BEGIN<br>    –可执行部分<br>    EXCEPTION   – 异常处理开始<br>        WHEN 异常名1 THEN<br>             –对应异常处理<br>        WHEN 异常名2 THEN<br>             –对应异常处理<br>         ……<br>        WHEN OTHERS THEN<br>             –其他异常处理<br>    END;<br>语法解析：<br>    异常发生时，进入异常处理部分，具体的异常与若干个WHEN子句中指明的异常名匹配，匹配成功就进入对应的异常处理部分，如果对应不成功，则进入OTHERS进行处理。</p>
+<pre><code>案例10 ：异常处理
+</code></pre><p>代码演示：异常处理<br>SQL&gt; DECLARE<br>  2        newSal emp.sal % TYPE;<br>  3  BEGIN<br>  4        SELECT sal INTO newSal FROM emp;<br>  5  EXCEPTION<br>  6        WHEN TOO_MANY_ROWS THEN<br>  7            dbms_output.put_line(‘返回的记录太多了’);<br>  8        WHEN OTHERS THEN<br>  9            dbms_output.put_line(‘未知异常’);<br> 10  END;<br> 11  /<br>返回的记录太多了<br>PL/SQL procedure successfully completed</p>
+<p>    自定义异常。</p>
+<pre><code>除了预定义异常外，用户还可以在开发中自定义异常，自定义异常可以让用户采用与PL/SQL引擎处理错误相同的方式进行处理，用户自定义异常的两个关键点：
+</code></pre><p>    异常定义：在PL/SQL块的声明部分采用EXCEPTION关键字声明异常，定义方法与定义变量相同。比如声明一个myexception异常方法是：<br>myexception EXCEPTION；<br>    异常引发：在程序可执行区域，使用RAISE关键字进行引发。比如引发myexception方法是：<br>RAISE myexception;</p>
+<pre><code>案例11：自定义异常
+</code></pre><p>代码演示：自定义异常<br>SQL&gt; DECLARE<br>  2      sal emp.sal%TYPE;<br>  3      myexp EXCEPTION;  ①<br>  4  BEGIN<br>  5      SELECT sal INTO sal FROM emp WHERE ename=’JAMES’;<br>  6      IF sal&lt;5000 THEN<br>  7         RAISE myexp;  ②<br>  8      END IF;<br>  9  EXCEPTION<br> 10      WHEN NO_DATA_FOUND THEN<br> 11           dbms_output.put_line(‘NO RECORDSET FIND!’);<br> 12      WHEN MYEXP THEN  ③<br> 13           dbms_output.put_line(‘SAL IS TO LESS!’);<br> 14  END;<br> 15  /<br>SAL IS TO LESS!<br>PL/SQL procedure successfully completed<br>代码解析：<br>①    用EXCEPTION定义一个异常变量myexp<br>②    在一定条件下用RAISE引发异常myexp<br>③    在异常处理部分，捕获异常，如果不处理异常，该异常就抛给程序执行者。</p>
+<p>    引发应用程序异常</p>
+<p>在Oracle开发中，遇到的系统异常都有对应的异常码，在应用系统开发中，用户自定义的异常也可以指定一个异常码和异常信息，Oracle系统为用户预留了自定义异常码，其范围介于-20000到-20999之间的负整数。引发应用程序异常的语法是：<br>RAISE_APPLICATION_ERROR(异常码，异常信息)</p>
+<p>案例12：引发系统异常</p>
+<p>代码演示：引发应用系统异常<br>SQL&gt; DECLARE<br>  2      sal emp.sal%TYPE;<br>  3      myexp EXCEPTION;<br>  4  BEGIN<br>  5      SELECT sal INTO sal FROM emp WHERE ename=’JAMES’;<br>  6      IF sal&lt;5000 THEN<br>  7         RAISE myexp;<br>  8      END IF;<br>  9  EXCEPTION<br> 10      WHEN NO_DATA_FOUND THEN<br> 11           dbms_output.put_line(‘NO RECORDSET FIND!’);<br> 12      WHEN MYEXP THEN<br> 13           RAISE_APPLICATION_ERROR(-20001,’SAL IS TO LESS!’);  ①<br> 14  END;<br> 15  /<br>ORA-20001: SAL IS TO LESS!  ②<br>ORA-06512: 在 line 14<br>代码解析：<br>①    引发应用系统异常，指明异常码和异常信息。<br>②    在控制台上显示异常码和异常信息。</p>
+<p>如果要处理未命名的内部异常，必须使用OTHERS异常处理器。也可以利用PRAGMA EXCEPTION_INIT把一个异常码与异常名绑定。</p>
+<p>PRAGMA由编译器控制，PRAGMA在编译时处理，而不是在运行时处理。EXCEPTION_INIT告诉编译器将异常名与ORACLE错误码绑定起来，这样可以通过异常名引用任意的内部异常，并且可以通过异常名为异常编写适当的异常处理器。PRAGMA EXCEPTION_INIT的语法是：<br>PRAGMA EXCEPTION_INIT(异常名,异常码)</p>
+<p>这里的异常码可以是用户自定义的异常码，也可以是Oracle系统的异常码。</p>
+<p>案例13：PRAGMA EXCEPTION_INIT异常</p>
+<p>代码演示：PRAGMA EXCEPTION_INIT异常<br>&lt;<outterseg>&gt;<br>DECLARE<br>  null_salary EXCEPTION;<br>  PRAGMA EXCEPTION_INIT(null_salary, -20101);  ①<br>BEGIN<br>  &lt;<innerstart>&gt;  ②<br>  DECLARE<br>    curr_comm NUMBER;<br>  BEGIN<br>    SELECT comm INTO curr_comm FROM emp WHERE empno = &empno;<br>    IF curr_comm IS NULL THEN<br>         RAISE_APPLICATION_ERROR(-20101, ‘Salary is missing’);  ③<br>    ELSE<br>      dbms_output.put_line(‘有津贴’);<br>    END IF;<br>  END;<br>EXCEPTION<br>  WHEN NO_DATA_FOUND THEN<br>          dbms_output.put_line(‘没有发现行’);<br>  WHEN null_salary THEN<br>          dbms_output.put_line(‘津贴未知’);  ④<br>  WHEN OTHERS THEN<br>           dbms_output.put_line(‘未知异常’);<br>END;<br>代码解析：<br>①    把异常名称null_salary与异常码-20101关联，该语句由于是预编译语句，必须放在声明部分。也就是说-20101的异常名称就是null_salary。<br>②    嵌套PL/SQL语句块<br>③    在内部PL/SQL语句块中引发应用系统异常-20101。<br>④    在外部的PL/SQL语句块中就可以用异常名null_salary进行捕获。</innerstart></outterseg></p>
+<ol start="7">
+<li>本章总结<br>    PL/SQL是一种块结构的语言，它将一组语句放在一个块中，一次性发送给服务器，PL/SQL引擎把接收到PL/SQL语句块中的内容进行分析，把其中的过程控制语句由PL/SQL引擎自身去执行，把PL/SQL语句块中的SQL语句交给服务器的SQL语句执行器执行。<br>    PL/SQL的数据类型包括标量数据类型，引用数据类型和存储文本、图像、视频、声音等非结构化得大数据类型（LOB数据类型）等。<br>    Oracle中存在两种属性类型：%TYPE和%ROWTYPE。<br>    PL/SQL程序可通过控制结构来控制命令执行的流程。PL/SQL中提供三种程序结构：顺序结构、条件结构和循环结构。<br>    在PL/SQL程序开发中，可以使用DML语句和事务控制语句，还可以动态执行SQL语句，动态执行SQL语句的命令是：EXECUTE IMMEDIATE。<br>    在程序运行时出现的错误，称为异常。发生异常后，语句将停止执行，PL/SQL引擎立即将控制权转到PL/SQL块的异常处理部分。PL/SQL中任何异常出现时，每一个异常都对应一个异常码和异常信息。</li>
+</ol>
+<ol start="8">
+<li>本章练习</li>
+<li>PL/SQL有哪些优点？</li>
+<li>请描述PL/SQL块的结构。</li>
+<li>请描述多分枝判断CASE的用法。</li>
+<li>PL/SQL中有哪些循环控制语句？如何使用它们？</li>
+<li>如何执行动态SQL语句？</li>
+<li>如何自定义异常，如何把自定义异常与异常码绑定？</li>
+<li>编写一个程序，输入一个整数，使用循环结构将该数字左右翻转，输出翻转后的结果。</li>
+<li>编写一个程序，在EMP表查找姓名为ALLEN员工，并获取TOO_MANY_ROWS和NO_DATA_FOUND异常。</li>
+<li>编写一个过程为班级每位同学创建一个用户，用户名和密码都是：“班级号+学号”，并为每位用户授权：CONNECT和RESOURCE。</li>
+</ol>
+<p>章节知识结构图</p>
+<p>附录</p>
+<p>数据库导入导出</p>
+<pre><code>主要内容
+    导出
+</code></pre><p>    导入</p>
+<ol>
+<li>Oracle导入导出<br>Oracle的备份是Oracle操作中常见的工作，常见的备份方案有：逻辑备份（IMP&amp;EXP命令进行备份）、物理文件备份（脱机及联机备份）、利用RMAN(Recovery Manager)的增量物理文件系统备份。ORACLE数据库的逻辑备份分为四种模式：表空间备份(tablespace)、表备份(table)、用户备份(user)和完全备份(full)。Oracle的逻辑备份是使用IMP&amp;EXP命令进行数据导入导出的操作。使用EXP命令导出或者使用IMP命令导入时，需要Create Session系统权限，但是如果要导出其他的表，必须拥有权限：EXP_FULL_DATABASE。</li>
+</ol>
+<p>调用导入导出命令时，首先要估计所需的空间。EXP命令导出的文件是二进制文件（*.dmp）只能由对应的IMP命令进行读取恢复。导入导出的用途是：<br>    备份与恢复<br>    Oracle平台更换：可以在相同版本之间进行备份与恢复，Oracle较低版本的export数据文件可以import到高版本的Oracle数据库中，但是Oracle的版本只能是相邻的，不能垮版本。</p>
+<ol start="2">
+<li>EXP导出数据<br>EXP命令可以在交互环境下导出数据库中的数据，也可以在非交互环境下执行命令。交互环境下的命令执行，是一步一步执行的过程。</li>
+</ol>
+<p>代码演示：exp的交互环境<br>D:>exp scott/tiger@my_orcl  ①<br>Export: Release 10.2.0.3.0 - Production on 星期一 10月 19 17:04:14 2009<br>Copyright (c) 1982, 2005, Oracle.  All rights reserved.<br>连接到: Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production<br>With the Partitioning, OLAP and Data Mining options<br>输入数组提取缓冲区大小: 4096 &gt;  ②<br> 导出文件: EXPDAT.DMP &gt; scott.dmp  ③<br>(2)U(用户), 或 (3)T(表): (2)U &gt; 2  ④<br>导出权限 (yes/no): yes &gt; yes  ⑤<br>导出表数据 (yes/no): yes &gt; yes  ⑥<br>压缩区 (yes/no): yes &gt; no  ⑦<br>已导出 ZHS16GBK 字符集和 AL16UTF16 NCHAR 字符集<br>. 正在导出 pre-schema 过程对象和操作<br>. 正在导出用户 SCOTT 的外部函数库名<br>. 导出 PUBLIC 类型同义词<br>. 正在导出专用类型同义词<br>. 正在导出用户 SCOTT 的对象类型定义<br>即将导出 SCOTT 的对象…<br>. 正在导出数据库链接<br>. 正在导出序号<br>. 正在导出簇定义<br>. 即将导出 SCOTT 的表通过常规路径…<br>. . 正在导出表                           BONUS导出了           0 行<br>. . 正在导出表                            DEPT导出了            10 行<br>. . 正在导出表                             EMP导出了            14 行<br>. . 正在导出表                        SALGRADE导出了           5 行<br>. . 正在导出表                      TBLSTUDENT导出了           3 行<br>. 正在导出同义词<br>. 正在导出视图<br>. 正在导出存储过程<br>. 正在导出运算符<br>. 正在导出引用完整性约束条件<br>. 正在导出触发器<br>. 正在导出索引类型<br>. 正在导出位图, 功能性索引和可扩展索引<br>. 正在导出后期表活动<br>. 正在导出实体化视图<br>. 正在导出快照日志<br>. 正在导出作业队列<br>. 正在导出刷新组和子组<br>. 正在导出维<br>. 正在导出 post-schema 过程对象和操作<br>. 正在导出统计信息<br>成功终止导出, 没有出现警告。<br>D:><br>代码解析：<br>①    Exp是导出命令，该命令后面紧跟“用户名/密码@服务器网络连接”。<br>②    Exp程序导出时使用的缓冲区大小，缓冲区越大，导出速度越快。直接回车代表使用默认值4096B。<br>③    Exp命令会把所有要到处的数据导出到一个Dmp文件中，该步骤是Exp询问导出的数据文件名称。<br>④    Exp程序询问导出整个用户还是导出某个表。默认导出整个用户。<br>⑤    Exp程序询问是否导出每张表的访问权限。默认导出访问权限。<br>⑥    Exp程序询问是否导出表中的数据。默认导出数据库表中的数据。<br>⑦    Oracle表中的数据可能来自不同的分区中的数据块，默认导出时会把所有的数据压缩在一个数据块上，IMP导入时，如果不存在连续一个大数据块，则会导入失败。</p>
+<p>也可以使用Exp命令时，设置各种参数，使准备就绪的Exp命令不需要与用户交互，按照参数的要求，Exp命令会一次性执行导出工作。要指定参数，您可以使用关键字:</p>
+<p>EXP KEYWORD=value 或 KEYWORD=(value1,value2,…,valueN)</p>
+<p>例如: EXP SCOTT/TIGER GRANTS=Y TABLES=(EMP,DEPT,MGR)</p>
+<p>参数名    说明<br>USERID    表示“用户名/密码”。<br>BUFFER    数据缓冲区大小。以字节为单位，一般在64000以上。<br>FILE    指定输出文件的路径和文件名。一般以.dmp为后缀名，注意该文件包括完整路径，但是路径必须存在，导出命令不能自动创建路径。<br>COMPRESS    是否压缩导出，默认yes。<br>GRANTS    是否导出权限，默认yes<br>INDEXES    是否导出索引，默认yes<br>DIRECT    是否直接导出，默认情况，数据先经过Oracle的数据缓冲区，然后再导出数据。<br>LOG    指定导出命令的日志所在的日志文件的位置。<br>ROWS    是否导出数据行，默认导出所有数据。<br>CONSTRAINTS    是否导出表的约束条件，默认yes<br>PARFILE    可以把各种参数配置为一个文本键值形式的文件，该参数可以指定参数文件的位置。<br>TRIGGERS    是否导出触发器，默认值是yes。<br>TABLES    表的名称列表，导出多个表可以使用逗号隔开。<br>TABLESPACES    导出某一个表空间的数据。<br>Owner    导出某一用户的数据。<br>Full    导出数据库的所有数据。默认值是no。<br>QUERY    把查询的结果导出。<br>表1  EXP参数说明</p>
+<p>代码演示：exp的非交互环境<br>D:>exp scott/tiger file=employee.dmp tables=(emp,dept)<br>Export: Release 10.2.0.3.0 - Production on 星期一 10月 19 17:38:25 2009<br>Copyright (c) 1982, 2005, Oracle.  All rights reserved.<br>连接到: Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production<br>With the Partitioning, OLAP and Data Mining options<br>已导出 ZHS16GBK 字符集和 AL16UTF16 NCHAR 字符集<br>即将导出指定的表通过常规路径…<br>. . 正在导出表                             EMP导出了          14 行<br>. . 正在导出表                            DEPT导出了          10 行<br>成功终止导出, 没有出现警告。<br>D:></p>
+<ol start="3">
+<li>IMP导入<br>IMP程序导入就是把Exp导出的文件重新导入到数据库的过程。导入时也有一些重要的参数：<br>    Fromuser:指出导出时dmp文件中记载的用户信息。<br>    Touser:dmp文件要导入到什么目标用户中。<br>    Commit:默认是N,在缓冲区满时是否需要commit,如果设为N,需要较大的回滚段。<br>    Igore: Oracle在恢复数据的过程中，当恢复某个表时，该表已经存在，就要根据ignore参数的设置来决定如何操作。若ignore=y，Oracle不执行CREATE TABLE语句，直接将数据插入到表中，如果插入的记录违背了约束条件，比如主键约束，则出错的记录不会插入，但合法的记录会添加到表中。若ignore=n，Oracle不执行CREATE TABLE语句，同时也不会将数据插入到表中，而是忽略该表的错误，继续恢复下一个表。</li>
+</ol>
+<p>代码演示：Imp导入<br>D:>imp system/manager file=employee.dmp fromuser=scott touser=employee commit=y<br>Import: Release 10.2.0.3.0 - Production on 星期一 10月 19 17:54:51 2009<br>Copyright (c) 1982, 2005, Oracle.  All rights reserved.<br>连接到: Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production<br>With the Partitioning, OLAP and Data Mining options<br>经由常规路径由 EXPORT:V10.02.01 创建的导出文件<br>警告: 这些对象由 SCOTT 导出, 而不是当前用户<br>已经完成 ZHS16GBK 字符集和 AL16UTF16 NCHAR 字符集中的导入<br>. 正在将 SCOTT 的对象导入到 EMPLOYEE<br>. . 正在导入表                           “EMP”导入了          14 行<br>. . 正在导入表                          “DEPT”导入了          10 行<br>即将启用约束条件…<br>成功终止导入, 没有出现警告。<br>D:></p>
+<ol start="4">
+<li>常见问题<br>    数据库对象已经存在<br>一般情况, 导入数据前应该彻底删除目标数据下的表，序列，函数/过程,触发器等。<br>数据库对象已经存在, 按缺省的imp参数，则会导入失败。<br>如果用了参数ignore=y，会把exp文件内的数据内容导入。<br>如果表有唯一关键字的约束条件，不合条件将不被导入。<br>如果表没有唯一关键字的约束条件，将引起记录重复。</li>
+</ol>
+<p>    数据库对象有主外键约束<br>不符合主外键约束时，数据会导入失败。<br>解决办法: 先导入主表，再导入依存表。<br>disable目标导入对象的主外键约束，导入数据后，再enable它们。</p>
+<p>    权限不够<br>如果要把A用户的数据导入B用户下， A用户需要有imp_full_database权限。</p>
+<p>    导入大表( 大于80M ) 时，存储分配失败<br>默认的EXP时，compress = Y，也就是把所有的数据压缩在一个数据块上。<br>导入时，如果不存在连续一个大数据块，则会导入失败。<br>导出80M以上的大表时，记得compress= N，则不会引起这种错误。</p>
+<p>    Imp和Exp使用的字符集不同<br>如果字符集不同，导入会失败，可以改变unix环境变量或者NT注册表里NLS_LANG相关信息。</p>
+<p>    Imp和Exp版本不能往上兼容<br>Imp可以成功导入低版本Exp生成的文件, 不能导入高版本Exp生成的文件根据情况我们可以用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/11/15/oracle/" data-id="cjpc0ileh000l70rq5tet95ne" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Service/">Web Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Web-Service/" style="font-size: 10px;">Web Service</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/06/数据结构中各种树/">数据结构中各种树</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/经典排序算法总结与实现/">经典排序算法总结与实现</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第三次笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/05/java学习第五次笔记/">java学习第五次笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wadezhx<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
