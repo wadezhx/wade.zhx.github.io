@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>取石子游戏算法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="取石子游戏是一个古老的博弈游戏，据说是发源于中国，它是组合数学领域的一个经典问题。它有许多不同的玩法，基本上是两个玩家，玩的形式是轮流抓石子，胜利的标准是抓走了最后的石子。 玩家设定： 先取石子的是玩家A，后取石子的是玩家B。经典的三种玩法：一、Bash Game，有1堆含n个石子，两个人轮流从这堆物品中取物，规定每次至少取1个，最多取m个。取走最后石子的人获胜。二、Nimm Game，有k堆各n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="取石子游戏算法">
+<meta property="og:url" content="https://wadezhx.github.io/2018/12/03/取石子游戏算法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="取石子游戏是一个古老的博弈游戏，据说是发源于中国，它是组合数学领域的一个经典问题。它有许多不同的玩法，基本上是两个玩家，玩的形式是轮流抓石子，胜利的标准是抓走了最后的石子。 玩家设定： 先取石子的是玩家A，后取石子的是玩家B。经典的三种玩法：一、Bash Game，有1堆含n个石子，两个人轮流从这堆物品中取物，规定每次至少取1个，最多取m个。取走最后石子的人获胜。二、Nimm Game，有k堆各n">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-06T02:52:10.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="取石子游戏算法">
+<meta name="twitter:description" content="取石子游戏是一个古老的博弈游戏，据说是发源于中国，它是组合数学领域的一个经典问题。它有许多不同的玩法，基本上是两个玩家，玩的形式是轮流抓石子，胜利的标准是抓走了最后的石子。 玩家设定： 先取石子的是玩家A，后取石子的是玩家B。经典的三种玩法：一、Bash Game，有1堆含n个石子，两个人轮流从这堆物品中取物，规定每次至少取1个，最多取m个。取走最后石子的人获胜。二、Nimm Game，有k堆各n">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wadezhx.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-取石子游戏算法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/03/取石子游戏算法/" class="article-date">
+  <time datetime="2018-12-03T02:48:13.000Z" itemprop="datePublished">2018-12-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      取石子游戏算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>取石子游戏是一个古老的博弈游戏，据说是发源于中国，它是组合数学领域的一个经典问题。它有许多不同的玩法，基本上是两个玩家，玩的形式是轮流抓石子，胜利的标准是抓走了最后的石子。
+</code></pre><p>玩家设定： 先取石子的是玩家A，后取石子的是玩家B。<br>经典的三种玩法：<br>一、Bash Game，有1堆含n个石子，两个人轮流从这堆物品中取物，规定每次至少取1个，最多取m个。取走最后石子的人获胜。<br>二、Nimm Game，有k堆各n个石子，两个人轮流从某一堆取任意多的物品，规定每次至少取一个，多者不限。取走最后石子的人获胜。<br>三、Wythoff Game，有2堆各n个石子，两个人轮流从某一堆或同时从两堆中取同样多的物品，规定每次至少取1个，多者不限。取走最后石子的人获胜。<br>平衡状态的概念：<br>    引入一个概念，平衡状态，又称作奇异局势。当面对这个局势时则会失败。任意非平衡态经过一次操作可以变为平衡态。每个玩家都会努力使自己抓完石子之后的局势为平衡，将这个平衡局势留给对方。因此，玩家A能够在初始为非平衡的游戏中取胜，玩家B能够在初始为平衡的游戏中取胜。<br>玩法一（1堆n个石子每次最多取m个）：<br>    最后一个奇异局势是n=(0)。一种奇异局势是，n=(m+1)，那么无论我取走多少个，对方都能够一次取走剩余所有的物品取胜。<br>奇异局势的判定：<br>    一般的奇异局势是n=(m+1)<em>i，其中i为自然数，即n%(m+1)=0，面对这种情况无论我怎么取，对方总可以将其恢复为n%(m+1)=0，一直到n=(m+1)局势。<br>玩家的策略：<br>    就是把当前面对的非奇异局势变为奇异局势留给对方。如果当前的石子个数为(m+1)</em>i+s，那么就将s个石子取走，使其达到奇异局势。<br>玩法二（k堆石子每次只从1堆取）：<br>    最后一个奇异局势是(0,0…,0)。另一个奇异局势是(n,n,0…0)，只要对手总是和我拿走一样多的物品，最后会面对(0,0…,0)。<br>奇异局势的判定：<br>    对于一个普通的局势，如何判断其是不是奇异局势？对于一个局势(s1,s2,…sk)，对所有石子个数做位的异或运算，s1^s2^s3^…^sk，如果结果为0，那么局势(s1,s2,…sk)就是奇异局势（平衡），否则就不是（非平衡）。<br>    从二进制位的角度上说，奇异局势时，每一个bit位上1的个数都是偶数。<br>玩家的策略：<br>    就是把面对的非奇异局势变为奇异局势留给对方。也就是从某一堆取出若干石子之后，使得每一个bit位上1的个数都变为偶数，这样的取法一般不只有一种。可以将其中一堆的石子数变为其他堆石子数的位异或运算的值（如果这个值比原来的石子数小的话）。<br>玩法三（2堆石子每次从一或两堆取一样数目的石子）：<br>    最后一个奇异局势是(0,0)。紧接着的奇异局势有(1,2),(3,5),(4,7),(6,10)……<br>    现在把它们看成一个奇异局势组成的序列(0,0),(1,2),(3,5),(4,7),(6,10)……<br>奇异局势的判定：<br>    我们会发现这个序列的规律，设序列第k个奇异局势元素为(Ak,Bk)，k为自然数。那么，初始条件k=0时是，A0=B0=0，递推关系为下一个奇异局势的Ak是未在前面出现过的最小自然数，且Ak = Bk + k。<br>    上面发现了奇异局势的递推公式，那么给出一个局势，如何判断其是否是奇异局势呢？<br>黄金分割数：数学真奇妙，竟然发现，这个序列跟黄金分割数有关系。黄金分割数是2/(1+sqrt(5))=(sqrt(5)-1)/2，其小数约等于0.61803398875，其倒数是(1+sqrt(5))/2，约等于1.61803398875。<br>    这个奇异局势的序列的通项公式可以表示为：<br>  Ak = [k*(1+sqrt(5.0)/2]<br>  Bk = Ak + k<br>  其中k=0，1，2，…,n ，方括号表示int取整函数。<br>    有了这个通项式子，逆向的，对于某一个局势，只需要判断其A是否是黄金分割数的某个k的倍数，然后再确认B是否等于A+k即可。<br>这里写了一个简单的判断程序：</p>
+<p>[cpp] view plain<br>copy</p>
+<pre><code>1. 
+</code></pre><p>#include<cmath>  </cmath></p>
+<pre><code>2. 
+</code></pre><p>#include<iostream>  </iostream></p>
+<pre><code>3. 
+</code></pre><p>using namespace std;  </p>
+<pre><code>4. 
+</code></pre><p>const double m = (1+sqrt(5.0))/2;  </p>
+<pre><code>5. 
+
+6. 
+</code></pre><p>void display()  </p>
+<pre><code>7. 
+</code></pre><p>{  </p>
+<pre><code>8. 
+int i;  
+9. 
+int out;  
+10. 
+for(i=0;i&lt;30;i++)  
+11. 
+{  
+12. 
+    out = int(m*i);  
+13. 
+    cout&lt;&lt;&quot;(&quot;&lt;&lt;out&lt;&lt;&quot;, &quot;&lt;&lt;out+i&lt;&lt;&quot;)&quot;&lt;&lt;endl;  
+14. 
+}  
+15. 
+</code></pre><p>}  </p>
+<pre><code>16. 
+
+17. 
+</code></pre><p>bool judge(int a, int b)  </p>
+<pre><code>18. 
+</code></pre><p>{  </p>
+<pre><code>19. 
+int k = a/m;  
+20. 
+
+21. 
+if ( a == int(k*m) )  
+22. 
+{  
+23. 
+    if( b == a + k )  
+24. 
+        return true;  
+25. 
+}  
+26. 
+else if( a == int((k+1)*m) )  
+27. 
+{  
+28. 
+    if( b == a + k + 1 )  
+29. 
+        return true;  
+30. 
+}  
+31. 
+return false;  
+32. 
+</code></pre><p>}  </p>
+<pre><code>33. 
+
+34. 
+</code></pre><p>void main()  </p>
+<pre><code>35. 
+</code></pre><p>{  </p>
+<pre><code>36. 
+int a,b;  
+37. 
+cin&gt;&gt;a&gt;&gt;b;  
+38. 
+cout&lt;&lt;judge(a,b)&lt;&lt;endl;  
+39. 
+</code></pre><p>}  </p>
+<p>玩家的策略：<br>    就是把面对的非奇异局势变为奇异局势留给对方。也就是说，玩家必须知道临近的奇异局势是什么，然后把当前局势变成奇异局势。</p>
+<p>问题出现在：编程之美。组合数学。<br>游戏的一个变种：两个人轮流报数，每次至少报一个，最多报十个，谁能报到100者胜。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/03/取石子游戏算法/" data-id="cjpc0amqt00004grqptiwlvqg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/06/数据结构中各种树/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构中各种树
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/06/数据结构中各种树/">数据结构中各种树</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/03/取石子游戏算法/">取石子游戏算法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wadezhx<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
