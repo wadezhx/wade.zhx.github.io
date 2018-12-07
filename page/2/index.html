@@ -62,6 +62,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-在N个不相等的整数中找出最大的第K个数(NK)" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" class="article-date">
+  <time datetime="2018-12-04T02:46:37.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/">在N个不相等的整数中找出最大的第K个数(N&gt;K)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。"><a href="#题目：在N个不相等的整数中找出最大的第K个数-N-gt-K-。" class="headerlink" title="题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。"></a>题目：在N个不相等的整数中找出最大的第K个数(N&gt;K)。</h1><p>思路：首先，用前K个整数构造容量为K的最小堆。然后，将后N-K个整数依次与堆顶元素比较，若比堆顶元素大，则替换堆顶元素并调整最小堆结构；反之，则继续比较下一个整数。最终，最小堆存储最大的k个数，其堆顶元素即为所求。<br>代码：</p>
+<p>1 #include <cstdio><br>2 #include <cstdlib><br>3 #include <cmath><br>4 #include <ctime><br>5 #include <iostream><br>6<br>7 #define N 90<br>8 #define K 13<br>9<br>10<br>11 void HeapAdjust (int <em>heap, int beginidx, int endidx);<br>12 void HeapConstruct (int </em>heap);<br>13<br>14 void SetData (int <em>data);<br>15 void ShowData (int </em>data);<br>16<br>17 int main (int argc, char *<em>argv)<br>18 {<br>19 int i;<br>20 int h[N + 1];<br>21<br>22 SetData(h);<br>23 ShowData(h);<br>24<br>25 HeapConstruct(h);<br>26 for (i = K + 1; i &lt;= N; i++)<br>27 {<br>28 if (h[i] &gt; h[1])<br>29 {<br>30 h[1] = h[i];<br>31 HeapAdjust(h, 1, K);<br>32 }<br>33 }<br>34<br>35 printf(“The Kth biggest number: %d\n”, h[1]);<br>36 return 0;<br>37 }<br>38<br>39 void HeapAdjust (int </em>heap, int beginidx, int endidx)<br>40 {<br>41 int &amp;current = beginidx;<br>42 int tmp, left, right, data = heap[current];<br>43<br>44 while (left = (current &lt;&lt; 1), left &lt;= endidx)<br>45 {<br>46 right = left | 1;<br>47 if ((left == endidx) || (heap[left] &lt; heap[right]))<br>48 {<br>49 tmp = left;<br>50 }<br>51 else<br>52 {<br>53 tmp = right;<br>54 }<br>55 if (data &gt; heap[tmp])<br>56 {<br>57 heap[current] = heap[tmp];<br>58 current = tmp;<br>59 }<br>60 else<br>61 {<br>62 break;<br>63 }<br>64 }<br>65 heap[current] = data;<br>66 }<br>67<br>68 void HeapConstruct (int <em>heap)<br>69 {<br>70 int i;<br>71 for (i = K/2; i &gt; 0; i–)<br>72 {<br>73 HeapAdjust(heap, i, K);<br>74 }<br>75 }<br>76<br>77 void SetData (int </em>data)<br>78 {<br>79 bool <em>bdata = new bool[N + 1];<br>80 memset(bdata, false, N + 1);<br>81 srand(time(NULL));<br>82 data[0] = -1;<br>83 for (int i = 1; i &lt;= N; i++)<br>84 {<br>85 data[i] = rand() % N + 1;<br>86 while (bdata[data[i]])<br>87 {<br>88 data[i] = rand() % N + 1;<br>89 }<br>90 bdata[data[i]] = true;<br>91 }<br>92 delete []bdata;<br>93 }<br>94<br>95 void ShowData (int </em>data)<br>96 {<br>97 for (int i = 1; i &lt;= N; i++)<br>98 {<br>99 printf(“%02d “, data[i]);<br>100 }<br>101 puts(“”);<br>102 }</iostream></ctime></cmath></cstdlib></cstdio></p>
+<p>时间复杂度：O((N-K+1)<em>K</em>lgK).</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wadezhx.github.io/2018/12/04/在N个不相等的整数中找出最大的第K个数(NK)/" data-id="cjpdfyhmh001400rquorfh5cv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Web Service" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/04/Web Service/" class="article-date">
@@ -115,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/04/Web Service/" data-id="cjpcot8kl000hz4rqfvx1beuc" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/04/Web Service/" data-id="cjpdfyhjy000h00rqdn27hlkb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Service/">Web Service</a></li></ul>
@@ -155,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/03/1 - 副本 (5)/" data-id="cjpcot8jq0003z4rqhjc6cgo1" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/03/1 - 副本 (5)/" data-id="cjpdfyhhp000400rqdbfxsp5z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -276,7 +317,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/03/取石子游戏算法/" data-id="cjpcot8l5000zz4rq4z1he3ld" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/03/取石子游戏算法/" data-id="cjpdfyhmo001800rqtz5gkrls" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +407,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/02/java学习第四次笔记/" data-id="cjpcot8l1000tz4rq1vrm5m91" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/02/java学习第四次笔记/" data-id="cjpdfyhl5000t00rqjd1wzldb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -407,7 +448,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/12/01/1 - 副本 (6)/" data-id="cjpcot8k30008z4rqcaz09j95" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/12/01/1 - 副本 (6)/" data-id="cjpdfyhhr000500rq66i1h2rm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -491,7 +532,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/29/java学习第三次笔记/" data-id="cjpcot8kp000mz4rqqx70vtt0" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/11/29/java学习第三次笔记/" data-id="cjpdfyhkx000o00rqbhikkaih" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -532,7 +573,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/29/1 - 副本 (7)/" data-id="cjpcot8jr0004z4rq09kpo3r0" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/11/29/1 - 副本 (7)/" data-id="cjpdfyhi6000800rqwfb79j0r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -571,7 +612,7 @@ cout&lt;&lt;judge(a,b)&lt;&lt;endl;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/28/1 - 副本 (8)/" data-id="cjpcot8k6000az4rqj9ham132" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/11/28/1 - 副本 (8)/" data-id="cjpdfyhip000d00rqk6zoggjx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -625,76 +666,7 @@ fina int PI = 3.141592653;
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/28/java学习第二次笔记/" data-id="cjpcot8ku000qz4rq6y30qrlo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java学习第一次笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/26/java学习第一次笔记/" class="article-date">
-  <time datetime="2018-11-26T14:38:40.000Z" itemprop="datePublished">2018-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/26/java学习第一次笔记/">java学习第一次笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="wade-zhx"><a href="#wade-zhx" class="headerlink" title="wade.zhx"></a>wade.zhx</h1><h2 id="wade-zhx-1"><a href="#wade-zhx-1" class="headerlink" title="wade.zhx"></a><strong>wade.zhx</strong></h2><p>2018年11月28日22:34</p>
-<ol>
-<li><h4 id="工具-eclipse"><a href="#工具-eclipse" class="headerlink" title="工具 eclipse"></a>工具 eclipse</h4></li>
-<li><h4 id="学习网址"><a href="#学习网址" class="headerlink" title="学习网址"></a>学习网址</h4><ol>
-<li><a href="https://www.bilibili.com/video/av29306544/?p=25" target="_blank" rel="noopener">bilibili</a></li>
-<li><a href="http://www.sxt.cn/Java_jQuery_in_action/Java_Identifier.html" target="_blank" rel="noopener">尚学堂 </a></li>
-</ol>
-</li>
-<li><h4 id="记录："><a href="#记录：" class="headerlink" title="记录："></a>记录：</h4> JVM是虚拟机；java可以跨平台是因为虚拟机可以不同系统编译<pre><code>![16e79e25643f6d14796fb28087c339ba.png](en-resource://database/7186:1)
-</code></pre></li>
-<li><h4 id="DOS命令"><a href="#DOS命令" class="headerlink" title="DOS命令"></a>DOS命令</h4><pre><code>cd  cd ..  dir  cls
-</code></pre></li>
-<li><p>一个源文件中至多只能声明一个public的类，其它类的个数不限，如果源文件中包含一个public 类，源文件名必须和其中定义的public的类名相同，且以“.java”为扩展名</p>
-<ol start="7">
-<li>// 单行注释<br>/<em> 多行注释，灵活</em>/<br>/*<em> 文档注释 </em>/</li>
-</ol>
-</li>
-</ol>
-<p>8.</p>
-<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><pre><code>必须以字母、下划线_、美元符号$开头。 
-</code></pre><p> 其它部分可以是字母、下划线“_”、美元符“$”和数字的任意组合。</p>
-<pre><code>表示类名的标识符：每个单词的首字母大写，如Man, GoodMan
-表示方法和变量的标识符：第一个单词小写，从第二个单词开始首字  母大写，  我们称之为**驼峰原则**，如eat(), eatFood()
-</code></pre><ol start="9">
-<li><h5 id="变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。"><a href="#变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。" class="headerlink" title="变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。"></a>变量本质上就是代表一个”可操作的存储空间”，空间位置是确定的，但是里面放置什么值不确定。</h5><ol>
-<li>我们可通过变量名来访问“对应的存储空间”，从而操纵这个“存储空间”存储的值。     </li>
-<li>Java是一种强类型语言，每个变量都必须声明其数据类型。变量的数据类型决定了变量占据存储空间的大小。</li>
-</ol>
-</li>
-<li></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wadezhx.github.io/2018/11/26/java学习第一次笔记/" data-id="cjpcot8kn000jz4rqamk1werb" class="article-share-link">Share</a>
+      <a data-url="https://wadezhx.github.io/2018/11/28/java学习第二次笔记/" data-id="cjpdfyhkz000q00rqhdjlehko" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
@@ -754,11 +726,11 @@ fina int PI = 3.141592653;
       <ul>
         
           <li>
-            <a href="/2018/12/06/wballgame/">ballgame</a>
+            <a href="/2018/12/07/123/">123</a>
           </li>
         
           <li>
-            <a href="/2018/12/06/1 - 副本 (2)/">前端学习 1-9</a>
+            <a href="/2018/12/06/wballgame/">ballgame</a>
           </li>
         
           <li>
@@ -766,11 +738,11 @@ fina int PI = 3.141592653;
           </li>
         
           <li>
-            <a href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
+            <a href="/2018/12/06/1 - 副本 (2)/">前端学习 1-9</a>
           </li>
         
           <li>
-            <a href="/2018/12/06/分布式数据库/">分布式数据库</a>
+            <a href="/2018/12/06/1 - 副本 (3)/">前端学习 1-8</a>
           </li>
         
       </ul>
